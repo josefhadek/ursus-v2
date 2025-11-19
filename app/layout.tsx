@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
-import { Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -10,10 +9,32 @@ const skautBold = localFont({
   display: 'swap',
 })
 
-const inter = Inter({ 
-  subsets: ["latin"],
-  variable: '--font-inter',
-});
+const theMix = localFont({
+  src: [
+    {
+      path: '../public/fonts/TheMixC5-4_SemiLight.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/TheMixC5-4iSemiLightIta.ttf',
+      weight: '400',
+      style: 'italic',
+    },
+    {
+      path: '../public/fonts/TheMixC5-7_Bold.ttf',
+      weight: '700',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/TheMixC5-7iBoldItalic.ttf',
+      weight: '700',
+      style: 'italic',
+    },
+  ],
+  variable: '--font-themix',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'URSUS - Vůdcovský lesní kurz',
@@ -45,7 +66,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs">
-      <body className={`font-sans antialiased ${inter.variable} ${skautBold.variable}`}>
+      <body className={`font-sans antialiased ${theMix.variable} ${skautBold.variable}`}>
         {children}
         <Analytics />
       </body>

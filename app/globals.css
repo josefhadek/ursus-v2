@@ -40,8 +40,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  --font-heading: var(--font-skaut-bold), 'Inter', system-ui, sans-serif;
+  --font-sans: var(--font-themix), 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-heading: var(--font-skaut-bold), var(--font-themix), 'Inter', system-ui, sans-serif;
   --font-serif: 'Merriweather', 'Merriweather Fallback', serif;
   --color-forest-dark: var(--forest-dark);
   --color-forest: var(--forest);
