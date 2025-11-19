@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Menu } from 'lucide-react'
+import { ExternalLink, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function Header() {
@@ -19,12 +19,23 @@ export function Header() {
             <Link href="#terminy" className="text-sand hover:text-amber transition-colors font-medium">
               {"Ročník 2026"}
             </Link>
-            <Link href="#instructori" className="text-sand hover:text-amber transition-colors font-medium">
+            <Link href="#tym" className="text-sand hover:text-amber transition-colors font-medium">
               Tým Ursu 
             </Link>
-            <Link href="#fotogalerie" className="text-sand hover:text-amber transition-colors font-medium">
-              Fotogalerie
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link href="#fotogalerie" className="text-sand hover:text-amber transition-colors font-medium">
+                Fotogalerie
+              </Link>
+              <Link
+                href="https://ursusvlk.zonerama.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Fotogalerie na Zonerama"
+                className="text-sand/80 hover:text-amber transition-colors"
+              >
+                <ExternalLink className="h-4 w-4" />
+              </Link>
+            </div>
             <Button asChild className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full">
               <Link href="#kontakt">
                 Kontakt
