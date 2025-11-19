@@ -37,8 +37,8 @@ const theMix = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'URSUS - Vůdcovský lesní kurz',
-  description: 'ČLK Ursus je čekatelský kurz složený z jarního víkendu a letního běhu, určený pro 15leté a starší skauty a skautky.',
+  title: 'VLK Ursus',
+  description: 'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro vzájemné sdílení vašich otázek, problémů a jejich možných řešení.',
   generator: 'v0.app',
   icons: {
     icon: [

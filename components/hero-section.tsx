@@ -3,7 +3,7 @@ import { ChevronDown } from 'lucide-react'
 
 export function HeroSection() {
   return (
-    <section className="relative h-[600px] flex items-center justify-center">
+    <section className="relative h-[800px] flex items-center justify-center">
       <div 
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -18,7 +18,7 @@ export function HeroSection() {
           URSUS
         </h1>
         <p className="text-2xl md:text-3xl text-sand/90 mb-8 font-semibold tracking-wide">
-          VŮDCOVSKÝ LESNÍ KURZ
+          Vůdcovský lesní kurz
         </p>
         <p className="text-lg md:text-xl text-sand/80 mb-8 max-w-3xl mx-auto text-pretty">
           16 dní přípravy na vedení oddílu v pohodové atmosféře. Dáváme prostor k otevřeným rozhovorům a zamyšlením nad konkrétními problémy, potřebami a hodnotami. Dočkáš se u nás individuálního přístupu i příležitostí pro osobní rozvoj.

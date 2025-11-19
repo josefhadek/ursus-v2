@@ -17,7 +17,6 @@ export default function Home() {
         <AboutSection />
         <WhatIsUrsusSection />
         <Ursus2026Section />
-        <CountdownSection />
         <EventsSection />
         <TestimonialsCarousel />
       </main>
