@@ -1,6 +1,5 @@
-import { Calendar, Users, Clock, CheckCircle, Info, DollarSign } from 'lucide-react'
+import { Calendar, Users, Clock, CheckCircle, Info, Coins } from 'lucide-react'
 import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 
 const CARD_BASE = 'p-8 border border-forest/15 shadow-lg bg-white'
 const CARD_ACCENT = `${CARD_BASE} bg-gradient-to-r from-amber/5 to-forest/5`
@@ -59,18 +58,15 @@ export function Ursus2026Section() {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="bg-sand/30 p-6 rounded-lg">
-                <div className="text-sm font-semibold text-amber mb-2">JARNÍ BĚH</div>
+                <div className="text-sm font-semibold text-amber mb-2">JARNÍ VÍKEND</div>
                 <div className="text-2xl font-bold text-forest">27. - 29. 3. </div>
               </div>
               <div className="bg-sand/30 p-6 rounded-lg">
                 <div className="text-sm font-semibold text-amber mb-2">LETNÍ BĚH</div>
                 <div className="text-2xl font-bold text-forest mb-2">14. - 23. 8.</div>
-                <Badge variant="outline" className="mt-2 border-amber/50 text-amber">
-                  brzy upřesníme
-                </Badge>
               </div>
               <div className="bg-sand/30 p-6 rounded-lg">
-                <div className="text-sm font-semibold text-amber mb-2">PODZIMNÍ BĚH</div>
+                <div className="text-sm font-semibold text-amber mb-2">PODZIMNÍ VÍKEND</div>
                 <div className="text-2xl font-bold text-forest">18. - 20. 9.</div>
               </div>
             </div>
@@ -138,11 +134,10 @@ export function Ursus2026Section() {
             {/* Price */}
             <Card className={CARD_SOFT}>
               <div className="flex items-center gap-3 mb-6">
-                <DollarSign className="h-8 w-8 text-amber" />
+                <Coins className="h-8 w-8 text-amber" />
                 <h3 className="text-2xl font-bold text-forest">Cena kurzu</h3>
               </div>
-              <div className="text-4xl font-bold text-amber mb-2">4 500 - 5 000 Kč</div>
-              <p className="text-base text-forest/70 mb-4">Cena zatím nebyla přesně stanovena</p>
+              <div className="text-4xl font-bold text-amber mb-2">4 800 Kč</div>
               <p className="text-base text-forest/70">
                 Účastnický poplatek je nevratný; v případě nemoci se řeší individuálně.
               </p>
