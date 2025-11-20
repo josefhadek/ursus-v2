@@ -8,7 +8,7 @@ const BODY_TEXT = 'text-base text-forest/80 leading-relaxed'
 
 export function Ursus2026Section() {
   return (
-    <section className="py-20 bg-gradient-to-b from-sand to-white">
+    <section id="aktualni-rocnik" className="py-20 bg-gradient-to-b from-sand to-white">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 text-center">
@@ -146,5 +146,5 @@ export function Ursus2026Section() {
         </div>
       </div>
     </section>
-  )
+  );
 }
