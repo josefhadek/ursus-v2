@@ -22,16 +22,16 @@ export function Header() {
         'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-out px-4 sm:px-0 w-full',
         isScrolled ? 'top-2' : 'top-4',
       )}
-      style={{
-        width: isScrolled ? 'min(calc(100% - 100px), 1100px)' : 'min(95vw, 1100px)',
-      }}
+        style={{
+          width: isScrolled ? 'min(calc(100% - 100px), 1100px)' : 'min(90vw, 1100px)',
+        }}
     >
       <div
         className={cn(
           'backdrop-blur-md shadow-xl border transition-all duration-300 ease-out',
           isScrolled
-            ? 'bg-forest/95 border-forest-dark rounded-xl px-5 py-2'
-            : 'bg-forest/80 border-forest/60 rounded-2xl px-6 py-3',
+              ? 'bg-gradient-to-r from-forest/90 via-forest-dark/95 to-forest/90 border-forest-dark rounded-xl px-5 py-2'
+              : 'bg-gradient-to-r from-forest/60 via-forest/70 to-forest/60 border-forest/50 rounded-2xl px-6 py-3',
         )}
       >
         <div className="flex items-center justify-between">
