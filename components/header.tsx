@@ -19,16 +19,19 @@ export function Header() {
   return (
     <header
       className={cn(
-        'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-out px-4 sm:px-0',
-        isScrolled ? 'top-2 w-[min(1100px,calc(100%-100px))]' : 'top-4 w-[95%] max-w-7xl',
+        'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-out px-4 sm:px-0 w-full',
+        isScrolled ? 'top-2' : 'top-4',
       )}
+      style={{
+        width: isScrolled ? 'min(calc(100% - 100px), 1100px)' : 'min(95vw, 1100px)',
+      }}
     >
       <div
         className={cn(
-          'bg-forest/95 backdrop-blur-md shadow-xl border border-forest-dark/50 transition-all duration-300 ease-out',
+          'backdrop-blur-md shadow-xl border transition-all duration-300 ease-out',
           isScrolled
-            ? 'rounded-xl px-5 py-2'
-            : 'rounded-2xl px-6 py-3',
+            ? 'bg-forest/95 border-forest-dark rounded-xl px-5 py-2'
+            : 'bg-forest/80 border-forest/60 rounded-2xl px-6 py-3',
         )}
       >
         <div className="flex items-center justify-between">
@@ -47,19 +50,24 @@ export function Header() {
             <Link href="#tym" className="text-sand hover:text-amber transition-colors font-medium">
               Tým Ursu 
             </Link>
-            <div className="flex items-center gap-2">
-              <Link href="https://ursusvlk.zonerama.com/" className="text-sand hover:text-amber transition-colors font-medium">
-                Fotogalerie
-              </Link>
-              <Link
-                href="https://ursusvlk.zonerama.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Fotogalerie na Zonerama"
-                className="text-sand/80 hover:text-amber transition-colors"
-              >
-                <ExternalLink className="h-4 w-4" />
-              </Link>
+            <div className="flex items-center">
+              <div className="flex items-center gap-2 group rounded-full px-3 py-1 transition-colors">
+                <Link
+                  href="#fotogalerie"
+                  className="text-sand transition-colors font-medium group-hover:text-amber"
+                >
+                  Fotogalerie
+                </Link>
+                <Link
+                  href="https://ursusvlk.zonerama.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Fotogalerie na Zonerama"
+                  className="text-sand/70 transition-colors group-hover:text-amber"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
             <Button asChild className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full">
               <Link href="#kontakt">
