@@ -1,5 +1,3 @@
-import { Card } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 
 export function AboutSection() {
@@ -20,10 +18,9 @@ export function AboutSection() {
             <p className="text-lg text-forest mb-6 leading-relaxed font-semibold">
               Náš kurz nemá zkoušky, máme totiž svou stezku, po jejíž splnění máš zkoušku hotovou!
             </p>
-            
-            
-
-            <div className="space-y-3">
+            <Button size="lg" className="bg-amber hover:bg-amber-dark text-forest-dark font-semibold">
+            Jaký je Ursus? 
+          </Button>
               
               
             </div>

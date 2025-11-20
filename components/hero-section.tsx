@@ -25,7 +25,9 @@ export function HeroSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center py-2.5">
           <Button size="lg" className="bg-amber hover:bg-amber-dark text-forest-dark font-semibold">
+            <Link href="#jaky-je-ursus">
             Aktuální ročník 
+            </Link>
           </Button>
           
         </div>
