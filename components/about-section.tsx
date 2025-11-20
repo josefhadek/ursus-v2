@@ -19,7 +19,9 @@ export function AboutSection() {
               Náš kurz nemá zkoušky, máme totiž svou stezku, po jejíž splnění máš zkoušku hotovou!
             </p>
             <Button size="lg" className="bg-amber hover:bg-amber-dark text-forest-dark font-semibold">
-            Jaký je Ursus? 
+            <Link href="#jaky-je-ursus">
+            Jaký je Ursus?
+              </Link> 
           </Button>
               
               

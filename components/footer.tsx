@@ -33,7 +33,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-8 border-t border-sand/20 text-center text-sm text-sand/70">
-          <p>© {new Date().getFullYear()} Vlk Ursus. Všechna práva vyhrazena.</p>
+          <p>© {new Date().getFullYear()} VLK Ursus. Všechna práva vyhrazena.</p>
         </div>
       </div>
     </footer>

@@ -44,7 +44,7 @@ export function Header() {
             <Link href="#o-kurzu" className="text-sand hover:text-amber transition-colors font-medium">
               O kurzu
             </Link>
-            <Link href="#terminy" className="text-sand hover:text-amber transition-colors font-medium">
+            <Link href="#aktualni-rocnik" className="text-sand hover:text-amber transition-colors font-medium">
               {"Ročník 2026"}
             </Link>
             <Link href="#tym" className="text-sand hover:text-amber transition-colors font-medium">
