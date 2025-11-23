@@ -35,7 +35,7 @@ const features = [
 export function WhatIsUrsusSection() {
   return (
     <section id="jaky-je-ursus" className="py-20 px-4 bg-sand/30">
-      <div className="container mx-auto max-w-7xl">
+      <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-forest-dark mb-16 text-center">
           Jaký je Ursus?
         </h2>
@@ -46,9 +46,8 @@ export function WhatIsUrsusSection() {
             return (
               <div
                 key={index}
-                className={`flex flex-col ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } gap-8 md:gap-12 items-center`}
+                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  } gap-8 md:gap-12 items-center`}
               >
                 <div className="w-full md:w-1/2">
                   <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
@@ -60,7 +59,7 @@ export function WhatIsUrsusSection() {
                     />
                   </div>
                 </div>
-                
+
                 <div className="w-full md:w-1/2 space-y-4">
                   <div className="flex items-center gap-3">
                     <div className="p-2 bg-amber/20 rounded-lg">
@@ -79,7 +78,7 @@ export function WhatIsUrsusSection() {
           })}
         </div>
 
-        
+
       </div>
     </section>
   )

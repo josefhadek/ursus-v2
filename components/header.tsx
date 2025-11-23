@@ -1,61 +1,45 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { ExternalLink, Menu } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 40)
-    // Zavoláme hned při načtení, aby se stav nastavil správně i po refreshnutí uprostřed stránky
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
     <header
-      className={cn(
-        'fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-out px-4 sm:px-0 w-full',
-        isScrolled ? 'top-2' : 'top-4',
-      )}
+      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-out px-4 sm:px-0 w-full top-4"
       style={{
-        // Pozor: calc vyžaduje mezery kolem znaménka minus
-        width: isScrolled ? 'min(calc(100% - 100px), 1100px)' : 'min(90vw, 1100px)',
+        width: 'min(90vw, 1100px)',
       }}
     >
       <div
-        className={cn(
-          'backdrop-blur-md shadow-xl border transition-all duration-300 ease-out',
-          isScrolled
-            ? 'bg-gradient-to-r from-forest/90 via-forest-dark/95 to-forest/90 border-forest-dark rounded-xl px-5 py-2'
-            : 'bg-gradient-to-r from-forest/60 via-forest/70 to-forest/60 border-forest/50 rounded-2xl px-6 py-3',
-        )}
+        className="backdrop-blur-sm shadow-xl border transition-all duration-300 ease-out bg-gradient-to-r from-forest/85 via-forest/90 to-forest/85 border-forest/60 rounded-2xl px-6 py-3"
       >
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-bold text-sand text-lg">VLK Ursus</span>
+            <img src="/fleur-de-lis.svg" alt="Fleur de lis" className="w-6 h-6 text-sand" style={{ filter: 'brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(566%) hue-rotate(338deg) brightness(103%) contrast(92%)' }} />
+            <span className="font-[family-name:var(--font-skaut-bold)] text-sand text-lg">VLK Ursus</span>
           </Link>
 
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center gap-8">
-            <Link href="#o-kurzu" className="text-sand hover:text-amber transition-colors font-medium">
+            <Link href="/#o-kurzu" className="text-sand hover:text-amber transition-colors font-medium">
               O kurzu
             </Link>
-            <Link href="#aktualni-rocnik" className="text-sand hover:text-amber transition-colors font-medium">
+            <Link href="/#aktualni-rocnik" className="text-sand hover:text-amber transition-colors font-medium">
               Ročník 2026
             </Link>
-            <Link href="#tym" className="text-sand hover:text-amber transition-colors font-medium">
+            <Link href="/tym" className="text-sand hover:text-amber transition-colors font-medium">
               Tým Ursu
             </Link>
             <div className="flex items-center">
               <div className="flex items-center gap-2 group rounded-full px-3 py-1 transition-colors">
                 <Link
-                  href="#fotogalerie"
+                  href="https://ursusvlk.zonerama.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Fotogalerie na Zonerama"
                   className="text-sand transition-colors font-medium group-hover:text-amber"
                 >
                   Fotogalerie
@@ -72,7 +56,7 @@ export function Header() {
               </div>
             </div>
             <Button asChild className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full">
-              <Link href="#kontakt">
+              <Link href="/#kontakt">
                 Kontakt
               </Link>
             </Button>
