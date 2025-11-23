@@ -12,7 +12,7 @@ export function Ursus2026Section() {
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 text-center">
-            Ročník 2026 
+            Ročník 2026
           </h2>
           <p className="text-lg text-forest/80 text-center mb-12 max-w-3xl mx-auto">
             Připravujeme nový ročník Ursus 2026. Zde najdeš všechny důležité informace.
@@ -38,7 +38,7 @@ export function Ursus2026Section() {
               </div>
               <div className="flex gap-3">
                 <div className="h-6 w-6 rounded-full bg-amber text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">2</div>
-                <p>Přihláš se ve <strong>SkautISu</strong></p>
+                <p>Přihlas se ve <strong>skautISu</strong></p>
               </div>
               <div className="flex gap-3">
                 <div className="h-6 w-6 rounded-full bg-amber text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-sm font-bold">3</div>

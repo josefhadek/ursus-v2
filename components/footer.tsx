@@ -20,8 +20,8 @@ export function Footer() {
               <p className="text-lg">
                 Matylda Kocianová – Matylda
               </p>
-              <a 
-                href="mailto:ursus@skaut.cz" 
+              <a
+                href="mailto:ursus@skaut.cz"
                 className="flex items-center gap-2 text-amber hover:text-amber/80 transition-colors"
               >
                 <Mail className="w-5 h-5" />
