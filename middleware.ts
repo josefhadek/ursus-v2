@@ -13,9 +13,10 @@ export function middleware(req: NextRequest) {
         const authValue = basicAuth.split(' ')[1];
         const [user, pwd] = atob(authValue).split(':');
 
-        // ZDE NASTAVTE SVÉ HESLO A JMÉNO
-        // Ideálně použijte proměnné prostředí (process.env.USER a process.env.PASSWORD)
-        if (user === 'admin' && pwd === 'tajneheslo') {
+        const validUser = process.env.BASIC_AUTH_USER;
+        const validPass = process.env.BASIC_AUTH_PASSWORD;
+
+        if (validUser && validPass && user === validUser && pwd === validPass) {
             return NextResponse.next();
         }
     }

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const images = [
   "/carousel/1.jpg",
@@ -27,6 +28,14 @@ export function AboutSection() {
     }, 5000)
     return () => clearInterval(timer)
   }, [])
+
+  const goToNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % images.length)
+  }
+
+  const goToPrevious = () => {
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length)
+  }
 
   return (
     <section id="o-kurzu" className="py-32 px-4">
@@ -101,6 +110,22 @@ export function AboutSection() {
                 />
               ))}
             </div>
+
+            {/* Arrow Navigation */}
+            <button
+              onClick={goToPrevious}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Previous slide"
+            >
+              <ChevronLeft className="w-6 h-6 text-white" />
+            </button>
+            <button
+              onClick={goToNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="w-6 h-6 text-white" />
+            </button>
           </div>
           {/* Konec druhého sloupce */}
 

@@ -1,4 +1,4 @@
-import { CalendarDays, Users, GraduationCap, CheckCircle, Info, Coins, MapPin, ArrowRight, FilePenLine } from 'lucide-react'
+import { CalendarDays, Users, GraduationCap, CheckCircle, Info, Coins, MapPin, ArrowRight, FilePenLine, ExternalLink } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
@@ -25,30 +25,46 @@ export function Ursus2026Section() {
               <FilePenLine className="h-8 w-8 text-amber" />
               <h3 className="text-2xl font-bold text-forest">Přihlašování</h3>
             </div>
-            <div className="bg-amber/10 p-6 rounded-[32px] border border-amber/20 mb-6 shadow-sm">
-              <div className="text-center">
-                <div className="text-sm font-semibold text-amber mb-2">PŘIHLAŠOVÁNÍ PROBÍHÁ</div>
-                <div className="text-3xl font-bold text-forest">9. 1. - 16. 1. 2026</div>
-                <div className="text-forest/70 mt-2">Začátek i konec v 18:00</div>
-              </div>
+            <div className="bg-amber/10 p-6 rounded-2xl border border-amber/20 mb-6 text-center">
+              <div className="text-sm font-semibold text-amber mb-2">PŘIHLAŠOVÁNÍ PROBÍHÁ</div>
+              <div className="text-3xl font-bold text-forest">9. 1. - 16. 1. 2026</div>
+              <div className="text-forest/70 mt-2">Začátek i konec v 18:00</div>
             </div>
-            <div className={`space-y-3 ${BODY_TEXT}`}>
-              <div className="flex gap-3 items-center">
-                <div className="h-6 w-6 rounded-full bg-amber text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">1</div>
-                <p>Na pořadí přihlášení <strong>nezáleží</strong></p>
-              </div>
-              <div className="flex gap-3 items-center">
-                <div className="h-6 w-6 rounded-full bg-amber text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">2</div>
-                <p>Přihlas se ve <strong>skautISu</strong></p>
-              </div>
-              <div className="flex gap-3 items-center">
-                <div className="h-6 w-6 rounded-full bg-amber text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">3</div>
-                <p>Vyplň <strong>dotazník Analýza oddílu</strong> (lze vyplnit už před začátkem přihlašování)</p>
-              </div>
-              <div className="flex gap-3 items-center">
-                <div className="h-6 w-6 rounded-full bg-amber text-white flex items-center justify-center flex-shrink-0 text-sm font-bold">4</div>
-                <p>Po konci přihlašování se účastníci <strong>náhodně losují</strong></p>
-              </div>
+
+            {/* Two Steps Heading */}
+            <div className="text-center mb-6">
+              <p className="text-lg font-semibold text-forest">Přihlašování má dva kroky:</p>
+            </div>
+
+            {/* Two Buttons Side by Side */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <Button
+                size="lg"
+                className="bg-amber hover:bg-amber-dark text-forest-dark font-bold gap-3 flex-1 sm:flex-initial sm:min-w-[300px] h-16 text-xl px-8"
+                asChild
+              >
+                <a href="https://is.skaut.cz" target="_blank" rel="noopener noreferrer">
+                  1. Přihlas se ve skautISu
+                  <ExternalLink className="h-6 w-6" />
+                </a>
+              </Button>
+              <Button
+                size="lg"
+                className="bg-amber hover:bg-amber-dark text-forest-dark font-bold gap-3 flex-1 sm:flex-initial sm:min-w-[300px] h-16 text-xl px-8"
+                asChild
+              >
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAnalyzaOddilu" target="_blank" rel="noopener noreferrer">
+                  2. Vyplň dotazník
+                  <ExternalLink className="h-6 w-6" />
+                </a>
+              </Button>
+            </div>
+
+            {/* Additional Info */}
+            <div className={`space-y-3 ${BODY_TEXT} text-center`}>
+              <p>Na pořadí přihlášení <strong>nezáleží</strong></p>
+              <p>Dotazník Analýza oddílu lze vyplnit už <strong>před začátkem přihlašování</strong></p>
+              <p>Po konci přihlašování se účastníci <strong>náhodně losují</strong></p>
             </div>
           </Card>
           {/* Dates */}
@@ -59,25 +75,25 @@ export function Ursus2026Section() {
             </div>
             <div className="grid md:grid-cols-3 gap-6">
               {/* Spring Weekend */}
-              <div className="bg-white p-4 rounded-3xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <div>
                 <div className="mb-3">
-                  <div className="text-md text-forest/70 font-bold">Jarní vikend</div>
-                  <h4 className="text-lg font-bold text-forest">Lanškroun</h4>
-                  <div className="text-md text-forest/70">27. - 29. 3. 2026</div>
+                  <div className="text-base text-forest/70 font-bold">Jarní víkend</div>
+                  <h4 className="text-lg font-bold text-forest">Plzeň (Senečák)</h4>
+                  <div className="text-base text-forest/70">27. - 29. 3. 2026</div>
                 </div>
 
                 {/* Map Embed */}
-                <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden mb-4 border border-stone-200">
+                <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden mb-4">
                   <iframe
-                    src="https://frame.mapy.cz/s/fesusalefe"
+                    src="https://frame.mapy.cz/s/pagogutege"
                     className="w-full h-full border-0"
                     loading="lazy"
                     title="Mapa Víkendová část"
                   />
                 </div>
 
-                <Button className="w-full gap-2 bg-stone-100 text-forest hover:bg-amber/20 border-transparent shadow-none group" asChild>
-                  <a href="https://mapy.cz/s/fesusalefe" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full gap-2 bg-amber/20 text-forest hover:bg-amber/40 border-transparent shadow-none group" asChild>
+                  <a href="https://mapy.cz/s/pagogutege" target="_blank" rel="noopener noreferrer">
                     <MapPin className="h-4 w-4" />
                     Zobrazit na mapě
                     <ArrowRight className="h-4 w-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -86,25 +102,25 @@ export function Ursus2026Section() {
               </div>
 
               {/* Summer Run */}
-              <div className="bg-white p-4 rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <div>
                 <div className="mb-3">
-                  <div className="text-md text-forest/70 font-bold">Letní běh</div>
+                  <div className="text-base text-forest/70 font-bold">Letní běh</div>
                   <h4 className="text-lg font-bold text-forest">Chválkov u Kamenice</h4>
-                  <div className="text-md text-forest/70">14. - 23. 8. 2026</div>
+                  <div className="text-base text-forest/70">14. - 23. 8. 2026</div>
                 </div>
 
                 {/* Map Embed */}
-                <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden mb-4 border border-stone-200">
+                <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden mb-4">
                   <iframe
-                    src="https://frame.mapy.cz/s/fesusalefe"
+                    src="https://frame.mapy.cz/s/mofamosema"
                     className="w-full h-full border-0"
                     loading="lazy"
                     title="Mapa Letní běh"
                   />
                 </div>
 
-                <Button className="w-full gap-2 bg-stone-100 text-forest hover:bg-amber/20 border-transparent shadow-none group" asChild>
-                  <a href="https://mapy.cz/s/fesusalefe" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full gap-2 bg-amber/20 text-forest hover:bg-amber/40 border-transparent shadow-none group" asChild>
+                  <a href="https://mapy.cz/s/mofamosema" target="_blank" rel="noopener noreferrer">
                     <MapPin className="h-4 w-4" />
                     Zobrazit na mapě
                     <ArrowRight className="h-4 w-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -113,25 +129,25 @@ export function Ursus2026Section() {
               </div>
 
               {/* Autumn Weekend */}
-              <div className="bg-white p-4 rounded-xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
+              <div>
                 <div className="mb-3">
-                  <div className="text-md text-forest/70 font-bold">Podzimní vikend</div>
+                  <div className="text-base text-forest/70 font-bold">Podzimní víkend</div>
                   <h4 className="text-lg font-bold text-forest">Lanškroun</h4>
-                  <div className="text-md text-forest/70">18. - 20. 9. 2026</div>
+                  <div className="text-base text-forest/70">18. - 20. 9. 2026</div>
                 </div>
 
                 {/* Map Embed */}
-                <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden mb-4 border border-stone-200">
+                <div className="relative w-full h-48 bg-stone-100 rounded-lg overflow-hidden mb-4">
                   <iframe
-                    src="https://frame.mapy.cz/s/fesusalefe"
+                    src="https://frame.mapy.cz/s/corakatufe"
                     className="w-full h-full border-0"
                     loading="lazy"
                     title="Mapa Podzimní víkend"
                   />
                 </div>
 
-                <Button className="w-full gap-2 bg-stone-100 text-forest hover:bg-amber/20 border-transparent shadow-none group" asChild>
-                  <a href="https://mapy.cz/s/fesusalefe" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full gap-2 bg-amber/20 text-forest hover:bg-amber/40 border-transparent shadow-none group" asChild>
+                  <a href="https://mapy.cz/s/corakatufe" target="_blank" rel="noopener noreferrer">
                     <MapPin className="h-4 w-4" />
                     Zobrazit na mapě
                     <ArrowRight className="h-4 w-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -176,13 +192,11 @@ export function Ursus2026Section() {
                   <p>Nemusíš se bát neustálého sezení na přednáškách. Nabízíme různorodé formy předávání vědomostí i zkušeností, které však vyžadují aktivní přístup účastníků.</p>
                 </div>
               </div>
-              <div className="bg-amber/10 p-4 rounded-3xl border border-amber/30 shadow-sm">
-                <div className="flex gap-2 items-start">
-                  <Info className="h-5 w-5 text-amber flex-shrink-0" />
-                  <p className="text-sm">
-                    <strong>POZOR!</strong> Velká část samostatné práce se bude odehrávat <strong>mezi jarní a letní částí</strong> kurzu. Prosíme, zvážte své časové možnosti (např. maturity).
-                  </p>
-                </div>
+              <div className="bg-amber/10 p-4 rounded-2xl border border-amber/30 flex gap-2 items-start">
+                <Info className="h-5 w-5 text-amber flex-shrink-0" />
+                <p className="text-base">
+                  <strong>POZOR!</strong> Velká část samostatné práce se bude odehrávat <strong>mezi jarní a letní částí</strong> kurzu. Prosíme, zvážte své časové možnosti (např. maturity).
+                </p>
               </div>
             </div>
           </Card>

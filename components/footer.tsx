@@ -21,8 +21,8 @@ export function Footer() {
             <h3 className="text-xl font-bold mb-4 text-amber">Kontakt</h3>
             <div className="space-y-4">
               <div>
-                <p className="text-sm text-sand/60 mb-1">Vůdce kurzu</p>
-                <p className="text-lg font-medium">Jan Sadílek – Hanys</p>
+                <p className="text-base text-sand/60 mb-1">Komunikace</p>
+                <p className="text-lg font-medium">Matylda Kocianová – Matylda</p>
               </div>
 
               <div className="flex flex-col gap-3">
@@ -37,7 +37,7 @@ export function Footer() {
                 </a>
 
                 <a
-                  href="https://www.facebook.com/ursus.vlk"
+                  href="https://www.facebook.com/vlk.ursus/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-sand hover:text-amber transition-colors group"
@@ -53,7 +53,7 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-sand/20 text-center text-sm text-sand/70">
+        <div className="mt-8 pt-8 border-t border-sand/20 text-center text-base text-sand/70">
           <p>© {new Date().getFullYear()} VLK Ursus. Všechna práva vyhrazena.</p>
         </div>
       </div>

@@ -15,9 +15,24 @@ export function HeroSection() {
       </div>
 
       <div className="relative z-10 text-center px-4">
-        <h1 className="text-7xl md:text-8xl font-bold text-sand mb-6 text-balance tracking-tight drop-shadow-2xl">
-          URSUS
-        </h1>
+        <div className="flex justify-center mb-8">
+          <div className="relative w-20 h-20 md:w-28 md:h-28 animate-breathe group cursor-pointer">
+            {/* Regular logo */}
+            <img
+              src="/ursus-logo.png"
+              alt="URSUS Logo"
+              className="absolute inset-0 w-full h-full drop-shadow-2xl transition-opacity duration-700 ease-in-out group-hover:opacity-0"
+              style={{ filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))' }}
+            />
+            {/* Colored logo */}
+            <img
+              src="/ursus-logo-barevne.png"
+              alt="URSUS Logo Barevné"
+              className="absolute inset-0 w-full h-full drop-shadow-2xl opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100"
+              style={{ filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))' }}
+            />
+          </div>
+        </div>
         <p className="text-2xl md:text-3xl text-sand/95 mb-10 font-semibold tracking-wide drop-shadow-lg">
           Vůdcovský lesní kurz
         </p>
