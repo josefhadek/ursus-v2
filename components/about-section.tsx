@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 
 const images = [
   "/carousel/1.jpg",
@@ -58,12 +58,12 @@ export function AboutSection() {
               Náš kurz nemá zkoušky, máme totiž svou stezku, po jejíž splnění máš zkoušku hotovou!
             </p>
 
-            {/* U Shadcn UI Buttonu je lepší použít asChild, pokud je uvnitř Link, ale bude to fungovat i takto */}
-            <Button size="lg" className="bg-amber hover:bg-amber-dark text-forest-dark font-semibold" asChild>
-              <Link href="#jaky-je-ursus">
-                Jaký je Ursus?
-              </Link>
-            </Button>
+            <Link href="#jaky-je-ursus" className="group relative overflow-hidden inline-block">
+              <div className="bg-amber hover:bg-amber/90 text-forest-dark font-semibold rounded-full px-8 h-11 flex items-center justify-center transition-all duration-300 group-hover:pl-12">
+                <ArrowRight className="absolute left-3 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                <span className="text-lg">Jaký je Ursus?</span>
+              </div>
+            </Link>
           </div>
           {/* Konec prvního sloupce */}
 
@@ -101,7 +101,7 @@ export function AboutSection() {
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={cn(
-                    "w-2.5 h-2.5 rounded-full transition-all duration-300 shadow-sm backdrop-blur-sm",
+                    "w-2.5 h-2.5 rounded-full transition-all duration-300 shadow-sm backdrop-blur-sm cursor-pointer",
                     index === currentSlide
                       ? "bg-white w-8"
                       : "bg-white/50 hover:bg-white/80"
@@ -114,14 +114,14 @@ export function AboutSection() {
             {/* Arrow Navigation */}
             <button
               onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
               aria-label="Previous slide"
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all opacity-0 group-hover:opacity-100"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full p-2 transition-all opacity-0 group-hover:opacity-100 cursor-pointer"
               aria-label="Next slide"
             >
               <ChevronRight className="w-6 h-6 text-white" />

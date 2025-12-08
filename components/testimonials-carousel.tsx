@@ -43,7 +43,7 @@ export function TestimonialsCarousel() {
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-sand to-sage/10">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-forest-dark mb-16 text-center">
+        <h2 className="text-3xl md:text-3xl font-bold text-forest-dark mb-16 text-center">
           Co o nás říkají účastníci*ice z minulých let?
         </h2>
         <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -53,7 +53,7 @@ export function TestimonialsCarousel() {
               className="relative w-full overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
             >
               <Image
-                src={image || "/placeholder.svg"}
+                src={image}
                 alt={`Citát ${index + 1}`}
                 width={768}
                 height={768}

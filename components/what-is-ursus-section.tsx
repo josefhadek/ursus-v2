@@ -34,7 +34,7 @@ const features = [
 
 export function WhatIsUrsusSection() {
   return (
-    <section id="jaky-je-ursus" className="py-20 px-4 bg-sand/30">
+    <section id="jaky-je-ursus" className="py-32 px-4 bg-sand/30">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-forest-dark mb-16 text-center">
           Jaký je Ursus?
@@ -50,9 +50,9 @@ export function WhatIsUrsusSection() {
                   } gap-8 md:gap-12 items-center`}
               >
                 <div className="w-full md:w-1/2">
-                  <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                  <div className="relative aspect-square rounded-4xl overflow-hidden shadow-2xl">
                     <Image
-                      src={feature.image || "/placeholder.svg"}
+                      src={feature.image}
                       alt={feature.title}
                       fill
                       className="object-cover"

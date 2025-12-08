@@ -9,7 +9,7 @@ const BODY_TEXT = 'text-base text-forest/80 leading-relaxed'
 
 export function Ursus2026Section() {
   return (
-    <section id="aktualni-rocnik" className="py-20 bg-gradient-to-b from-sand to-white">
+    <section id="aktualni-rocnik" className="py-32 bg-gradient-to-b from-sand to-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-forest mb-4 text-center">
@@ -38,26 +38,30 @@ export function Ursus2026Section() {
 
             {/* Two Buttons Side by Side */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-              <Button
-                size="lg"
-                className="bg-amber hover:bg-amber-dark text-forest-dark font-bold gap-3 flex-1 sm:flex-initial sm:min-w-[300px] h-16 text-xl px-8"
-                asChild
+              <a
+                href="https://is.skaut.cz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden flex-1 sm:flex-initial sm:min-w-[300px]"
               >
-                <a href="https://is.skaut.cz" target="_blank" rel="noopener noreferrer">
-                  1. Přihlas se ve skautISu
-                  <ExternalLink className="h-6 w-6" />
-                </a>
-              </Button>
-              <Button
-                size="lg"
-                className="bg-amber hover:bg-amber-dark text-forest-dark font-bold gap-3 flex-1 sm:flex-initial sm:min-w-[300px] h-16 text-xl px-8"
-                asChild
+                <div className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full h-16 flex items-center justify-center transition-all duration-300 group-hover:pl-10 px-8">
+                  <ArrowRight className="absolute left-4 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                  <span className="text-xl">1. Přihlas se ve skautISu</span>
+                  <ExternalLink className="ml-3 h-5 w-5" />
+                </div>
+              </a>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfAnalyzaOddilu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative overflow-hidden flex-1 sm:flex-initial sm:min-w-[300px]"
               >
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfAnalyzaOddilu" target="_blank" rel="noopener noreferrer">
-                  2. Vyplň dotazník
-                  <ExternalLink className="h-6 w-6" />
-                </a>
-              </Button>
+                <div className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full h-16 flex items-center justify-center transition-all duration-300 group-hover:pl-10 px-8">
+                  <ArrowRight className="absolute left-4 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+                  <span className="text-xl">2. Vyplň dotazník</span>
+                  <ExternalLink className="ml-3 h-5 w-5" />
+                </div>
+              </a>
             </div>
 
             {/* Additional Info */}
@@ -168,21 +172,28 @@ export function Ursus2026Section() {
                 <CheckCircle className="h-6 w-6 text-amber flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-forest mb-1">Věk a kvalifikace</p>
-                  <p>Členové Junáka narození před <strong>19. 9. 2008</strong> se složenou čekatelskou zkouškou. Čekatelskou zkoušku nemusí mít členové starší 21 let.</p>
+                  <p>Členové Junáka narození před <strong>19. 9. 2008</strong> se složenou čekatelskou zkouškou. Čekatelskou zkoušku nemusí mít členové starší 21 let (<a href="https://zpravodajstvi.skaut.cz/clanek/zkuseni-uchazeci-o-vudcovskou-zkousku-starsi-21-let-nove-nemusi-mit-cekatelskou-zkousku-rozdilova-zkouska-byla-zrusena-novelou-smernice-k-obsahu-vybranych-cinovnickych-kvalifikaci" target="_blank" rel="noopener noreferrer" className="underline text-amber hover:text-amber/80">viz tady</a>).</p>
                 </div>
               </div>
               <div className="flex gap-3 items-start">
                 <CheckCircle className="h-6 w-6 text-amber flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-forest mb-1">Kapacita</p>
-                  <p>Přijímáme <strong>26 účastníků/účastnic</strong> se snahou o vyrovnaný počet kluků a holek (limit 16:10).</p>
+                  <p>Přijímáme <strong>26 účastníků/účastnic</strong> se snahou o vyrovnaný počet kluků a holek (limit je 16:10 – 16 holek ku 10 klukům, či naopak).</p>
+                </div>
+              </div>
+              <div className="flex gap-3 items-start">
+                <CheckCircle className="h-6 w-6 text-amber flex-shrink-0" />
+                <div>
+                  <p className="font-semibold text-forest mb-1">Omezení přihlášení</p>
+                  <p>Přihlášení může být omezeno pro více než <strong>3 účastníky / účastnice</strong> z jednoho střediska nebo z hlediska vyváženosti pohlaví.</p>
                 </div>
               </div>
               <div className="flex gap-3 items-start">
                 <CheckCircle className="h-6 w-6 text-amber flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-forest mb-1">Zaměření</p>
-                  <p>Zaměřujeme se na vedení světlušek, vlčat, skautek a skautů, ale jiné zaměření není limitující.</p>
+                  <p>Zaměřujeme se na vedení světlušek, vlčat, skautek a skautů, ale jiné zaměření účastníka není pro přihlášení limitujícím faktorem.</p>
                 </div>
               </div>
               <div className="flex gap-3 items-start">
@@ -209,9 +220,9 @@ export function Ursus2026Section() {
                 <h3 className="text-2xl font-bold text-forest">Podmínky absolvence</h3>
               </div>
               <p className={`${BODY_TEXT} mb-4`}>
-                Podmínkou absolvence kurzu je dle Řádu pro vzdělávání činovnic a činovníků <strong>aktivní účast na všech částech kurzu</strong>.
+                Podmínkou absolvence kurzu je dle Řádu pro vzdělávání činovnic a činovníků <strong>aktivní účast na všech částech kurzu</strong> (viz článek 151 <a href="https://krizovatka.skaut.cz/spisovna/rady/rad-pro-vzdelavani-cinovnic-a-cinovniku" target="_blank" rel="noopener noreferrer" className="underline text-amber hover:text-amber/80">ŘVČČJ</a>).
               </p>
-              <p className={BODY_TEXT}>Kvalifikace zdravotníka nebo první pomoci není podmínkou pro přihlášení, ale až pro úspěšné dokončení vůdcovské zkoušky.</p>
+              <p className={BODY_TEXT}>Kvalifikace zdravotníka nebo první pomoci <strong>není podmínkou pro přihlášení, ale až pro úspěšné dokončení</strong> vůdcovské zkoušky (viz článek 76 <a href="https://krizovatka.skaut.cz/spisovna/rady/rad-pro-vzdelavani-cinovnic-a-cinovniku" target="_blank" rel="noopener noreferrer" className="underline text-amber hover:text-amber/80">ŘVČČJ</a>).</p>
             </Card>
 
             {/* Price */}

@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button'
-import { ChevronDown } from 'lucide-react'
+import { ChevronDown, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export function HeroSection() {
@@ -19,15 +19,15 @@ export function HeroSection() {
           <div className="relative w-20 h-20 md:w-28 md:h-28 animate-breathe group cursor-pointer">
             {/* Regular logo */}
             <img
-              src="/ursus-logo.png"
-              alt="URSUS Logo"
+              src="/ursus-logo-barevne.png"
+              alt="VLK Ursus logo"
               className="absolute inset-0 w-full h-full drop-shadow-2xl transition-opacity duration-700 ease-in-out group-hover:opacity-0"
               style={{ filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))' }}
             />
             {/* Colored logo */}
             <img
-              src="/ursus-logo-barevne.png"
-              alt="URSUS Logo Barevné"
+              src="/ursus-logo.png"
+              alt="VLK Ursus"
               className="absolute inset-0 w-full h-full drop-shadow-2xl opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100"
               style={{ filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))' }}
             />
@@ -40,12 +40,12 @@ export function HeroSection() {
           16 dní přípravy na vedení oddílu v pohodové atmosféře. Dáváme prostor k otevřeným rozhovorům a zamyšlením nad konkrétními problémy, potřebami a hodnotami. Dočkáš se u nás individuálního přístupu i příležitostí pro osobní rozvoj.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center py-2.5">
-          <Button size="lg" className="bg-amber hover:bg-amber-dark text-forest-dark font-semibold" asChild>
-            <Link href="#jaky-je-ursus">
-              Aktuální ročník
-            </Link>
-          </Button>
-
+          <Link href="#aktualni-rocnik" className="group relative overflow-hidden inline-block mx-auto sm:mx-0">
+            <div className="bg-amber hover:bg-amber/90 text-forest-dark font-semibold rounded-full px-8 h-11 flex items-center justify-center transition-all duration-300 group-hover:pl-12">
+              <ArrowRight className="absolute left-3 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
+              <span className="text-lg">Aktuální ročník</span>
+            </div>
+          </Link>
         </div>
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
           <ChevronDown className="w-8 h-8 text-sand my-5" />
