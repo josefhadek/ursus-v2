@@ -1,30 +1,32 @@
-# Website redesign
+# 🏕️ URSUS V2 - Webový redesign VLK Ursus
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+Tento repozitář obsahuje statický export webové aplikace, původně vytvořené v **Next.js**, určené pro VLK Ursus
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/josefhadeks-projects/v0-website-redesign)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/tAPbPxkYBAW)
+## 🚀 Nasazení (Deployment)
 
-## Overview
+Projekt je nasazen jako **Statická stránka** pomocí **GitHub Pages** a je dostupný na vlastní subdoméně.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+| Služba | Adresa | Stav |
+| :--- | :--- | :--- |
+| **GitHub Repozitář** | `https://github.com/josefhadek/ursus-v2` | Kód |
+| **Živý Web** | `https://ursus-v2.josefhadek.cz/` | Produkční URL |
 
-## Deployment
+## 🛠️ Technologie
 
-Your project is live at:
+* **Framework:** Next.js (Statický export)
+* **Stylování:** Tailwind CSS
+* **Nasazení:** GitHub Pages + GitHub Actions
 
-**[https://vercel.com/josefhadeks-projects/v0-website-redesign](https://vercel.com/josefhadeks-projects/v0-website-redesign)**
+## ⚙️ Jak projekt funguje na Pages
 
-## Build your app
+Projekt využívá **GitHub Actions** k automatickému sestavení (Build) statických souborů po každém pushnutí do větve `main`.
 
-Continue building your app on:
+1.  Změny v kódu se nahrají do větve `main`.
+2.  GitHub Action spustí `pnpm run build` a provede statický export (`output: 'export'`).
+3.  Výsledné statické soubory ze složky `out` se nahrají na GitHub Pages.
 
-**[https://v0.app/chat/tAPbPxkYBAW](https://v0.app/chat/tAPbPxkYBAW)**
+---
 
-## How It Works
+## 🛑 POZOR: Vercel / v0.app
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+Původní nastavení repozitáře, které bylo spojeno se službami **Vercel** a **v0.app**, je **neaktivní**. Projekt je spravován a nasazován výhradně přes **GitHub Pages**.
