@@ -5,6 +5,7 @@ import { ExternalLink, Menu, X, ArrowDown, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -41,7 +42,7 @@ export function Header() {
       >
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-            <img src="/fleur-de-lis.svg" alt="Fleur de lis" className="w-6 h-6 text-sand" style={{ filter: 'brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(566%) hue-rotate(338deg) brightness(103%) contrast(92%)' }} />
+            <Image src="/fleur-de-lis.svg" width={24} height={24} alt="Fleur de lis" className="text-sand" style={{ filter: 'brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(566%) hue-rotate(338deg) brightness(103%) contrast(92%)' }} />
             <span className="font-[family-name:var(--font-skaut-bold)] text-sand text-lg">VLK Ursus</span>
           </Link>
 

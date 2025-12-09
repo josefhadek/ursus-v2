@@ -1,16 +1,20 @@
 import { Button } from '@/components/ui/button'
 import { ChevronDown, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export function HeroSection() {
   return (
     <section className="relative h-[700px] flex items-center justify-center pt-32">
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/background.jpg')",
-        }}
-      >
+      <div className="absolute inset-0">
+        <Image
+          src="/background.jpg"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+          quality={90}
+        />
         <div className="absolute inset-0 bg-forest/80" />
       </div>
 
@@ -18,15 +22,19 @@ export function HeroSection() {
         <div className="flex justify-center mb-8">
           <div className="relative w-20 h-20 md:w-28 md:h-28 animate-breathe group cursor-pointer">
             {/* Regular logo */}
-            <img
+            <Image
               src="/ursus-logo-barevne.png"
+              width={112}
+              height={112}
               alt="VLK Ursus logo"
               className="absolute inset-0 w-full h-full drop-shadow-2xl transition-opacity duration-700 ease-in-out group-hover:opacity-0"
               style={{ filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))' }}
             />
             {/* Colored logo */}
-            <img
+            <Image
               src="/ursus-logo.png"
+              width={112}
+              height={112}
               alt="VLK Ursus"
               className="absolute inset-0 w-full h-full drop-shadow-2xl opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100"
               style={{ filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.5))' }}

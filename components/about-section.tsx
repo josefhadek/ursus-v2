@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/utils'
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 
 const images = [
   "/carousel/1.jpg",
@@ -77,20 +78,24 @@ export function AboutSection() {
                   index === currentSlide ? "opacity-100" : "opacity-0"
                 )}
               >
-                <img
+                <Image
                   src={src}
+                  fill
                   alt={`Scout activity ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-[5000ms] ease-linear scale-100 group-hover:scale-105"
+                  className="object-cover transition-transform duration-[5000ms] ease-linear scale-100 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             ))}
 
             {/* Logo Overlay */}
             <div className="absolute top-4 right-4 z-10">
-              <img
+              <Image
                 src="/ursus-logo.png"
+                width={64}
+                height={64}
                 alt="Ursus Logo"
-                className="w-16 h-16 drop-shadow-lg"
+                className="drop-shadow-lg"
               />
             </div>
 
