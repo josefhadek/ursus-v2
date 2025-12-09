@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
-  basePath: '/ursus-v2',
   typescript: {
     ignoreBuildErrors: true,
   },
