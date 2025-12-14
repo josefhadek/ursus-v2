@@ -8,16 +8,16 @@ import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 
 const images = [
-  "/carousel/1.jpg",
-  "/carousel/2.jpg",
-  "/carousel/7.jpg",
-  "/carousel/8.jpg",
-  "/carousel/9.jpg",
-  "/carousel/3.jpg",
-  "/carousel/4.jpg",
-  "/carousel/5.jpg",
-  "/carousel/6.jpg",
-  "/carousel/10.jpg"
+  "/carousel/1.webp",
+  "/carousel/2.webp",
+  "/carousel/7.webp",
+  "/carousel/8.webp",
+  "/carousel/9.webp",
+  "/carousel/3.webp",
+  "/carousel/4.webp",
+  "/carousel/5.webp",
+  "/carousel/6.webp",
+  "/carousel/10.webp"
 ]
 
 export function AboutSection() {

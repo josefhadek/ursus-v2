@@ -6,9 +6,9 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 
 const images = [
-  '/images/ursus-maty.png',
-  '/images/citat2-web.jpg',
-  '/images/citat1-web.jpg',
+  '/images/ursus-maty.webp',
+  '/images/citat2-web.webp',
+  '/images/citat1-web.webp',
 ]
 
 export function TestimonialsCarousel() {

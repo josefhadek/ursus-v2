@@ -4,28 +4,28 @@ import { Compass, Lightbulb, Users, Smile } from 'lucide-react'
 const features = [
   {
     icon: Compass,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/stezka_web_rohy-768x768-T8yQvEMYuwxwgvAXmJwUx70Tt82XpR.png',
+    image: '/images/stezka.webp',
     title: 'Stezka místo zkoušky',
     description:
       'Na konci našeho kurzu nenajdeš zkouškový víkend. Vůdcovské kompetence ověřujeme průběžně pomocí vlastní přehledné stezky Cesta Ursu rozdělené do několika kapitol.',
   },
   {
     icon: Lightbulb,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/program_web_rohy-768x768-eaGCChmLaIDs45JOjQECZEhJeNInsP.png',
+    image: '/images/programy.webp',
     title: 'Kreativní programy',
     description:
       'Na Ursu se snažíme předávat nejen obsah, ale také formu. Nenajdete u nás proto nudné přednášky, ale často si budete věci přímo zkoušet a osahávat reálně, nebo v rámci uměle vytvořeného prostředí.',
   },
   {
     icon: Users,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sdileni_web_rohy-768x768-ijkvp503nLbueBpwW7Yf161dyb3LG4.png',
+    image: '/images/sdileni.webp',
     title: 'Sdílení',
     description:
       'Víme, že jsi dospělý/á a mnohdy již fungující vůdce, a proto dáváme na kurzu velký prostor i pro vzájemné sdílení vašich otázek, problémů a jejich možných řešení.',
   },
   {
     icon: Smile,
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pohoda_web_rohy-768x768-yu2uSiR02O9bM8u7rclCs2c2hHhbp0.jpg',
+    image: '/images/pohoda.webp',
     title: 'Pohoda',
     description:
       'Pohodu na kurzu vytváříme otevřeností, sdílením, ale také volným prostorem určeným pro to, co zrovna každý z účastníků potřebuje – např. zamyšlení, srovnání myšlenek, dohnání restů.',

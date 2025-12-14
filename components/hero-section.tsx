@@ -8,7 +8,7 @@ export function HeroSection() {
     <section className="relative h-[700px] flex items-center justify-center pt-32">
       <div className="absolute inset-0">
         <Image
-          src="/background.jpg"
+          src="/background.webp"
           alt="Background"
           fill
           className="object-cover"
