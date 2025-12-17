@@ -46,7 +46,7 @@ export function Ursus2026Section() {
               >
                 <div className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full h-16 flex items-center justify-center transition-all duration-300 group-hover:pl-10 px-8">
                   <ArrowRight className="absolute left-4 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                  <span className="text-xl">1. Přihlas se ve skautISu</span>
+                  <span className="text-lg">1. Přihlas se ve skautISu</span>
                   <ExternalLink className="ml-3 h-5 w-5" />
                 </div>
               </a>
@@ -58,7 +58,7 @@ export function Ursus2026Section() {
               >
                 <div className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full h-16 flex items-center justify-center transition-all duration-300 group-hover:pl-10 px-8">
                   <ArrowRight className="absolute left-4 w-5 h-5 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                  <span className="text-xl">2. Vyplň dotazník</span>
+                  <span className="text-lg">2. Vyplň dotazník</span>
                   <ExternalLink className="ml-3 h-5 w-5" />
                 </div>
               </a>
@@ -172,7 +172,7 @@ export function Ursus2026Section() {
                 <CheckCircle className="h-6 w-6 text-amber flex-shrink-0" />
                 <div>
                   <p className="font-semibold text-forest mb-1">Věk a kvalifikace</p>
-                  <p>Členové Junáka narození před <strong>19. 9. 2008</strong> se složenou čekatelskou zkouškou. Čekatelskou zkoušku nemusí mít členové starší 21 let (<a href="https://zpravodajstvi.skaut.cz/clanek/zkuseni-uchazeci-o-vudcovskou-zkousku-starsi-21-let-nove-nemusi-mit-cekatelskou-zkousku-rozdilova-zkouska-byla-zrusena-novelou-smernice-k-obsahu-vybranych-cinovnickych-kvalifikaci" target="_blank" rel="noopener noreferrer" className="underline text-amber hover:text-amber/80">viz tady</a>).</p>
+                  <p>Kurz je určen pro člen(k)y Junáka – českého skauta <strong>narozené před 19. 9. 2008</strong> se složenou čekatelskou zkouškou, kteří by rádi získali vůdcovskou kvalifikaci. Čekatelskou zkoušku nemusí mít složenou členové starší 21 let, z jejichž dosavadního působení lze předpokládat naplnění čekatelských kompetencí (<a href="https://zpravodajstvi.skaut.cz/clanek/zkuseni-uchazeci-o-vudcovskou-zkousku-starsi-21-let-nove-nemusi-mit-cekatelskou-zkousku-rozdilova-zkouska-byla-zrusena-novelou-smernice-k-obsahu-vybranych-cinovnickych-kvalifikaci" target="_blank" rel="noopener noreferrer" className="underline text-amber hover:text-amber/80">viz tady</a>).</p>
                 </div>
               </div>
               <div className="flex gap-3 items-start">
@@ -206,7 +206,7 @@ export function Ursus2026Section() {
               <div className="bg-amber/10 p-4 rounded-2xl border border-amber/30 flex gap-2 items-start">
                 <Info className="h-5 w-5 text-amber flex-shrink-0" />
                 <p className="text-base">
-                  <strong>POZOR!</strong> Velká část samostatné práce se bude odehrávat <strong>mezi jarní a letní částí</strong> kurzu. Prosíme, zvážte své časové možnosti (např. maturity).
+                  <strong>POZOR!</strong> Kurz je koncipován tak, aby účastníci splnili požadavky k VZ na konci letního běhu. Upozorňujeme proto, že velká část samostatné práce se bude odehrávat mezi jarní a letní částí kurzu (kde např. probíhají maturity). Prosíme proto, abys zvážil/a své časové možnosti.
                 </p>
               </div>
             </div>
@@ -231,9 +231,9 @@ export function Ursus2026Section() {
                 <Coins className="h-8 w-8 text-amber" />
                 <h3 className="text-2xl font-bold text-forest">Cena kurzu</h3>
               </div>
-              <div className="text-4xl font-bold text-amber mb-2">4 800 Kč</div>
+              <div className="text-4xl font-bold text-amber mb-2">4 500 Kč – 5 000 Kč</div>
               <p className="text-base text-forest/70">
-                Účastnický poplatek je nevratný; v případě nemoci se řeší individuálně.
+                Cena zatím nebyla pevně stanovena. Účastnický poplatek je nevratný, v případě nemoci se řeší individuálně.
               </p>
             </Card>
           </div>

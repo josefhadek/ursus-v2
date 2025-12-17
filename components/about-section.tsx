@@ -49,13 +49,13 @@ export function AboutSection() {
           <div>
             <h2 className="text-4xl font-bold text-forest-dark mb-6">O kurzu</h2>
 
-            <p className="text-lg text-forest mb-6 leading-relaxed text-justify">
+            <p className="text-lg text-forest mb-6 leading-relaxed">
               Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů,
               na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás
               nudné přednášky. Velký prostor dáváme pro vzájemné sdílení vašich otázek,
               problémů a jejich možných řešení.
             </p>
-            <p className="text-lg text-forest mb-6 leading-relaxed font-semibold text-justify">
+            <p className="text-lg text-forest mb-6 leading-relaxed font-semibold">
               Náš kurz nemá zkoušky, máme totiž svou stezku, po jejíž splnění máš zkoušku hotovou!
             </p>
 
