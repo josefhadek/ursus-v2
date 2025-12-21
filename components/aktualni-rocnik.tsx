@@ -27,8 +27,8 @@ export function Ursus2026Section() {
             </div>
             <div className="bg-amber/10 p-6 rounded-2xl border border-amber/20 mb-6 text-center">
               <div className="text-sm font-semibold text-amber mb-2">PŘIHLAŠOVÁNÍ PROBÍHÁ</div>
-              <div className="text-3xl font-bold text-forest">9. 1. - 16. 1. 2026</div>
-              <div className="text-forest/70 mt-2">Začátek i konec v 18:00</div>
+              <div className="text-3xl font-bold text-forest">16. 1. - 23. 1. 2026</div>
+              <div className="text-forest/70 mt-2">Začátek i konec ve 12:00</div>
             </div>
 
             {/* Two Steps Heading */}
