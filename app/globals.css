@@ -56,8 +56,8 @@
 }
 
 @theme inline {
-  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
-  --font-heading: 'Bricolage Grotesque', 'Inter Variable', system-ui, sans-serif;
+  --font-sans: var(--font-themix), system-ui, sans-serif;
+  --font-heading: var(--font-skaut-bold), var(--font-themix), system-ui, sans-serif;
 
   --color-krem: var(--krem);
   --color-kakao: var(--kakao);
@@ -119,9 +119,8 @@
     overflow-x: clip;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1, h2 {
     @apply font-heading;
-    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
@@ -133,16 +132,16 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-[15px] font-semibold transition-colors bg-palena text-bila hover:bg-kakao;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-base font-bold transition-colors bg-palena text-bila hover:bg-kakao;
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-[15px] font-semibold transition-colors border-2 border-kakao text-kakao bg-bila hover:bg-okr-svetly;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-base font-bold transition-colors border-2 border-kakao text-kakao bg-bila hover:bg-okr-svetly;
   }
   .card {
     @apply rounded-2xl border border-pisek bg-bila;
   }
   .eyebrow-pill {
-    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm ;
   }
   .no-scrollbar {
     scrollbar-width: none;

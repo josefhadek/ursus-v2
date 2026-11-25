@@ -121,9 +121,9 @@ export const conditions = [
 ]
 
 export const team = {
-  title: 'Kdo tě kurzem provede',
+  title: 'Tým Ursu',
   lead: 'Klikni na fotku a přečti si víc.',
-  note: '[OVĚŘIT: složení týmu a funkce pro 2027 – zatím tým 2026]',
+  note: '[ověřit tým 2027]',
 }
 
 export const quotes = [
