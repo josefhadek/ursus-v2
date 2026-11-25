@@ -81,6 +81,7 @@ export function Hero() {
 }
 
 /* ---------- O KURZU + PILÍŘE ---------- */
+const pillarBg = ['bg-okr', 'bg-serik', 'bg-maslova', 'bg-okr-svetly']
 export function About() {
   return (
     <section id="o-kurzu" className="bg-bila py-20 md:py-28">
@@ -103,14 +104,14 @@ export function About() {
       <div className={`${wrap} mt-20`}>
         <h3 className="font-heading text-3xl font-bold text-kakao">Jaký je Ursus?</h3>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          {pillars.map((p) => (
-            <article key={p.title} className="card grid overflow-hidden sm:grid-cols-[38%_1fr] bg-krem">
+          {pillars.map((p, i) => (
+            <article key={p.title} className={`grid overflow-hidden rounded-2xl sm:grid-cols-[38%_1fr] ${pillarBg[i % pillarBg.length]}`}>
               <div className="relative aspect-[4/3] sm:aspect-auto sm:min-h-[220px]">
                 <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, 20vw" className="object-cover" />
               </div>
               <div className="p-6">
                 <h4 className="text-2xl font-bold text-kakao">{p.title}</h4>
-                <p className="mt-2 text-kakao-muted leading-relaxed">{p.text}</p>
+                <p className="mt-2 text-kakao leading-relaxed">{p.text}</p>
               </div>
             </article>
           ))}
@@ -123,11 +124,11 @@ export function About() {
 /* ---------- KAPITOLY / CESTA URSU ---------- */
 export function Chapters() {
   return (
-    <section id="kapitoly" className="py-20 md:py-28">
+    <section id="kapitoly" className="bg-kakao py-20 md:py-28">
       <div className={wrap}>
         <div className="max-w-3xl">
-          <h2 className={h2}>{chapters.title}</h2>
-          <p className={`mt-4 ${lead}`}>{chapters.lead}</p>
+          <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-maslova">{chapters.title}</h2>
+          <p className="mt-4 text-lg leading-relaxed text-krem">{chapters.lead}</p>
         </div>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start">
           <ChaptersExplorer />
@@ -141,7 +142,7 @@ export function Chapters() {
 /* ---------- PŘIHLÁŠKA ---------- */
 export function Registration() {
   return (
-    <section id="prihlaska" className="pb-20 md:pb-28">
+    <section id="prihlaska" className="bg-okr py-20 md:py-28">
       <div className={wrap}>
         <div className="card p-7 md:p-12">
           <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
@@ -172,9 +173,9 @@ export function Registration() {
 
           <ol className="mt-10 grid gap-4 md:grid-cols-2">
             {registration.steps.map((s, i) => (
-              <li key={s.title} className="rounded-2xl bg-okr-svetly p-6">
+              <li key={s.title} className={`rounded-2xl p-6 ${i === 0 ? 'bg-serik' : 'bg-maslova'}`}>
                 <h3 className="text-xl font-bold text-kakao">{i + 1}. {s.title}</h3>
-                <p className="mt-2 text-kakao-muted">{s.text}</p>
+                <p className="mt-2 text-kakao">{s.text}</p>
               </li>
             ))}
           </ol>
@@ -191,11 +192,7 @@ export function Registration() {
 }
 
 /* ---------- TERMÍNY + PODMÍNKY ---------- */
-const dateCard = {
-  okr: 'bg-okr border-okr',
-  bila: 'bg-bila border-pisek',
-}
-const dateColor = ['text-kakao', 'text-palena', 'text-serik-tmavy']
+const dateCard = ['bg-okr', 'bg-serik', 'bg-maslova']
 
 export function Dates() {
   return (
@@ -206,15 +203,15 @@ export function Dates() {
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {dates.items.map((d, i) => (
-            <div key={d.label} className={`rounded-2xl border p-6 ${dateCard[d.tone]}`}>
-              <div className={`text-sm ${d.tone === 'okr' ? 'text-kakao' : 'text-kakao-muted'}`}>{d.label}</div>
-              <div className={`mt-2 font-heading text-3xl font-bold ${dateColor[i]}`}>{d.date}</div>
-              <div className={`mt-1 ${d.tone === 'okr' ? 'text-kakao' : 'text-kakao-muted'}`}>{d.place}</div>
+            <div key={d.label} className={`rounded-2xl p-6 ${dateCard[i % dateCard.length]}`}>
+              <div className="text-sm text-kakao">{d.label}</div>
+              <div className="mt-2 font-heading text-3xl font-bold text-kakao">{d.date}</div>
+              <div className="mt-1 text-kakao">{d.place}</div>
               <a
                 href={d.map}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-3 inline-flex items-center gap-1.5 text-sm underline underline-offset-4 ${d.tone === 'okr' ? 'text-kakao' : 'text-serik-tmavy'}`}
+                className="mt-3 inline-flex items-center gap-1.5 text-sm text-kakao underline underline-offset-4"
               >
                 <MapPin className="h-4 w-4" /> Na mapě
               </a>
@@ -228,7 +225,7 @@ export function Dates() {
 
         <div className="mt-16 grid gap-4 md:grid-cols-3">
           {conditions.map((c) => (
-            <div key={c.title} className="card bg-krem p-6">
+            <div key={c.title} className="rounded-2xl border-t-4 border-palena bg-okr-svetly p-6">
               <h3 className="text-xl font-bold text-kakao">{c.title}</h3>
               <p className="mt-2 text-kakao-muted leading-relaxed">{c.text}</p>
               {c.link && (
@@ -274,16 +271,16 @@ export function Team() {
 /* ---------- CITACE ---------- */
 export function Quotes() {
   return (
-    <section className="bg-kakao py-20 md:py-28">
+    <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-maslova">
+        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">
           Co o nás říkají účastníci z minulých let
         </h2>
         <div className="mt-10 grid gap-10 md:grid-cols-2">
           {quotes.map((q) => (
-            <figure key={q.who} className="border-l-4 border-okr pl-6">
-              <blockquote className="text-xl leading-snug text-krem">„{q.text}“</blockquote>
-              <figcaption className="mt-3 text-sm text-maslova">{q.who}</figcaption>
+            <figure key={q.who} className="border-l-4 border-terakota pl-6">
+              <blockquote className="text-xl leading-snug text-kakao">„{q.text}“</blockquote>
+              <figcaption className="mt-3 text-sm font-bold text-kakao">{q.who}</figcaption>
             </figure>
           ))}
         </div>
@@ -295,7 +292,7 @@ export function Quotes() {
 /* ---------- FAQ ---------- */
 export function Faq() {
   return (
-    <section id="faq" className="py-20 md:py-28">
+    <section id="faq" className="bg-bila py-20 md:py-28">
       <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_1.6fr]`}>
         <div>
           <h2 className={h2}>Časté otázky</h2>
