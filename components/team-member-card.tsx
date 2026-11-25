@@ -33,21 +33,21 @@ function Bio({ text }: { text: string }) {
 
 export function TeamMemberCard({ name, nickname, role, description, image }: TeamMember) {
   const card = (
-    <div className="group card overflow-hidden h-full flex flex-col text-left transition-transform duration-300 hover:-translate-y-1">
+    <div className="card overflow-hidden h-full flex flex-col text-left">
       <div className="relative aspect-square w-full bg-pisek overflow-hidden">
         <Image
           src={image}
           alt={`${nickname} – ${name}`}
           fill
           sizes="(max-width: 640px) 50vw, 25vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+          className="object-cover"
         />
       </div>
       <div className="p-4 flex flex-col gap-1 flex-grow">
-        <span className="font-heading text-xl font-extrabold text-kakao leading-tight">{nickname}</span>
+        <span className="text-xl font-bold text-kakao leading-tight">{nickname}</span>
         <span className="text-sm text-kakao-muted">{name}</span>
         {role && (
-          <span className="mt-2 self-start rounded-full bg-serik px-2.5 py-0.5 text-xs font-medium text-kakao">
+          <span className="mt-2 self-start rounded-full bg-serik px-2.5 py-0.5 text-xs  text-kakao">
             {role}
           </span>
         )}
@@ -76,10 +76,10 @@ export function TeamMemberCard({ name, nickname, role, description, image }: Tea
               <Image src={image} alt={nickname} fill className="object-cover" />
             </div>
             <DialogHeader className="text-center sm:text-left flex-1 gap-1">
-              <DialogTitle className="font-heading text-3xl font-extrabold text-kakao">{nickname}</DialogTitle>
+              <DialogTitle className="font-heading text-3xl font-bold text-kakao">{nickname}</DialogTitle>
               <div className="text-kakao-muted">{name}</div>
               {role && (
-                <DialogDescription className="mt-1 self-center sm:self-start rounded-full bg-serik px-3 py-0.5 text-sm font-medium text-kakao">
+                <DialogDescription className="mt-1 self-center sm:self-start rounded-full bg-serik px-3 py-0.5 text-sm  text-kakao">
                   {role}
                 </DialogDescription>
               )}

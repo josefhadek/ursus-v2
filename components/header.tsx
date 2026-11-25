@@ -27,7 +27,7 @@ export function Header({ base = '' }: { base?: string }) {
     <header ref={ref} className="sticky top-0 z-50 border-t-4 border-okr bg-krem/95 backdrop-blur border-b border-b-pisek">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href={base || '#'} className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="font-heading text-2xl font-extrabold tracking-[0.06em] text-palena">URSUS</span>
+          <span className="font-heading text-2xl font-bold tracking-[0.06em] text-palena">URSUS</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-7" aria-label="Hlavní navigace">

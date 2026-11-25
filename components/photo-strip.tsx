@@ -51,7 +51,7 @@ export function PhotoStrip() {
         ))}
       </div>
       <div className="mt-4 flex items-center justify-between px-4 sm:px-6">
-        <a href="https://ursusvlk.zonerama.com/" target="_blank" rel="noopener noreferrer" className="text-serik-tmavy font-medium underline underline-offset-4 hover:text-kakao">
+        <a href="https://ursusvlk.zonerama.com/" target="_blank" rel="noopener noreferrer" className="text-serik-tmavy  underline underline-offset-4 hover:text-kakao">
           Celá fotogalerie na Zoneramě
         </a>
         <div className="flex gap-2">
