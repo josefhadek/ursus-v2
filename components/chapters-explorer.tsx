@@ -43,14 +43,14 @@ export function ChaptersExplorer() {
               onClick={() => setActive(i)}
               onKeyDown={(e) => onKey(e, i)}
               style={{ backgroundColor: c.bg }}
-              className="flex h-16 w-16 shrink-0 items-start justify-center rounded-2xl pt-2 opacity-75 transition-[height,opacity] hover:opacity-100 aria-selected:h-[4.5rem] aria-selected:rounded-b-none aria-selected:opacity-100 lg:h-[5.5rem] lg:w-auto lg:aria-selected:h-24"
+              className="flex h-14 w-14 shrink-0 items-start justify-center rounded-xl pt-2.5 opacity-75 transition-[height,opacity] hover:opacity-100 aria-selected:h-16 aria-selected:rounded-b-none aria-selected:opacity-100 lg:h-16 lg:w-auto lg:aria-selected:h-[4.5rem]"
             >
               <Image
                 src={`/medvedi/${c.slug}.webp`}
                 alt=""
                 width={120}
                 height={120}
-                className="h-12 w-12 object-contain lg:h-[4.5rem] lg:w-[4.5rem]"
+                className="h-9 w-9 object-contain lg:h-11 lg:w-11"
               />
               <span className="sr-only">{c.title}</span>
             </button>
