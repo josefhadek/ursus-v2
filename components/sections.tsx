@@ -128,69 +128,73 @@ export function Chapters() {
 
 /* ---------- PŘIHLÁŠKA ---------- */
 export function Registration() {
+  const w = registration.window
   return (
     <section id="prihlaska" className="bg-okr py-20 md:py-28">
-      <div className={wrap}>
-        <div className="card p-7 md:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:items-center">
-            <div>
-              <h2 className={h2}>{registration.title}</h2>
-              <p className="mt-4 text-[clamp(1.15rem,2vw,1.5rem)] leading-relaxed text-kakao-muted">
-                {registration.textBefore}{' '}
-                <mark className="rounded-md bg-maslova px-1.5 text-kakao box-decoration-clone">{registration.deadline}</mark>
-                {registration.textAfter}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3 lg:justify-end">
-              {registration.steps.map((st, i) => {
-                const ext = st.href.startsWith('http')
-                return (
-                  <a
-                    key={st.cta}
-                    href={st.href}
-                    {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                    className={i === 0 ? 'btn-primary' : 'btn-outline'}
-                  >
-                    {st.cta} {ext && <ExternalLink className="h-4 w-4" />}
-                  </a>
-                )
-              })}
-            </div>
-          </div>
-
-          <ol className="mt-10 grid gap-4 md:grid-cols-2">
-            {registration.steps.map((s, i) => (
-              <li key={s.title} className={`rounded-2xl p-6 ${i === 0 ? 'bg-serik' : 'bg-maslova'}`}>
-                <h3 className="text-xl font-bold text-kakao">{i + 1}. {s.title}</h3>
-                <p className="mt-2 text-kakao">{s.text}</p>
-              </li>
-            ))}
-          </ol>
-
-          <div className="mt-6 space-y-2 text-kakao-muted">
-            {registration.notes.map((n) => (
-              <p key={n}>{n}</p>
-            ))}
-          </div>
+      <div className={`${wrap} grid gap-10 lg:grid-cols-[0.9fr_1.1fr]`}>
+        <div>
+          <h2 className={h2}>{registration.title}</h2>
+          <p className="mt-6 text-sm font-bold text-kakao">Přihlašování</p>
+          <p className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-tight text-kakao">
+            {w.from} – {w.to}
+          </p>
+          <p className="text-kakao">{w.time}</p>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-kakao">{registration.intro}</p>
         </div>
+
+        <ol className="grid gap-4">
+          {registration.steps.map((st, i) => {
+            const ext = st.href.startsWith('http')
+            return (
+              <li key={st.title} className="flex flex-col gap-4 rounded-2xl bg-bila p-6 sm:flex-row sm:items-center">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-kakao font-heading text-xl font-bold text-maslova">
+                  {i + 1}
+                </span>
+                <div className="flex-1">
+                  <h3 className="text-xl font-bold text-kakao">{st.title}</h3>
+                  <p className="mt-1 text-kakao-muted">{st.text}</p>
+                </div>
+                <a
+                  href={st.href}
+                  {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  className="btn-primary shrink-0 self-start sm:self-center"
+                >
+                  {st.cta} {ext && <ExternalLink className="h-4 w-4" />}
+                </a>
+              </li>
+            )
+          })}
+        </ol>
+      </div>
+
+      <div className={`${wrap} mt-12`}>
+        <h3 className="text-xl font-bold text-kakao">{registration.after.title}</h3>
+        <dl className="mt-4 grid gap-6 border-t border-kakao/30 pt-5 md:grid-cols-3">
+          {registration.after.items.map((it) => (
+            <div key={it.label}>
+              <dt className="font-bold text-kakao">{it.label}</dt>
+              <dd className="mt-1 text-kakao">{it.text}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   )
 }
 
 /* ---------- TERMÍNY + PODMÍNKY ---------- */
-const dateCard = ['bg-okr', 'bg-serik', 'bg-maslova']
+const dateCard = ['border-okr', 'border-serik-tmavy', 'border-terakota']
 
 export function Dates() {
   return (
-    <section id="terminy" className="bg-bila py-20 md:py-28">
+    <section id="terminy" className="bg-krem py-20 md:py-28">
       <div className={wrap}>
         <div className="flex flex-wrap items-center gap-3">
           <h2 className={h2}>{dates.title}</h2>
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-3">
           {dates.items.map((d, i) => (
-            <div key={d.label} className={`rounded-2xl p-6 ${dateCard[i % dateCard.length]}`}>
+            <div key={d.label} className={`rounded-2xl border-t-[6px] bg-bila p-6 ${dateCard[i % dateCard.length]}`}>
               <div className="text-sm text-kakao">{d.label}</div>
               <div className="mt-2 font-heading text-3xl font-bold text-kakao">{d.date}</div>
               <div className="mt-1 text-kakao">{d.place}</div>
@@ -205,14 +209,14 @@ export function Dates() {
             </div>
           ))}
         </div>
-        <p className="mt-6 rounded-2xl bg-okr-svetly p-5 text-kakao">
+        <p className="mt-6 rounded-2xl border-l-4 border-palena bg-bila p-5 text-kakao">
           <strong className="font-bold">Pozor: </strong>
           {dates.warning}
         </p>
 
         <div className="mt-16 grid gap-4 md:grid-cols-3">
           {conditions.map((c) => (
-            <div key={c.title} className="rounded-2xl border-t-4 border-palena bg-okr-svetly p-6">
+            <div key={c.title} className="card p-6">
               <h3 className="text-xl font-bold text-kakao">{c.title}</h3>
               <p className="mt-2 text-kakao-muted leading-relaxed">{c.text}</p>
               {c.link && (
@@ -231,7 +235,7 @@ export function Dates() {
 /* ---------- TÝM ---------- */
 export function Team() {
   return (
-    <section id="tym" className="py-20 md:py-28">
+    <section id="tym" className="bg-bila py-20 md:py-28">
       <div className={wrap}>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>

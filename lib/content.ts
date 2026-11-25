@@ -144,18 +144,21 @@ export const stezkaPreview = {
 }
 
 export const registration = {
-  title: 'Přihláška ve dvou krocích',
-  textBefore: 'Přihlašování probíhá',
-  deadline: 'od 4. 1. 2027 12:00 do 10. 1. 2027 12:00',
-  textAfter: '. Na pořadí přihlášení nezáleží.',
+  title: 'Přihláška',
+  window: { from: '4. 1. 2027', to: '10. 1. 2027', time: 'vždy ve 12:00' },
+  intro: 'Přihláška má dva kroky. Oba musíš stihnout do konce přihlašování, na pořadí nezáleží.',
   steps: [
-    { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Vyplň SkautIS', href: links.skautis },
-    { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplň analýzu', href: links.analyza },
+    { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautis },
+    { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplnit analýzu', href: links.analyza },
   ],
-  notes: [
-    'Po konci přihlašování účastníky náhodně losujeme. Uchazeče, kteří už dříve na vůdcovský kurz nebyli přijati, v losování zohledňujeme.',
-    'Přijmeme 26 účastnic a účastníků. Snažíme se o vyrovnaný poměr dívek a chlapců (nejvýš 16:10) a můžeme omezit počet lidí z jednoho střediska, pokud by jich bylo víc než 3.',
-  ],
+  after: {
+    title: 'Co bude potom',
+    items: [
+      { label: 'Losování', text: 'Po konci přihlašování účastníky náhodně losujeme. Kdo už dřív na vůdcovský kurz přijatý nebyl, toho v losování zohledňujeme.' },
+      { label: '26 míst', text: 'Snažíme se o vyrovnaný poměr dívek a chlapců (nejvýš 16:10).' },
+      { label: 'Ze střediska', text: 'Pokud se přihlásí víc než 3 lidé z jednoho střediska, můžeme jejich počet omezit.' },
+    ],
+  },
 }
 
 export const dates = {
