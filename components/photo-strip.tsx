@@ -1,8 +1,4 @@
-'use client'
-
 import Image from 'next/image'
-import { useRef } from 'react'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
 
 const photos = [
   { src: '/carousel/2.webp', alt: 'Účastnice s úkolem ze stezky' },
@@ -16,52 +12,30 @@ const photos = [
   { src: '/carousel/10.webp', alt: 'Instruktoři a účastníci' },
 ]
 
+// Pás fotek, který se plynule posouvá doprava. Fotky jsou v pásu dvakrát za sebou,
+// animace posune o polovinu a navazuje bez skoku. Při najetí myší se zastaví,
+// při „omezit pohyb“ v systému stojí a dá se posouvat ručně.
 export function PhotoStrip() {
-  const track = useRef<HTMLDivElement>(null)
-
-  const go = (dir: 1 | -1) => {
-    const el = track.current
-    if (!el) return
-    const item = el.querySelector<HTMLElement>('[data-slide]')
-    const step = item ? item.offsetWidth + 16 : el.clientWidth * 0.8
-    el.scrollBy({ left: dir * step, behavior: 'smooth' })
-  }
-
+  const row = [...photos, ...photos]
   return (
-    <div className="relative">
-      <div
-        ref={track}
-        data-strip-track
-        tabIndex={0}
-        aria-label="Fotky z minulých ročníků"
-        onKeyDown={(e) => {
-          if (e.key === 'ArrowRight') { e.preventDefault(); go(1) }
-          if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1) }
-        }}
-        className="no-scrollbar flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-px-4 px-4 sm:px-6 pb-2 rounded-2xl"
-      >
-        {photos.map((p) => (
-          <figure
-            key={p.src}
-            data-slide
-            className="relative shrink-0 snap-start w-[78%] sm:w-[46%] lg:w-[31%] aspect-[4/3] overflow-hidden rounded-2xl bg-pisek"
-          >
-            <Image src={p.src} alt={p.alt} fill sizes="(max-width: 640px) 78vw, 31vw" className="object-cover" />
-          </figure>
-        ))}
+    <div className="px-4 sm:px-6">
+      <div className="overflow-hidden rounded-2xl motion-reduce:overflow-x-auto" aria-label="Fotky z minulých ročníků" role="region">
+        <div className="photo-marquee flex w-max gap-4 hover:[animation-play-state:paused]">
+          {row.map((p, i) => (
+            <figure
+              key={`${p.src}-${i}`}
+              aria-hidden={i >= photos.length}
+              className="relative h-[220px] w-[300px] shrink-0 overflow-hidden rounded-2xl bg-pisek sm:h-[260px] sm:w-[360px]"
+            >
+              <Image src={p.src} alt={i >= photos.length ? '' : p.alt} fill sizes="360px" className="object-cover" />
+            </figure>
+          ))}
+        </div>
       </div>
-      <div className="mt-4 flex items-center justify-between px-4 sm:px-6">
-        <a href="https://ursusvlk.zonerama.com/" target="_blank" rel="noopener noreferrer" className="text-serik-tmavy  underline underline-offset-4 hover:text-kakao">
+      <div className="mt-4">
+        <a href="https://ursusvlk.zonerama.com/" target="_blank" rel="noopener noreferrer" className="text-serik-tmavy underline underline-offset-4 hover:text-kakao">
           Celá fotogalerie na Zoneramě
         </a>
-        <div className="flex gap-2">
-          <button type="button" data-strip="-1" onClick={() => go(-1)} aria-label="Předchozí fotky" className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-kakao text-kakao hover:bg-okr-svetly">
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button type="button" data-strip="1" onClick={() => go(1)} aria-label="Další fotky" className="inline-flex h-11 w-11 items-center justify-center rounded-full border-2 border-kakao text-kakao hover:bg-okr-svetly">
-            <ChevronRight className="h-5 w-5" />
-          </button>
-        </div>
       </div>
     </div>
   )

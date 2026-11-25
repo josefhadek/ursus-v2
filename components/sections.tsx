@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { ExternalLink, MapPin, Plus } from 'lucide-react'
 import {
   hero,
-  facts,
   about,
   pillars,
   chapters,
@@ -65,17 +64,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Fakta na jeden řádek */}
-      <div className={`${wrap} pb-16`}>
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-4 border-y border-pisek py-5 md:grid-cols-4">
-          {facts.map((f) => (
-            <div key={f.label}>
-              <dt className="text-sm text-kakao-muted">{f.label}</dt>
-              <dd className="font-bold text-kakao">{f.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
     </section>
   )
 }

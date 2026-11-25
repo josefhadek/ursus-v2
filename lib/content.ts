@@ -27,7 +27,7 @@ export const nav = [
 
 export const hero = {
   badge: `Vůdcovský kurz · ${ROCNIK}`,
-  titleStart: 'Vůdcovský kurz',
+  titleStart: 'Vůdcovský lesní kurz',
   titleAccent: 'Ursus',
   lead: 'Kurz pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta.',
 }

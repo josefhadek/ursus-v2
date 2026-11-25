@@ -151,6 +151,14 @@
   }
 }
 
+@keyframes photo-marquee {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+.photo-marquee {
+  animation: photo-marquee 70s linear infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
