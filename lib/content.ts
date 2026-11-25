@@ -73,7 +73,7 @@ export const pillars = [
 
 export const chapters = {
   title: 'Stezka Cesta Ursu',
-  lead: 'Kurz i naše stezka jsou rozdělené do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
+  lead: 'Náš kurz nemá zkouškový víkend. Vůdcovské kompetence ověřujeme průběžně pomocí stezky Cesta Ursu, která je stejně jako kurz rozdělená do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
   items: [
     {
       slug: 'myslenkove',
@@ -136,11 +136,12 @@ export const chapters = {
 
 export const stezkaPreview = {
   cta: 'Prolistuj ukázku stezky',
-  note: 'Cesta Ursu 2026 · 3 ukázkové strany',
+  note: 'Cesta Ursu 2026 · obálka a 3 ukázkové strany',
   pages: [
     { src: '/stezka/obalka.webp', alt: 'Obálka stezky Cesta Ursu 2026' },
-    { src: '/stezka/predstaveni.webp', alt: 'Strana Představení stezky a příznaky úkolů' },
-    { src: '/stezka/ukazka-ukolu.webp', alt: 'Ukázka úkolů z kapitoly Myšlenkové základy a historie skautingu' },
+    { src: '/stezka/priroda.webp', alt: 'Ukázka úkolu Příroda z kapitoly Metodika' },
+    { src: '/stezka/vzajemne-uceni.webp', alt: 'Ukázka úkolů Vzájemné učení, 2 v 1 a Družinová zpětná vazba z kapitoly Seberozvoj' },
+    { src: '/stezka/muj-pokrok.webp', alt: 'Strana Můj pokrok s přehledem kapitol a úkolů' },
   ],
 }
 
@@ -175,11 +176,11 @@ export const dates = {
   title: `Termíny běhů ${ROCNIK}`,
   items: [
     { label: 'Jarní víkend', date: '12.–14. 3. 2027', place: 'Nymburk (Tortuga)', map: 'https://mapy.com/s/gevahanovu', tone: 'okr' as const },
-    { label: 'Letní část', date: '13.–22. 8. 2027', place: 'Chválkov', map: 'https://mapy.com/s/gujazotagu', tone: 'bila' as const },
+    { label: 'Letní běh', date: '13.–22. 8. 2027', place: 'Chválkov', map: 'https://mapy.com/s/gujazotagu', tone: 'bila' as const },
     { label: 'Podzimní víkend', date: '17.–19. 9. 2027', place: 'Trutnov', map: 'https://mapy.com/s/jebomefusa', tone: 'bila' as const },
   ],
   warning:
-    'Kurz je postavený tak, abys požadavky k vůdcovské zkoušce splnil/a na konci letní části. Velká část samostatné práce proto probíhá mezi jarní a letní částí – zrovna když bývají maturity. Zvaž prosím své časové možnosti.',
+    'Kurz je postavený tak, abys požadavky k vůdcovské zkoušce splnil/a na konci letního běhu. Velká část samostatné práce proto probíhá mezi jarním víkendem a letním během – zrovna když bývají maturity. Zvaž prosím své časové možnosti.',
 }
 
 export const conditions = [

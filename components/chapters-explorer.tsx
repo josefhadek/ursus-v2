@@ -21,7 +21,7 @@ export function ChaptersExplorer() {
   }
 
   return (
-    <div data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ title, bg, ink, questions }) => ({ title, bg, ink, questions })))}>
+    <div className="[filter:drop-shadow(0_14px_28px_rgba(69,32,31,0.14))_drop-shadow(0_2px_4px_rgba(69,32,31,0.06))]" data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ title, bg, ink, questions }) => ({ title, bg, ink, questions })))}>
       <div
         role="tablist"
         aria-label="Kapitoly Cesty Ursu"
@@ -43,7 +43,7 @@ export function ChaptersExplorer() {
               onClick={() => setActive(i)}
               onKeyDown={(e) => onKey(e, i)}
               style={{ backgroundColor: c.bg }}
-              className="flex h-14 w-14 shrink-0 items-start justify-center rounded-xl pt-2.5 opacity-75 transition-[height,opacity] hover:opacity-100 aria-selected:h-16 aria-selected:rounded-b-none aria-selected:opacity-100 lg:h-16 lg:w-auto lg:aria-selected:h-[4.5rem]"
+              className="flex h-14 w-14 shrink-0 items-start justify-center rounded-xl pt-2.5 opacity-75 transition-opacity hover:opacity-100 aria-selected:h-16 aria-selected:rounded-b-none aria-selected:opacity-100 lg:h-16 lg:w-auto lg:aria-selected:h-[4.5rem]"
             >
               <Image
                 src={`/medvedi/${c.slug}.webp`}
@@ -68,18 +68,20 @@ export function ChaptersExplorer() {
           borderTopLeftRadius: active === 0 ? 0 : undefined,
           borderTopRightRadius: active === chapters.items.length - 1 ? 0 : undefined,
         }}
-        className="min-h-[200px] rounded-2xl p-6 md:p-8"
+        className="min-h-[200px] rounded-2xl p-6 transition-[background-color] duration-300 md:p-8"
       >
-        <h3 className="text-2xl font-bold leading-tight" style={{ color: ch.ink }} data-chapter-title>
-          {ch.title}
-        </h3>
-        <ul className="mt-4 space-y-2 text-kakao" data-chapter-questions>
-          {ch.questions.map((q) => (
-            <li key={q} className="italic leading-snug">
-              {q}
-            </li>
-          ))}
-        </ul>
+        <div key={active} className="chapter-in" data-chapter-body>
+          <h3 className="text-2xl font-bold leading-tight" style={{ color: ch.ink }} data-chapter-title>
+            {ch.title}
+          </h3>
+          <ul className="mt-4 space-y-2 text-kakao" data-chapter-questions>
+            {ch.questions.map((q) => (
+              <li key={q} className="italic leading-snug">
+                {q}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   )

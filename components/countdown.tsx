@@ -49,7 +49,7 @@ export function Countdown() {
       data-start={cd.start}
       data-end={cd.end}
       data-copy={JSON.stringify({ before: cd.before, running: cd.running, over: cd.over })}
-      className="relative overflow-hidden rounded-3xl bg-kakao px-6 py-10 text-krem sm:px-10 md:px-14 md:py-14"
+      className="relative overflow-hidden rounded-3xl rounded-tl-none rounded-br-none bg-kakao px-6 py-10 text-krem sm:px-10 md:px-14 md:py-14"
     >
       <Circles />
       <div className="relative">

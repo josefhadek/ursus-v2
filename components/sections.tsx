@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ExternalLink, MapPin, Plus } from 'lucide-react'
+import { ChevronDown, ExternalLink, MapPin, Plus } from 'lucide-react'
+import { QuotesStrip } from '@/components/quotes-strip'
 import {
   hero,
   about,
@@ -80,7 +81,6 @@ export function CountdownSection() {
 }
 
 /* ---------- O KURZU + PILÍŘE ---------- */
-const pillarBg = ['bg-okr', 'bg-serik', 'bg-maslova', 'bg-okr-svetly']
 export function About() {
   return (
     <section id="o-kurzu" className="bg-bila py-20 md:py-28">
@@ -102,16 +102,14 @@ export function About() {
 
       <div className={`${wrap} mt-20`}>
         <h3 className="font-heading text-3xl font-bold text-kakao">Jaký je Ursus?</h3>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          {pillars.map((p, i) => (
-            <article key={p.title} className={`grid overflow-hidden rounded-2xl sm:grid-cols-[38%_1fr] ${pillarBg[i % pillarBg.length]}`}>
-              <div className="relative aspect-[4/3] sm:aspect-auto sm:min-h-[220px]">
-                <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, 20vw" className="object-cover" />
+        <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((p) => (
+            <article key={p.title}>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-pisek">
+                <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
               </div>
-              <div className="p-6">
-                <h4 className="text-2xl font-bold text-kakao">{p.title}</h4>
-                <p className="mt-2 text-kakao leading-relaxed">{p.text}</p>
-              </div>
+              <h4 className="mt-5 text-2xl font-bold text-kakao">{p.title}</h4>
+              <p className="mt-2 text-kakao-muted leading-relaxed">{p.text}</p>
             </article>
           ))}
         </div>
@@ -186,6 +184,9 @@ export function Registration() {
 /* ---------- TERMÍNY + PODMÍNKY ---------- */
 const dateDot = ['bg-okr', 'bg-serik-tmavy', 'bg-terakota']
 
+const price = conditions.find((c) => 'big' in c && c.big) as { title: string; big: string; text: string } | undefined
+const otherConditions = conditions.filter((c) => c !== price)
+
 export function Dates() {
   return (
     <section id="terminy" className="bg-krem py-20 md:py-28">
@@ -213,25 +214,33 @@ export function Dates() {
           ))}
         </ol>
 
+        {price && (
+          <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-kakao">
+            <span className="text-lg">Cena kurzu:</span>
+            <strong className="text-2xl font-bold text-palena">{price.big}</strong>
+            <span className="basis-full text-sm text-kakao-muted sm:basis-auto">{price.text}</span>
+          </p>
+        )}
+
         <p className="mt-6 max-w-3xl border-l-4 border-palena pl-5 text-kakao">
           <strong className="font-bold">Pozor: </strong>
           {dates.warning}
         </p>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-3">
-          {conditions.map((c) => (
-            <div key={c.title}>
-              <h3 className="text-xl font-bold text-kakao">{c.title}</h3>
-              {'big' in c && c.big && (
-                <p className="mt-2 text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none text-palena">{c.big}</p>
-              )}
-              <p className="mt-2 text-kakao-muted leading-relaxed">{c.text}</p>
+        <div className="mt-14 divide-y divide-pisek border-y border-pisek">
+          {otherConditions.map((c) => (
+            <details key={c.title} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-kakao">
+                {c.title}
+                <ChevronDown className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-180" aria-hidden />
+              </summary>
+              <p className="mt-3 max-w-2xl text-kakao-muted leading-relaxed">{c.text}</p>
               {c.link && (
                 <a href={c.link.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-serik-tmavy underline underline-offset-4 hover:text-kakao">
                   {c.link.label}
                 </a>
               )}
-            </div>
+            </details>
           ))}
         </div>
       </div>
@@ -250,7 +259,7 @@ export function Team() {
             <TeamMemberCard key={m.nickname} {...m} />
           ))}
         </div>
-        <h3 className="mt-14 text-2xl font-bold text-kakao">Kuchaři</h3>
+        <h3 className="mt-14 text-2xl font-bold text-kakao">Kuchaři a MTZ</h3>
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {cooks.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
@@ -263,6 +272,8 @@ export function Team() {
 
 /* ---------- CITACE ---------- */
 const quoteGraphics = [
+  { src: '/images/citat-marda.webp', alt: '„Velice nadupaný kurz, při kterém jsem hltala každý jeden program a rozhodně jsem se u toho nenudila. Zažila jsem tu spoustu silných momentů, na které budu moc ráda vzpomínat.“ – Marda, účastnice Ursu 2025' },
+  { src: '/images/citat-sara.webp', alt: '„Ursus mi dal nejen nespočet informací, motivace a inspirace, ale hlavně sebevědomí a odvahu nebát se přicházet do oddílu se změnami a zajímavými projekty.“ – Sára, účastnice Ursu 2025' },
   { src: '/images/ursus-maty.webp', alt: '„Hledal jsem kurz, našel jsem rodinku.“ – Maty, účastník Ursu 2024' },
   { src: '/images/citat2-web.webp', alt: '„Ursus mne naučil, jak být skvělou vedoucí nejen pro děti, ale především pro svůj tým vedoucích.“ – účastnice Ursu 2023' },
   { src: '/images/citat1-web.webp', alt: '„Inspirovalo mě zpracování a provedení toho, jak jde programy tvořit skutečně podle skautské výchovné metody.“ – účastník Ursu 2023' },
@@ -272,16 +283,7 @@ export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">
-          Co o nás říká účastnictvo z minulých let
-        </h2>
-        <div className="mt-10 grid gap-5 sm:grid-cols-3">
-          {quoteGraphics.map((q) => (
-            <figure key={q.src} className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <Image src={q.src} alt={q.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
-            </figure>
-          ))}
-        </div>
+        <QuotesStrip title="Co o nás říká účastnictvo z minulých let" quotes={quoteGraphics} />
       </div>
     </section>
   )
