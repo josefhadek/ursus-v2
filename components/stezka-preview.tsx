@@ -41,10 +41,10 @@ export function StezkaPreview() {
             <Image src={pages[0].src} alt={pages[0].alt} fill sizes="300px" className="object-cover" />
           </div>
         </div>
-        <span className="mt-6 block text-center font-bold text-maslova underline underline-offset-4 group-hover:text-krem">
+        <span className="mt-6 block text-center font-bold text-palena underline underline-offset-4 group-hover:text-kakao">
           {stezkaPreview.cta}
         </span>
-        <span className="mt-1 block text-center text-sm text-krem/80">{stezkaPreview.note}</span>
+        <span className="mt-1 block text-center text-sm text-kakao-muted">{stezkaPreview.note}</span>
       </button>
 
       <dialog

@@ -111,11 +111,11 @@ export function About() {
 /* ---------- KAPITOLY / CESTA URSU ---------- */
 export function Chapters() {
   return (
-    <section id="kapitoly" className="bg-kakao py-20 md:py-28">
+    <section id="kapitoly" className="bg-krem py-20 md:py-28">
       <div className={wrap}>
         <div className="max-w-3xl">
-          <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-maslova">{chapters.title}</h2>
-          <p className="mt-4 text-lg leading-relaxed text-krem">{chapters.lead}</p>
+          <h2 className={h2}>{chapters.title}</h2>
+          <p className={`mt-4 ${lead}`}>{chapters.lead}</p>
         </div>
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start">
           <ChaptersExplorer />
