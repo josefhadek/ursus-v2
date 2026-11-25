@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ExternalLink, MapPin, Plus } from 'lucide-react'
+import { ChevronDown, ExternalLink, MapPin, Plus } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import {
   hero,
@@ -184,6 +184,9 @@ export function Registration() {
 /* ---------- TERMÍNY + PODMÍNKY ---------- */
 const dateDot = ['bg-okr', 'bg-serik-tmavy', 'bg-terakota']
 
+const price = conditions.find((c) => 'big' in c && c.big) as { title: string; big: string; text: string } | undefined
+const otherConditions = conditions.filter((c) => c !== price)
+
 export function Dates() {
   return (
     <section id="terminy" className="bg-krem py-20 md:py-28">
@@ -209,6 +212,16 @@ export function Dates() {
               </a>
             </li>
           ))}
+          {price && (
+            <li className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_2fr] md:items-baseline">
+              <span className="flex items-center gap-2 text-kakao-muted">
+                <span className="h-2.5 w-2.5 rounded-full bg-kakao" aria-hidden />
+                {price.title}
+              </span>
+              <span className="text-3xl font-bold text-palena">{price.big}</span>
+              <span className="text-kakao-muted">{price.text}</span>
+            </li>
+          )}
         </ol>
 
         <p className="mt-6 max-w-3xl border-l-4 border-palena pl-5 text-kakao">
@@ -216,20 +229,20 @@ export function Dates() {
           {dates.warning}
         </p>
 
-        <div className="mt-16 grid gap-10 md:grid-cols-3">
-          {conditions.map((c) => (
-            <div key={c.title}>
-              <h3 className="text-xl font-bold text-kakao">{c.title}</h3>
-              {'big' in c && c.big && (
-                <p className="mt-2 text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none text-palena">{c.big}</p>
-              )}
-              <p className="mt-2 text-kakao-muted leading-relaxed">{c.text}</p>
+        <div className="mt-14 divide-y divide-pisek border-y border-pisek">
+          {otherConditions.map((c) => (
+            <details key={c.title} className="group py-5">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-kakao">
+                {c.title}
+                <ChevronDown className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-180" aria-hidden />
+              </summary>
+              <p className="mt-3 max-w-2xl text-kakao-muted leading-relaxed">{c.text}</p>
               {c.link && (
                 <a href={c.link.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-serik-tmavy underline underline-offset-4 hover:text-kakao">
                   {c.link.label}
                 </a>
               )}
-            </div>
+            </details>
           ))}
         </div>
       </div>
