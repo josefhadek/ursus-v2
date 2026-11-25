@@ -271,7 +271,7 @@ export function Quotes() {
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
         <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">
-          Co o nás říkají účastníci z minulých let
+          Co o nás říká účastnictvo z minulých let
         </h2>
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
           {quoteGraphics.map((q) => (
