@@ -18,9 +18,9 @@ export const links = {
 
 export const nav = [
   { href: '#o-kurzu', label: 'O kurzu' },
-  { href: '#kapitoly', label: 'Kapitoly' },
+  { href: '#kapitoly', label: 'Stezka' },
   { href: '#prihlaska', label: 'Přihláška' },
-  { href: '#terminy', label: 'Termíny' },
+  { href: '#terminy', label: 'Ročník 2027' },
   { href: '#tym', label: 'Tým' },
   { href: '#faq', label: 'Časté otázky' },
 ]
