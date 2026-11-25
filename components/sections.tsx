@@ -80,7 +80,6 @@ export function CountdownSection() {
 }
 
 /* ---------- O KURZU + PILÍŘE ---------- */
-const pillarBg = ['bg-okr', 'bg-serik', 'bg-maslova', 'bg-okr-svetly']
 export function About() {
   return (
     <section id="o-kurzu" className="bg-bila py-20 md:py-28">
@@ -102,16 +101,14 @@ export function About() {
 
       <div className={`${wrap} mt-20`}>
         <h3 className="font-heading text-3xl font-bold text-kakao">Jaký je Ursus?</h3>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
-          {pillars.map((p, i) => (
-            <article key={p.title} className={`grid overflow-hidden rounded-2xl sm:grid-cols-[38%_1fr] ${pillarBg[i % pillarBg.length]}`}>
-              <div className="relative aspect-[4/3] sm:aspect-auto sm:min-h-[220px]">
-                <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, 20vw" className="object-cover" />
+        <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+          {pillars.map((p) => (
+            <article key={p.title}>
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-pisek">
+                <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover" />
               </div>
-              <div className="p-6">
-                <h4 className="text-2xl font-bold text-kakao">{p.title}</h4>
-                <p className="mt-2 text-kakao leading-relaxed">{p.text}</p>
-              </div>
+              <h4 className="mt-5 text-2xl font-bold text-kakao">{p.title}</h4>
+              <p className="mt-2 text-kakao-muted leading-relaxed">{p.text}</p>
             </article>
           ))}
         </div>
