@@ -175,11 +175,11 @@ export const dates = {
   title: `Termíny běhů ${ROCNIK}`,
   items: [
     { label: 'Jarní víkend', date: '12.–14. 3. 2027', place: 'Nymburk (Tortuga)', map: 'https://mapy.com/s/gevahanovu', tone: 'okr' as const },
-    { label: 'Letní část', date: '13.–22. 8. 2027', place: 'Chválkov', map: 'https://mapy.com/s/gujazotagu', tone: 'bila' as const },
+    { label: 'Letní běh', date: '13.–22. 8. 2027', place: 'Chválkov', map: 'https://mapy.com/s/gujazotagu', tone: 'bila' as const },
     { label: 'Podzimní víkend', date: '17.–19. 9. 2027', place: 'Trutnov', map: 'https://mapy.com/s/jebomefusa', tone: 'bila' as const },
   ],
   warning:
-    'Kurz je postavený tak, abys požadavky k vůdcovské zkoušce splnil/a na konci letní části. Velká část samostatné práce proto probíhá mezi jarní a letní částí – zrovna když bývají maturity. Zvaž prosím své časové možnosti.',
+    'Kurz je postavený tak, abys požadavky k vůdcovské zkoušce splnil/a na konci letního běhu. Velká část samostatné práce proto probíhá mezi jarním víkendem a letním během – zrovna když bývají maturity. Zvaž prosím své časové možnosti.',
 }
 
 export const conditions = [
