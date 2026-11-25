@@ -79,7 +79,7 @@ export function Countdown() {
         </dl>
 
         <div className="mt-10">
-          <a href={cd.reminder} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center gap-2 rounded-xl rounded-tl-none rounded-br-none border-2 border-krem/80 bg-kakao px-5 font-bold text-krem hover:bg-krem hover:text-kakao">
+          <a href={cd.reminder} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center gap-2 rounded-xl border-2 border-krem/80 bg-kakao px-5 font-bold text-krem hover:bg-krem hover:text-kakao">
             <BellRing className="h-5 w-5 shrink-0" /> <span><span className="hidden sm:inline">Nastavit p</span><span className="sm:hidden">P</span>řipomenutí ve SkautISu</span> <ExternalLink className="h-4 w-4 shrink-0" />
           </a>
         </div>

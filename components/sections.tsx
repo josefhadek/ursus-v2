@@ -48,7 +48,7 @@ export function Hero() {
           <div className="absolute -right-[8%] -top-[6%] h-[58%] w-[58%] rounded-full bg-okr" aria-hidden />
           <div className="absolute -left-[4%] bottom-[4%] h-[34%] w-[34%] rounded-full bg-serik" aria-hidden />
           <div className="absolute right-[6%] bottom-[2%] h-[14%] w-[14%] rounded-full bg-terakota" aria-hidden />
-          <div className="absolute inset-[9%] overflow-hidden rounded-[2rem] rounded-tl-none rounded-br-none border-[6px] border-bila">
+          <div className="absolute inset-[9%] overflow-hidden rounded-[2rem] border-[6px] border-bila">
             <Image
               src="/carousel/1.webp"
               alt="Účastníci Ursu ve večerním slunci"
@@ -58,7 +58,7 @@ export function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-[2%] top-[4%] h-[24%] w-[24%] overflow-hidden rounded-2xl rounded-tl-none rounded-br-none border-[5px] border-bila">
+          <div className="absolute left-[2%] top-[4%] h-[24%] w-[24%] overflow-hidden rounded-2xl border-[5px] border-bila">
             <Image src="/ursus-logo-kakao.webp" alt="Logo kurzu Ursus" fill sizes="140px" className="object-cover" />
           </div>
         </div>
