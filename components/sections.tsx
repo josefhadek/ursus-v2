@@ -130,7 +130,7 @@ export function Chapters() {
 export function Registration() {
   const w = registration.window
   return (
-    <section id="prihlaska" className="bg-okr py-20 md:py-28">
+    <section id="prihlaska" className="bg-bila py-20 md:py-28">
       <div className={`${wrap} grid gap-10 lg:grid-cols-[0.9fr_1.1fr]`}>
         <div>
           <h2 className={h2}>{registration.title}</h2>
@@ -138,7 +138,7 @@ export function Registration() {
           <p className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-tight text-kakao">
             {w.from} – {w.to}
           </p>
-          <p className="text-kakao">{w.time}</p>
+          <p className="text-kakao-muted">{w.time}</p>
           <p className="mt-6 max-w-md text-lg leading-relaxed text-kakao">{registration.intro}</p>
         </div>
 
@@ -146,7 +146,7 @@ export function Registration() {
           {registration.steps.map((st, i) => {
             const ext = st.href.startsWith('http')
             return (
-              <li key={st.title} className="flex flex-col gap-4 rounded-2xl bg-bila p-6 sm:flex-row sm:items-center">
+              <li key={st.title} className="flex flex-col gap-4 rounded-2xl border border-pisek bg-krem p-6 sm:flex-row sm:items-center">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-kakao font-heading text-xl font-bold text-maslova">
                   {i + 1}
                 </span>
@@ -169,11 +169,11 @@ export function Registration() {
 
       <div className={`${wrap} mt-12`}>
         <h3 className="text-xl font-bold text-kakao">{registration.after.title}</h3>
-        <dl className="mt-4 grid gap-6 border-t border-kakao/30 pt-5 md:grid-cols-3">
+        <dl className="mt-4 grid gap-6 border-t border-pisek pt-5 md:grid-cols-3">
           {registration.after.items.map((it) => (
             <div key={it.label}>
               <dt className="font-bold text-kakao">{it.label}</dt>
-              <dd className="mt-1 text-kakao">{it.text}</dd>
+              <dd className="mt-1 text-kakao-muted">{it.text}</dd>
             </div>
           ))}
         </dl>
@@ -218,6 +218,9 @@ export function Dates() {
           {conditions.map((c) => (
             <div key={c.title} className="card p-6">
               <h3 className="text-xl font-bold text-kakao">{c.title}</h3>
+              {'big' in c && c.big && (
+                <p className="mt-2 text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none text-palena">{c.big}</p>
+              )}
               <p className="mt-2 text-kakao-muted leading-relaxed">{c.text}</p>
               {c.link && (
                 <a href={c.link.href} target="_blank" rel="noopener noreferrer" className="mt-3 inline-block text-serik-tmavy underline underline-offset-4 hover:text-kakao">

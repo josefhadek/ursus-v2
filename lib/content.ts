@@ -185,7 +185,8 @@ export const conditions = [
   },
   {
     title: 'Cena',
-    text: 'Přibližně 4 500 Kč. Účastnický poplatek je nevratný, v případě nemoci se domluvíme individuálně.',
+    big: 'cca 4 500 Kč',
+    text: 'Účastnický poplatek je nevratný, v případě nemoci se domluvíme individuálně.',
   },
 ]
 
