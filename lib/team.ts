@@ -60,4 +60,6 @@ export const externists: TeamMember[] = []
 export const cooks: TeamMember[] = [
   { name: 'Petr Varmus', nickname: 'Hardy', image: '/images/hardy.webp' },
   { name: 'Anna Dvořáková', nickname: 'Anče', image: '/images/ance.webp' },
+  // TODO: fotka Fufníka – zatím logo jako zástupný obrázek
+  { name: 'Matouš Černík', nickname: 'Fufník', image: '/ursus-logo-kakao.webp' },
 ]
