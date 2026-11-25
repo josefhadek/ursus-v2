@@ -29,7 +29,7 @@ export const hero = {
   badge: `Vůdcovský kurz · ${ROCNIK}`,
   titleStart: 'Vůdcovský kurz',
   titleAccent: 'Ursus',
-  lead: 'Kurz pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta. Na konci tě čeká vůdcovská zkouška.',
+  lead: 'Kurz pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta.',
 }
 
 export const facts = [
