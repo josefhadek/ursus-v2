@@ -247,7 +247,7 @@ export function Team() {
             <TeamMemberCard key={m.nickname} {...m} />
           ))}
         </div>
-        <h3 className="mt-14 text-2xl font-bold text-kakao">Kuchaři</h3>
+        <h3 className="mt-14 text-2xl font-bold text-kakao">Kuchaři a MTZ</h3>
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {cooks.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
