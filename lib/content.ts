@@ -10,6 +10,7 @@ export const links = {
   analyza: '#prihlaska',
   zonerama: 'https://ursusvlk.zonerama.com/',
   facebook: 'https://www.facebook.com/vlk.ursus/',
+  instagram: 'https://www.instagram.com/vlk_ursus/',
   email: 'ursus@skaut.cz',
   rad: 'https://krizovatka.skaut.cz/spisovna/rady/rad-pro-vzdelavani-cinovnic-a-cinovniku',
   cekatelka21:
@@ -18,16 +19,16 @@ export const links = {
 
 export const nav = [
   { href: '#o-kurzu', label: 'O kurzu' },
-  { href: '#kapitoly', label: 'Kapitoly' },
+  { href: '#kapitoly', label: 'Stezka' },
   { href: '#prihlaska', label: 'Přihláška' },
-  { href: '#terminy', label: 'Termíny' },
+  { href: '#terminy', label: 'Ročník 2027' },
   { href: '#tym', label: 'Tým' },
   { href: '#faq', label: 'Časté otázky' },
 ]
 
 export const hero = {
   badge: `Vůdcovský kurz · ${ROCNIK}`,
-  titleStart: 'Vůdcovský kurz',
+  titleStart: 'Vůdcovský lesní kurz',
   titleAccent: 'Ursus',
   lead: 'Kurz pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta.',
 }
@@ -71,7 +72,7 @@ export const pillars = [
 ]
 
 export const chapters = {
-  title: 'Cesta Ursu',
+  title: 'Stezka Cesta Ursu',
   lead: 'Kurz i naše stezka jsou rozdělené do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
   items: [
     {
@@ -143,19 +144,31 @@ export const stezkaPreview = {
   ],
 }
 
+export const countdown = {
+  // 4. 1. 2027 12:00 a 10. 1. 2027 12:00 středoevropského času (UTC+1)
+  start: '2027-01-04T11:00:00Z',
+  end: '2027-01-10T11:00:00Z',
+  before: { title: 'Přihlašování spouštíme za', text: 'Přihlášky na ročník 2027 spustíme 4. 1. 2027 ve 12:00 a přijímat je budeme do 10. 1. 2027 ve 12:00. Připrav si přístup do SkautISu.' },
+  running: { title: 'Přihlašování končí za', text: 'Přihlašování na ročník 2027 právě běží – do 10. 1. 2027 ve 12:00 musíš stihnout oba kroky.' },
+  over: { title: 'Přihlašování skončilo', text: 'Přihlašování na ročník 2027 je uzavřené. Děkujeme všem, kdo se přihlásili.' },
+  reminder: 'https://is.skaut.cz/Junak/Events/Education/CourseReminderInsert.aspx?ID_EventEducationCourse=3688&IsLoggedIn=1',
+}
+
 export const registration = {
   title: 'Přihláška ve dvou krocích',
-  textBefore: 'Přihlašování probíhá',
-  deadline: 'od 4. 1. 2027 12:00 do 10. 1. 2027 12:00',
-  textAfter: '. Na pořadí přihlášení nezáleží.',
+  intro: 'Přihláška má dva kroky. Oba musíš stihnout do konce přihlašování, na pořadí nezáleží.',
   steps: [
-    { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Vyplň SkautIS', href: links.skautis },
-    { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplň analýzu', href: links.analyza },
+    { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautis },
+    { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplnit analýzu', href: links.analyza },
   ],
-  notes: [
-    'Po konci přihlašování účastníky náhodně losujeme. Uchazeče, kteří už dříve na vůdcovský kurz nebyli přijati, v losování zohledňujeme.',
-    'Přijmeme 26 účastnic a účastníků. Snažíme se o vyrovnaný poměr dívek a chlapců (nejvýš 16:10) a můžeme omezit počet lidí z jednoho střediska, pokud by jich bylo víc než 3.',
-  ],
+  after: {
+    title: 'Co bude potom',
+    items: [
+      { label: 'Losování', text: 'Po konci přihlašování účastníky náhodně losujeme. Kdo už dřív na vůdcovský kurz přijatý nebyl, toho v losování zohledňujeme.' },
+      { label: '26 míst', text: 'Snažíme se o vyrovnaný poměr dívek a chlapců (nejvýš 16:10).' },
+      { label: 'Ze střediska', text: 'Pokud se přihlásí víc než 3 lidé z jednoho střediska, můžeme jejich počet omezit.' },
+    ],
+  },
 }
 
 export const dates = {
@@ -182,13 +195,13 @@ export const conditions = [
   },
   {
     title: 'Cena',
-    text: 'Přibližně 4 500 Kč. Účastnický poplatek je nevratný, v případě nemoci se domluvíme individuálně.',
+    big: 'cca 4 500 Kč',
+    text: 'Účastnický poplatek je nevratný, v případě nemoci se domluvíme individuálně.',
   },
 ]
 
 export const team = {
-  title: 'Tým Ursu',
-  lead: 'Klikni na fotku a přečti si víc.',
+  title: 'Naši instruktoři a instruktorky',
 }
 
 export const quotes = [

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, Facebook, Images } from 'lucide-react'
+import { Mail, Facebook, Instagram, Images } from 'lucide-react'
 import { footer, links, nav } from '@/lib/content'
 
 export function Footer({ base = '' }: { base?: string }) {
@@ -7,8 +7,8 @@ export function Footer({ base = '' }: { base?: string }) {
     <footer id="kontakt" className="bg-kakao text-krem">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14 grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
-          <div className="font-heading text-3xl font-bold tracking-[0.06em] text-okr">URSUS</div>
-          <p className="mt-2 text-krem/85">Vůdcovský kurz Junáka – českého skauta</p>
+          <div className="font-heading text-3xl font-bold tracking-[0.06em] text-okr">VLK Ursus</div>
+          <p className="mt-2 text-krem/85">Vůdcovský lesní kurz Junáka – českého skauta</p>
           <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
             {nav.map((item) => (
               <li key={item.href}>
@@ -41,6 +41,11 @@ export function Footer({ base = '' }: { base?: string }) {
             <li>
               <a href={links.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-maslova">
                 <Facebook className="h-4 w-4 text-okr" /> VLK Ursus
+              </a>
+            </li>
+            <li>
+              <a href={links.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-maslova">
+                <Instagram className="h-4 w-4 text-okr" /> vlk_ursus
               </a>
             </li>
             <li>

@@ -21,8 +21,12 @@ export function ChaptersExplorer() {
   }
 
   return (
-    <div data-chapters>
-      <div role="tablist" aria-label="Kapitoly Cesty Ursu" className="grid grid-cols-4 gap-2 sm:gap-3">
+    <div data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ title, bg, ink, questions }) => ({ title, bg, ink, questions })))}>
+      <div
+        role="tablist"
+        aria-label="Kapitoly Cesty Ursu"
+        className="no-scrollbar flex items-start gap-2 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible"
+      >
         {chapters.items.map((c, i) => {
           const selected = i === active
           return (
@@ -39,16 +43,14 @@ export function ChaptersExplorer() {
               onClick={() => setActive(i)}
               onKeyDown={(e) => onKey(e, i)}
               style={{ backgroundColor: c.bg }}
-              className={`group flex aspect-square lg:aspect-[5/4] flex-col items-center justify-center rounded-2xl p-2 transition-[box-shadow] ${
-                selected ? 'ring-[3px] ring-kakao' : 'ring-0 hover:ring-2 hover:ring-kakao/30'
-              }`}
+              className="flex h-14 w-14 shrink-0 items-start justify-center rounded-xl pt-2.5 opacity-75 transition-[height,opacity] hover:opacity-100 aria-selected:h-16 aria-selected:rounded-b-none aria-selected:opacity-100 lg:h-16 lg:w-auto lg:aria-selected:h-[4.5rem]"
             >
               <Image
                 src={`/medvedi/${c.slug}.webp`}
                 alt=""
                 width={120}
                 height={120}
-                className="h-[62%] w-[62%] object-contain"
+                className="h-9 w-9 object-contain lg:h-11 lg:w-11"
               />
               <span className="sr-only">{c.title}</span>
             </button>
@@ -61,13 +63,14 @@ export function ChaptersExplorer() {
         role="tabpanel"
         aria-labelledby={`kapitola-tab-${active}`}
         data-chapter-panel
-        style={{ backgroundColor: ch.bg }}
-        className="mt-3 rounded-2xl p-6 md:p-8 min-h-[220px]"
+        style={{
+          backgroundColor: ch.bg,
+          borderTopLeftRadius: active === 0 ? 0 : undefined,
+          borderTopRightRadius: active === chapters.items.length - 1 ? 0 : undefined,
+        }}
+        className="min-h-[200px] rounded-2xl p-6 md:p-8"
       >
-        <div className="text-sm" style={{ color: ch.ink }} data-chapter-count>
-          Kapitola {active + 1} z {chapters.items.length}
-        </div>
-        <h3 className="mt-1 text-2xl font-bold leading-tight" style={{ color: ch.ink }} data-chapter-title>
+        <h3 className="text-2xl font-bold leading-tight" style={{ color: ch.ink }} data-chapter-title>
           {ch.title}
         </h3>
         <ul className="mt-4 space-y-2 text-kakao" data-chapter-questions>

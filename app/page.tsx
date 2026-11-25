@@ -1,6 +1,6 @@
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Hero, About, Chapters, Registration, Dates, Team, Quotes, Faq } from '@/components/sections'
+import { Hero, CountdownSection, About, Chapters, Registration, Dates, Team, Quotes, Faq } from '@/components/sections'
 
 export default function Home() {
   return (
@@ -8,6 +8,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <CountdownSection />
         <About />
         <Chapters />
         <Registration />
