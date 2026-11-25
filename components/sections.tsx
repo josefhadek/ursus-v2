@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ExternalLink, MapPin, Plus } from 'lucide-react'
+import { QuotesStrip } from '@/components/quotes-strip'
 import {
   hero,
   about,
@@ -260,6 +261,8 @@ export function Team() {
 
 /* ---------- CITACE ---------- */
 const quoteGraphics = [
+  { src: '/images/citat-marda.webp', alt: '„Velice nadupaný kurz, při kterém jsem hltala každý jeden program a rozhodně jsem se u toho nenudila. Zažila jsem tu spoustu silných momentů, na které budu moc ráda vzpomínat.“ – Marda, účastnice Ursu 2025' },
+  { src: '/images/citat-sara.webp', alt: '„Ursus mi dal nejen nespočet informací, motivace a inspirace, ale hlavně sebevědomí a odvahu nebát se přicházet do oddílu se změnami a zajímavými projekty.“ – Sára, účastnice Ursu 2025' },
   { src: '/images/ursus-maty.webp', alt: '„Hledal jsem kurz, našel jsem rodinku.“ – Maty, účastník Ursu 2024' },
   { src: '/images/citat2-web.webp', alt: '„Ursus mne naučil, jak být skvělou vedoucí nejen pro děti, ale především pro svůj tým vedoucích.“ – účastnice Ursu 2023' },
   { src: '/images/citat1-web.webp', alt: '„Inspirovalo mě zpracování a provedení toho, jak jde programy tvořit skutečně podle skautské výchovné metody.“ – účastník Ursu 2023' },
@@ -269,16 +272,7 @@ export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">
-          Co o nás říká účastnictvo z minulých let
-        </h2>
-        <div className="mt-10 grid gap-5 sm:grid-cols-3">
-          {quoteGraphics.map((q) => (
-            <figure key={q.src} className="relative aspect-[4/5] overflow-hidden rounded-2xl">
-              <Image src={q.src} alt={q.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
-            </figure>
-          ))}
-        </div>
+        <QuotesStrip title="Co o nás říká účastnictvo z minulých let" quotes={quoteGraphics} />
       </div>
     </section>
   )

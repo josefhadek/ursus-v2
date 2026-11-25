@@ -171,3 +171,10 @@
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+.quotes-track {
+  scrollbar-width: none;
+}
+.quotes-track::-webkit-scrollbar {
+  display: none;
+}
