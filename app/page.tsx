@@ -1,23 +1,20 @@
 import { Header } from '@/components/header'
-import { HeroSection } from '@/components/hero-section'
-import { AboutSection } from '@/components/about-section'
-import { WhatIsUrsusSection } from '@/components/what-is-ursus-section'
-import { EventsSection } from '@/components/events-section'
-import { Ursus2026Section } from '@/components/aktualni-rocnik'
-import { TestimonialsCarousel } from '@/components/testimonials-carousel'
 import { Footer } from '@/components/footer'
+import { Hero, About, Chapters, Registration, Dates, Team, Quotes, Faq } from '@/components/sections'
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-sand">
+    <div className="min-h-screen bg-krem">
       <Header />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <Ursus2026Section />
-        <WhatIsUrsusSection />
-        <EventsSection />
-        <TestimonialsCarousel />
+        <Hero />
+        <About />
+        <Chapters />
+        <Registration />
+        <Dates />
+        <Team />
+        <Quotes />
+        <Faq />
       </main>
       <Footer />
     </div>

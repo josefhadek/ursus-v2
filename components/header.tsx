@@ -1,161 +1,77 @@
 'use client'
 
 import Link from 'next/link'
-import { ExternalLink, Menu, X, ArrowDown, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
-import { useState, useEffect, useRef } from 'react'
-import Image from 'next/image'
+import { useEffect, useRef, useState } from 'react'
+import { Menu, X } from 'lucide-react'
+import { nav } from '@/lib/content'
 
-export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const headerRef = useRef<HTMLElement>(null)
-
-  const toggleMenu = () => setIsOpen(!isOpen)
+export function Header({ base = '' }: { base?: string }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
-        setIsOpen(false)
-      }
+    if (!open) return
+    const close = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false)
     }
-
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside)
-    }
-
+    const esc = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false)
+    document.addEventListener('mousedown', close)
+    document.addEventListener('keydown', esc)
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      document.removeEventListener('mousedown', close)
+      document.removeEventListener('keydown', esc)
     }
-  }, [isOpen])
+  }, [open])
 
   return (
-    <header
-      ref={headerRef}
-      className="fixed left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ease-out px-4 sm:px-0 w-full top-4"
-      style={{
-        width: 'min(90vw, 1100px)',
-      }}
-    >
-      <div
-        className="backdrop-blur-sm shadow-xl border transition-all duration-300 ease-out bg-gradient-to-r from-forest/85 via-forest/90 to-forest/85 border-forest/60 rounded-2xl px-6 py-3"
-      >
-        <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
-            <Image src="/fleur-de-lis.svg" width={24} height={24} alt="Fleur de lis" className="text-sand" style={{ filter: 'brightness(0) saturate(100%) invert(93%) sepia(8%) saturate(566%) hue-rotate(338deg) brightness(103%) contrast(92%)' }} />
-            <span className="font-[family-name:var(--font-skaut-bold)] text-sand text-lg">VLK Ursus</span>
+    <header ref={ref} className="sticky top-0 z-50 border-t-4 border-okr bg-krem/95 backdrop-blur border-b border-b-pisek">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+        <Link href={base || '#'} className="flex items-center gap-2" onClick={() => setOpen(false)}>
+          <span className="font-heading text-2xl font-extrabold tracking-[0.06em] text-palena">URSUS</span>
+        </Link>
+
+        <nav className="hidden lg:flex items-center gap-7" aria-label="Hlavní navigace">
+          {nav.map((item) => (
+            <Link key={item.href} href={`${base}${item.href}`} className="text-[15px] text-kakao hover:text-palena transition-colors">
+              {item.label}
+            </Link>
+          ))}
+          <Link href={`${base}#prihlaska`} className="btn-primary h-10">
+            Přihlas se
           </Link>
+        </nav>
 
-          {/* Desktop Menu */}
-          <nav className="hidden lg:flex items-center gap-8">
-            <Link href="/#o-kurzu" className="text-sand hover:text-amber transition-colors font-medium">
-              O kurzu
-            </Link>
-            <Link href="/#aktualni-rocnik" className="text-sand hover:text-amber transition-colors font-medium">
-              Ročník 2026
-            </Link>
-            <Link href="/#jaky-je-ursus" className="text-sand hover:text-amber transition-colors font-medium">
-              Jaky je Ursus?
-            </Link>
-            <Link href="/tym" className="text-sand hover:text-amber transition-colors font-medium">
-              Tým Ursu
-            </Link>
-            <div className="flex items-center">
-              <div className="flex items-center gap-2 group rounded-full px-3 py-1 transition-colors">
-                <Link
-                  href="https://ursusvlk.zonerama.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Fotogalerie na Zonerama"
-                  className="text-sand transition-colors font-medium group-hover:text-amber"
-                >
-                  Fotogalerie
-                </Link>
-                <Link
-                  href="https://ursusvlk.zonerama.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Fotogalerie na Zonerama"
-                  className="text-sand/70 transition-colors group-hover:text-amber"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-            <Link href="/#kontakt" className="group relative overflow-hidden">
-              <div className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full px-6 h-10 flex items-center justify-center transition-all duration-300 group-hover:pl-10">
-                <ArrowRight className="absolute left-2 w-4 h-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                <span>Kontakt</span>
-              </div>
-            </Link>
-          </nav>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden text-sand hover:bg-amber/20"
-            onClick={toggleMenu}
-            aria-label="Přepnout menu"
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </Button>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isOpen && (
-          <div className="lg:hidden pt-4 pb-2 border-t border-forest/50 mt-2">
-            <nav className="flex flex-col gap-4">
-              <Link
-                href="/#o-kurzu"
-                className="text-sand hover:text-amber transition-colors font-medium py-2 text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                O kurzu
-              </Link>
-              <Link
-                href="/#aktualni-rocnik"
-                className="text-sand hover:text-amber transition-colors font-medium py-2 text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Ročník 2026
-              </Link>
-              <Link
-                href="/#jaky-je-ursus"
-                className="text-sand hover:text-amber transition-colors font-medium py-2 text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Jaky je Ursus?
-              </Link>
-              <Link
-                href="/tym"
-                className="text-sand hover:text-amber transition-colors font-medium py-2 text-center"
-                onClick={() => setIsOpen(false)}
-              >
-                Tým Ursu
-              </Link>
-              <div className="flex items-center justify-center gap-2 group py-2">
-                <Link
-                  href="https://ursusvlk.zonerama.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sand transition-colors font-medium group-hover:text-amber"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Fotogalerie
-                </Link>
-                <ExternalLink className="h-4 w-4 text-sand/70 group-hover:text-amber" />
-              </div>
-              <Link href="/#kontakt" onClick={() => setIsOpen(false)} className="group relative overflow-hidden inline-block mx-auto">
-                <div className="bg-amber hover:bg-amber/90 text-forest-dark font-bold rounded-full px-6 h-10 flex items-center justify-center transition-all duration-300 group-hover:pl-10">
-                  <ArrowRight className="absolute left-2 w-4 h-4 opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0" />
-                  <span>Kontakt</span>
-                </div>
-              </Link>
-            </nav>
-          </div>
-        )}
+        <button
+          type="button"
+          className="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl text-kakao hover:bg-okr-svetly"
+          onClick={() => setOpen((v) => !v)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          data-menu-toggle
+          aria-label={open ? 'Zavřít menu' : 'Otevřít menu'}
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+
+        <nav id="mobile-nav" hidden={!open} className="lg:hidden border-t border-pisek bg-krem px-4 pb-5 pt-2" aria-label="Mobilní navigace">
+          <ul className="flex flex-col">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link
+                  href={`${base}${item.href}`}
+                  onClick={() => setOpen(false)}
+                  className="block border-b border-pisek py-3 text-lg text-kakao"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href={`${base}#prihlaska`} onClick={() => setOpen(false)} className="btn-primary mt-4 w-full">
+            Přihlas se
+          </Link>
+        </nav>
     </header>
   )
 }
