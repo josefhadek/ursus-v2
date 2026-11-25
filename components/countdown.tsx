@@ -69,7 +69,7 @@ export function Countdown() {
 
         <dl className="mt-10 grid grid-cols-4 gap-y-6 sm:flex sm:flex-wrap" data-countdown-values hidden={phase === 'over'}>
           {labels.map((l, i) => (
-            <div key={l} className={`pr-3 sm:pr-10 ${i > 0 ? 'border-l border-krem/25 pl-3 sm:pl-10' : ''}`}>
+            <div key={l} className={`pr-3 text-center sm:pr-10 ${i > 0 ? 'border-l border-krem/25 pl-3 sm:pl-10' : ''}`}>
               <dd className="font-heading text-[clamp(2rem,8vw,4.5rem)] font-bold leading-none tabular-nums text-krem" data-countdown-value={i}>
                 {values ? (i === 0 ? values[i] : pad(values[i])) : '–'}
               </dd>

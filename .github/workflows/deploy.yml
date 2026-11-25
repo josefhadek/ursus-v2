@@ -42,6 +42,12 @@ jobs:
 
       - name: Build with Next.js
         run: pnpm run build
+        env:
+          # Doména, na které web právě běží (canonical, OG obrázky, sitemap).
+          NEXT_PUBLIC_SITE_URL: https://ursus-v2.josefhadek.cz
+          # Náhledová doména se neindexuje, aby nekonkurovala ursus.skauting.cz.
+          # Po přesunu na ostrou doménu: SITE_URL změnit a NOINDEX smazat.
+          NEXT_PUBLIC_NOINDEX: '1'
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

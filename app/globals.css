@@ -109,6 +109,22 @@
     @apply border-border outline-ring/50;
   }
 
+  /* Tailwind v4 nedává tlačítkům pointer – vrátit všude, kde se kliká */
+  button:not(:disabled),
+  [role='button']:not([aria-disabled='true']),
+  [role='tab'],
+  summary,
+  label[for],
+  select,
+  a[href] {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled='true'] {
+    cursor: not-allowed;
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 88px;

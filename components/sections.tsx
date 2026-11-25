@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, ExternalLink, MapPin, Plus } from 'lucide-react'
+import { ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import {
   hero,
@@ -23,6 +23,8 @@ import { Countdown } from '@/components/countdown'
 const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
 const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
 const lead = 'text-lg text-kakao-muted leading-relaxed'
+const h3 = 'text-2xl font-bold text-kakao'
+const callout = 'border-l-4 border-palena pl-5 text-kakao'
 
 /* ---------- HERO ---------- */
 export function Hero() {
@@ -91,7 +93,7 @@ export function About() {
             <p key={p} className={`mt-5 ${lead}`}>{p}</p>
           ))}
         </div>
-        <p className="rounded-2xl bg-maslova px-6 py-5 text-xl font-bold leading-snug text-kakao">
+        <p className={`${callout} text-xl font-bold leading-snug`}>
           {about.highlight}
         </p>
       </div>
@@ -101,7 +103,7 @@ export function About() {
       </div>
 
       <div className={`${wrap} mt-20`}>
-        <h3 className="font-heading text-3xl font-bold text-kakao">Jaký je Ursus?</h3>
+        <h3 className={h3}>Jaký je Ursus?</h3>
         <div className="mt-8 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
           {pillars.map((p) => (
             <article key={p.title}>
@@ -167,7 +169,7 @@ export function Registration() {
           })}
         </ol>
 
-        <h3 className="mt-12 text-xl font-bold text-kakao">{registration.after.title}</h3>
+        <h3 className={`mt-12 ${h3}`}>{registration.after.title}</h3>
         <dl className="mt-4 grid gap-6 border-t border-pisek pt-5 md:grid-cols-3">
           {registration.after.items.map((it) => (
             <div key={it.label}>
@@ -222,7 +224,7 @@ export function Dates() {
           </p>
         )}
 
-        <p className="mt-6 max-w-3xl border-l-4 border-palena pl-5 text-kakao">
+        <p className={`mt-6 max-w-3xl ${callout}`}>
           <strong className="font-bold">Pozor: </strong>
           {dates.warning}
         </p>
@@ -259,7 +261,7 @@ export function Team() {
             <TeamMemberCard key={m.nickname} {...m} />
           ))}
         </div>
-        <h3 className="mt-14 text-2xl font-bold text-kakao">Kuchaři a MTZ</h3>
+        <h3 className={`mt-14 ${h3}`}>Kuchaři a MTZ</h3>
         <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {cooks.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
@@ -306,7 +308,7 @@ export function Faq() {
             <details key={f.q} className="group py-5">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-kakao">
                 {f.q}
-                <Plus className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-45" aria-hidden />
+                <ChevronDown className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-180" aria-hidden />
               </summary>
               <p className="mt-3 max-w-2xl text-kakao-muted leading-relaxed">{f.a}</p>
             </details>
