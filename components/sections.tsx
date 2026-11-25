@@ -212,17 +212,15 @@ export function Dates() {
               </a>
             </li>
           ))}
-          {price && (
-            <li className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_2fr] md:items-baseline">
-              <span className="flex items-center gap-2 text-kakao-muted">
-                <span className="h-2.5 w-2.5 rounded-full bg-kakao" aria-hidden />
-                {price.title}
-              </span>
-              <span className="text-3xl font-bold text-palena">{price.big}</span>
-              <span className="text-kakao-muted">{price.text}</span>
-            </li>
-          )}
         </ol>
+
+        {price && (
+          <p className="mt-6 flex flex-wrap items-baseline gap-x-3 gap-y-1 text-kakao">
+            <span className="text-lg">Cena kurzu:</span>
+            <strong className="text-2xl font-bold text-palena">{price.big}</strong>
+            <span className="basis-full text-sm text-kakao-muted sm:basis-auto">{price.text}</span>
+          </p>
+        )}
 
         <p className="mt-6 max-w-3xl border-l-4 border-palena pl-5 text-kakao">
           <strong className="font-bold">Pozor: </strong>
