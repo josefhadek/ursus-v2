@@ -1,54 +1,84 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+/*
+  URSUS · BRAND PALETA (Hadka, 2026)
+  Krém je dominanta (~70 % s bílou), kakao píše (~15 %), barvy jen doplňují.
+  Nikdy: okr ani terakota jako drobný text na krému · bílá na okru · kakao na terakotě.
+*/
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Warm Ursus-inspired colors */
-  --forest-dark: oklch(0.35 0.05 120);
-  --forest: oklch(0.45 0.06 110);
-  --sand: oklch(0.95 0.02 80);
-  --sand-light: oklch(0.98 0.01 80);
-  --amber: oklch(0.75 0.15 70);
-  --amber-dark: oklch(0.65 0.15 65);
+  /* Brand */
+  --krem: #f7f0e6;          /* plocha */
+  --kakao: #45201f;         /* text */
+  --okr: #ee9a2e;           /* hlavní plochy (z loga) */
+  --terakota: #c8603f;      /* akcent – jen plochy, ne text */
+  --serik: #d7bce6;         /* svěží akcent */
+  --maslova: #f5e3a0;       /* zvýraznění */
+  --palena: #a04b2b;        /* tlačítka, nadpisový akcent */
+  --bila: #ffffff;          /* karty */
+  --pisek: #e9dcc9;         /* linky */
+  --okr-svetly: #fcebcd;    /* plochy */
+  --serik-tmavy: #7a4e9a;   /* text, odkazy */
+  --kakao-muted: #6b5550;   /* sekundární text (6,1 : 1 na krému) */
 
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(25 20% 15%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: var(--forest-dark);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: var(--forest-dark);
-  --primary: hsl(33 54% 38%);
-  --primary-foreground: var(--sand);
-  --secondary: hsl(30 12% 92%);
-  --secondary-foreground: var(--forest-dark);
-  --muted: hsl(30 12% 92%);
-  --muted-foreground: var(--forest);
-  --accent: hsl(30 25% 85%);
-  --accent-foreground: var(--forest-dark);
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: oklch(0.985 0 0);
-  --border: hsl(30 15% 88%);
-  --input: hsl(30 15% 88%);
-  --ring: hsl(33 54% 38%);
-  --chart-1: hsl(33 54% 38%);
-  --chart-2: hsl(28 40% 52%);
-  --chart-3: hsl(35 35% 68%);
-  --chart-4: hsl(42 28% 75%);
-  --chart-5: hsl(25 45% 28%);
-  --radius: 1.75rem;
+  /* Staré názvy z v2 – přemapované, aby fungovala i podstránka /tym */
+  --forest-dark: var(--kakao);
+  --forest: var(--kakao);
+  --sand: var(--krem);
+  --sand-light: var(--bila);
+  --amber: var(--okr);
+  --amber-dark: var(--palena);
+
+  /* shadcn tokeny */
+  --background: var(--krem);
+  --foreground: var(--kakao);
+  --card: var(--bila);
+  --card-foreground: var(--kakao);
+  --popover: var(--bila);
+  --popover-foreground: var(--kakao);
+  --primary: var(--palena);
+  --primary-foreground: var(--bila);
+  --secondary: var(--okr-svetly);
+  --secondary-foreground: var(--kakao);
+  --muted: var(--pisek);
+  --muted-foreground: var(--kakao-muted);
+  --accent: var(--serik);
+  --accent-foreground: var(--kakao);
+  --destructive: #b42318;
+  --destructive-foreground: var(--bila);
+  --border: var(--pisek);
+  --input: var(--pisek);
+  --ring: var(--serik-tmavy);
+  --radius: 1rem;
 }
 
 @theme inline {
-  --font-sans: var(--font-themix), 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  --font-heading: var(--font-skaut-bold), var(--font-themix), 'Inter', system-ui, sans-serif;
-  --font-serif: 'Merriweather', 'Merriweather Fallback', serif;
+  --font-sans: 'Inter Variable', 'Inter', system-ui, sans-serif;
+  --font-heading: 'Bricolage Grotesque', 'Inter Variable', system-ui, sans-serif;
+
+  --color-krem: var(--krem);
+  --color-kakao: var(--kakao);
+  --color-okr: var(--okr);
+  --color-terakota: var(--terakota);
+  --color-serik: var(--serik);
+  --color-maslova: var(--maslova);
+  --color-palena: var(--palena);
+  --color-bila: var(--bila);
+  --color-pisek: var(--pisek);
+  --color-okr-svetly: var(--okr-svetly);
+  --color-serik-tmavy: var(--serik-tmavy);
+  --color-kakao-muted: var(--kakao-muted);
+
   --color-forest-dark: var(--forest-dark);
   --color-forest: var(--forest);
   --color-sand: var(--sand);
   --color-sand-light: var(--sand-light);
   --color-amber: var(--amber);
   --color-amber-dark: var(--amber-dark);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -68,13 +98,8 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
@@ -84,34 +109,50 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground;
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--serik-tmavy);
+    outline-offset: 3px;
   }
 }
 
-@layer utilities {
-  @keyframes breathe {
-
-    0%,
-    100% {
-      transform: scale(1);
-    }
-
-    50% {
-      transform: scale(1.05);
-    }
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-[15px] font-semibold transition-colors bg-palena text-bila hover:bg-kakao;
   }
-
-  .animate-breathe {
-    animation: breathe 4s ease-in-out infinite;
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-[15px] font-semibold transition-colors border-2 border-kakao text-kakao bg-bila hover:bg-okr-svetly;
   }
+  .card {
+    @apply rounded-2xl border border-pisek bg-bila;
+  }
+  .eyebrow-pill {
+    @apply inline-flex items-center rounded-full px-3 py-1 text-sm font-medium;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }

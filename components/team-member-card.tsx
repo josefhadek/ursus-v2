@@ -1,151 +1,95 @@
-"use client"
+'use client'
 
-import Image from "next/image"
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+import Image from 'next/image'
 import React from 'react'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import type { TeamMember } from '@/lib/team'
 
-interface TeamMemberProps {
-    name: string
-    nickname: string
-    role?: string
-    description?: string
-    image: string
+function Bio({ text }: { text: string }) {
+  const parts = text.split(/<br\s*\/?>/i).map((p) => p.trim()).filter(Boolean)
+  return (
+    <>
+      {parts.map((line, i) => (
+        <React.Fragment key={i}>
+          {line.trim()}
+          {i < parts.length - 1 && (
+            <>
+              <br />
+              <br />
+            </>
+          )}
+        </React.Fragment>
+      ))}
+    </>
+  )
 }
 
-export function TeamMemberCard({
-    name,
-    nickname,
-    role,
-    description,
-    image,
-}: TeamMemberProps) {
-    const formatDescription = (text: string) => {
-        return text.split(/<br\s*\/?>/i).map((line, index) => (
-            <React.Fragment key={index}>
-                {line}
-                {index < text.split(/<br\s*\/?>/i).length - 1 && <br />}
-            </React.Fragment>
-        ))
-    }
+export function TeamMemberCard({ name, nickname, role, description, image }: TeamMember) {
+  const card = (
+    <div className="group card overflow-hidden h-full flex flex-col text-left transition-transform duration-300 hover:-translate-y-1">
+      <div className="relative aspect-square w-full bg-pisek overflow-hidden">
+        <Image
+          src={image}
+          alt={`${nickname} – ${name}`}
+          fill
+          sizes="(max-width: 640px) 50vw, 25vw"
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      </div>
+      <div className="p-4 flex flex-col gap-1 flex-grow">
+        <span className="font-heading text-xl font-extrabold text-kakao leading-tight">{nickname}</span>
+        <span className="text-sm text-kakao-muted">{name}</span>
+        {role && (
+          <span className="mt-2 self-start rounded-full bg-serik px-2.5 py-0.5 text-xs font-medium text-kakao">
+            {role}
+          </span>
+        )}
+      </div>
+    </div>
+  )
 
-    return (
-        <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col h-full hover:-translate-y-1">
-            {description ? (
-                <Dialog>
-                    <DialogTrigger asChild>
-                        <div className="relative w-full aspect-square bg-stone-200 cursor-pointer">
-                            <Image src={image} alt={nickname} fill className="object-cover" />
-                        </div>
-                    </DialogTrigger>
-                    <DialogContent className="sm:max-w-[800px] max-h-[85vh] overflow-y-auto rounded-2xl">
-                        <div className="flex flex-col gap-6 py-6">
-                            {/* Top section: Photo left, Info right */}
-                            <div className="flex flex-col sm:flex-row gap-6 items-center">
-                                <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-stone-100 shadow-md shrink-0">
-                                    <Image
-                                        src={image}
-                                        alt={nickname}
-                                        fill
-                                        className="object-cover"
-                                    />
-                                </div>
+  if (!description) return card
 
-                                <DialogHeader className="text-center sm:text-left flex-1">
-                                    <DialogTitle className="text-3xl font-bold font-skaut text-forest mb-2">
-                                        {name}
-                                    </DialogTitle>
-                                    <div className="text-xl font-bold text-forest mb-2">
-                                        {nickname}
-                                    </div>
-                                    {role && (
-                                        <DialogDescription className="text-primary font-semibold text-lg">
-                                            {role}
-                                        </DialogDescription>
-                                    )}
-                                </DialogHeader>
-                            </div>
-
-                            {/* Bottom section: Full width description */}
-                            <div className="text-stone-700 leading-relaxed text-justify px-4 border-t border-stone-200 pt-6">
-                                {formatDescription(description)}
-                            </div>
-                        </div>
-                    </DialogContent>
-                </Dialog>
-            ) : (
-                <div className="relative w-full aspect-square bg-stone-200">
-                    <Image src={image} alt={nickname} fill className="object-cover" />
-                </div>
-            )}
-            <div className="p-6 flex flex-col flex-grow">
-                <div className="mb-4 text-center">
-                    <h2 className="text-xl font-bold font-sans text-forest leading-tight">
-                        {name}
-                    </h2>
-                    <span className="text-base text-forest font-bold block mt-1">{nickname}</span>
-                </div>
-                {role && (
-                    <h3 className="text-primary font-semibold mb-4 text-center">{role}</h3>
-                )}
-                {description && (
-                    <p className="text-stone-600 text-sm leading-relaxed text-center line-clamp-3 mb-4">
-                        {formatDescription(description)}
-                    </p>
-                )}
-                <div className="mt-auto text-center">
-                    {description && (
-                        <Dialog>
-                            <DialogTrigger asChild>
-                                <Button variant="outline" className="rounded-full px-6 cursor-pointer">
-                                    Více o mně
-                                </Button>
-                            </DialogTrigger>
-                            <DialogContent className="sm:max-w-[800px] max-h-[85vh] overflow-y-auto rounded-2xl">
-                                <div className="flex flex-col gap-6 py-6">
-                                    {/* Top section: Photo left, Info right */}
-                                    <div className="flex flex-col sm:flex-row gap-6 items-center">
-                                        <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-stone-100 shadow-md shrink-0">
-                                            <Image
-                                                src={image}
-                                                alt={nickname}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </div>
-
-                                        <DialogHeader className="text-center sm:text-left flex-1">
-                                            <DialogTitle className="text-3xl font-bold font-skaut text-forest mb-2">
-                                                {name}
-                                            </DialogTitle>
-                                            <div className="text-xl font-bold text-forest mb-2">
-                                                {nickname}
-                                            </div>
-                                            {role && (
-                                                <DialogDescription className="text-primary font-semibold text-lg">
-                                                    {role}
-                                                </DialogDescription>
-                                            )}
-                                        </DialogHeader>
-                                    </div>
-
-                                    {/* Bottom section: Full width description */}
-                                    <div className="text-stone-700 leading-relaxed text-justify px-4 border-t border-stone-200 pt-6">
-                                        {formatDescription(description)}
-                                    </div>
-                                </div>
-                            </DialogContent>
-                        </Dialog>
-                    )}
-                </div>
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <button
+          type="button"
+          className="h-full w-full cursor-pointer rounded-2xl"
+          aria-label={`Víc o: ${nickname}`}
+          data-member={JSON.stringify({ name, nickname, role, description, image })}
+        >
+          {card}
+        </button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[720px] max-h-[85vh] overflow-y-auto rounded-2xl bg-krem border-pisek">
+        <div className="flex flex-col gap-6 py-2">
+          <div className="flex flex-col sm:flex-row gap-5 items-center">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden ring-4 ring-okr shrink-0">
+              <Image src={image} alt={nickname} fill className="object-cover" />
             </div>
+            <DialogHeader className="text-center sm:text-left flex-1 gap-1">
+              <DialogTitle className="font-heading text-3xl font-extrabold text-kakao">{nickname}</DialogTitle>
+              <div className="text-kakao-muted">{name}</div>
+              {role && (
+                <DialogDescription className="mt-1 self-center sm:self-start rounded-full bg-serik px-3 py-0.5 text-sm font-medium text-kakao">
+                  {role}
+                </DialogDescription>
+              )}
+            </DialogHeader>
+          </div>
+          <div className="text-kakao leading-relaxed border-t border-pisek pt-5">
+            <Bio text={description} />
+          </div>
         </div>
-    )
+      </DialogContent>
+    </Dialog>
+  )
 }

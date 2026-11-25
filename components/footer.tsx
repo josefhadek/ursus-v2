@@ -1,61 +1,58 @@
-import { Mail, Facebook } from 'lucide-react'
+import Link from 'next/link'
+import { Mail, Facebook, Images } from 'lucide-react'
+import { footer, links, nav } from '@/lib/content'
 
-export function Footer() {
+export function Footer({ base = '' }: { base?: string }) {
   return (
-    <footer id="kontakt" className="bg-forest text-sand py-12 mt-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Organizer Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-amber">Pořadatel</h3>
-            <div className="text-lg leading-relaxed space-y-1">
-              <p className="font-semibold">Junák – český skaut, kraj Praha, z. s.</p>
-              <p>Senovážné náměstí 24</p>
-              <p>110 00 Praha 1</p>
-              <p className="mt-4 text-sand/80">IČO: 61387959</p>
-            </div>
-          </div>
+    <footer id="kontakt" className="bg-kakao text-krem">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14 grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
+        <div>
+          <div className="font-heading text-3xl font-extrabold tracking-[0.06em] text-okr">URSUS</div>
+          <p className="mt-2 text-krem/85">Vůdcovský kurz Junáka – českého skauta</p>
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {nav.map((item) => (
+              <li key={item.href}>
+                <Link href={`${base}${item.href}`} className="text-krem/85 hover:text-maslova">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          {/* Contact Info */}
-          <div>
-            <h3 className="text-xl font-bold mb-4 text-amber">Kontakt</h3>
-            <div className="space-y-4">
-              <div>
-                <p className="text-base text-sand/60 mb-1">Komunikace</p>
-                <p className="text-lg font-medium">Matylda Kocianová – Matylda</p>
-              </div>
-
-              <div className="flex flex-col gap-3">
-                <a
-                  href="mailto:ursus@skaut.cz"
-                  className="flex items-center gap-3 text-sand hover:text-amber transition-colors group"
-                >
-                  <div className="bg-sand/10 p-2 rounded-full group-hover:bg-amber/10 transition-colors">
-                    <Mail className="w-5 h-5 text-amber" />
-                  </div>
-                  <span>ursus@skaut.cz</span>
-                </a>
-
-                <a
-                  href="https://www.facebook.com/vlk.ursus/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-3 text-sand hover:text-amber transition-colors group"
-                >
-                  <div className="bg-sand/10 p-2 rounded-full group-hover:bg-amber/10 transition-colors">
-                    <Facebook className="w-5 h-5 text-amber" />
-                  </div>
-                  <span>VLK Ursus</span>
-                </a>
-              </div>
-            </div>
+        <div>
+          <h3 className="font-heading text-lg font-bold text-maslova">Pořadatel</h3>
+          <div className="mt-3 space-y-0.5 text-krem/85">
+            {footer.organizer.map((line) => (
+              <p key={line}>{line}</p>
+            ))}
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="mt-8 pt-8 border-t border-sand/20 text-center text-base text-sand/70">
-          <p>© {new Date().getFullYear()} VLK Ursus. Všechna práva vyhrazena.</p>
+        <div>
+          <h3 className="font-heading text-lg font-bold text-maslova">Kontakt</h3>
+          <p className="mt-3 text-krem/85">{footer.contactPerson}</p>
+          <ul className="mt-3 space-y-2">
+            <li>
+              <a href={`mailto:${links.email}`} className="inline-flex items-center gap-2 hover:text-maslova">
+                <Mail className="h-4 w-4 text-okr" /> {links.email}
+              </a>
+            </li>
+            <li>
+              <a href={links.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-maslova">
+                <Facebook className="h-4 w-4 text-okr" /> VLK Ursus
+              </a>
+            </li>
+            <li>
+              <a href={links.zonerama} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-maslova">
+                <Images className="h-4 w-4 text-okr" /> Fotogalerie
+              </a>
+            </li>
+          </ul>
         </div>
+      </div>
+      <div className="border-t border-krem/15">
+        <p className="mx-auto max-w-6xl px-4 sm:px-6 py-5 text-sm text-krem/70">© {new Date().getFullYear()} VLK Ursus</p>
       </div>
     </footer>
   )
