@@ -183,40 +183,43 @@ export function Registration() {
 }
 
 /* ---------- TERMÍNY + PODMÍNKY ---------- */
-const dateCard = ['border-okr', 'border-serik-tmavy', 'border-terakota']
+const dateDot = ['bg-okr', 'bg-serik-tmavy', 'bg-terakota']
 
 export function Dates() {
   return (
     <section id="terminy" className="bg-krem py-20 md:py-28">
       <div className={wrap}>
-        <div className="flex flex-wrap items-center gap-3">
-          <h2 className={h2}>{dates.title}</h2>
-        </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-3">
+        <h2 className={h2}>{dates.title}</h2>
+
+        <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
           {dates.items.map((d, i) => (
-            <div key={d.label} className={`rounded-2xl border-t-[6px] bg-bila p-6 ${dateCard[i % dateCard.length]}`}>
-              <div className="text-sm text-kakao">{d.label}</div>
-              <div className="mt-2 font-heading text-3xl font-bold text-kakao">{d.date}</div>
-              <div className="mt-1 text-kakao">{d.place}</div>
+            <li key={d.label} className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_1fr_auto] md:items-baseline">
+              <span className="flex items-center gap-2 text-kakao-muted">
+                <span className={`h-2.5 w-2.5 rounded-full ${dateDot[i % dateDot.length]}`} aria-hidden />
+                {d.label}
+              </span>
+              <span className="font-heading text-3xl font-bold text-kakao">{d.date}</span>
+              <span className="text-lg text-kakao">{d.place}</span>
               <a
                 href={d.map}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-flex items-center gap-1.5 text-sm text-kakao underline underline-offset-4"
+                className="inline-flex items-center gap-1.5 text-sm text-serik-tmavy underline underline-offset-4 hover:text-kakao"
               >
                 <MapPin className="h-4 w-4" /> Na mapě
               </a>
-            </div>
+            </li>
           ))}
-        </div>
-        <p className="mt-6 rounded-2xl border-l-4 border-palena bg-bila p-5 text-kakao">
+        </ol>
+
+        <p className="mt-6 max-w-3xl border-l-4 border-palena pl-5 text-kakao">
           <strong className="font-bold">Pozor: </strong>
           {dates.warning}
         </p>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <div className="mt-16 grid gap-10 md:grid-cols-3">
           {conditions.map((c) => (
-            <div key={c.title} className="card p-6">
+            <div key={c.title}>
               <h3 className="text-xl font-bold text-kakao">{c.title}</h3>
               {'big' in c && c.big && (
                 <p className="mt-2 text-[clamp(2rem,4vw,2.75rem)] font-bold leading-none text-palena">{c.big}</p>
