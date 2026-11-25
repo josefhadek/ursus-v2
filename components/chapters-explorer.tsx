@@ -21,7 +21,7 @@ export function ChaptersExplorer() {
   }
 
   return (
-    <div data-chapters>
+    <div data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ title, bg, ink, questions }) => ({ title, bg, ink, questions })))}>
       <div role="tablist" aria-label="Kapitoly Cesty Ursu" className="grid grid-cols-4 gap-2 sm:gap-3">
         {chapters.items.map((c, i) => {
           const selected = i === active
