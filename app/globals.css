@@ -135,7 +135,7 @@
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-base font-bold transition-colors bg-palena text-bila hover:bg-kakao;
   }
   .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-base font-bold transition-colors border-2 border-kakao text-kakao bg-bila hover:bg-okr-svetly;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-base font-bold transition-colors text-kakao bg-pisek hover:bg-okr-svetly;
   }
   .card {
     @apply rounded-2xl border border-pisek bg-bila;
