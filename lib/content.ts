@@ -1,4 +1,5 @@
 // Veškeré texty webu na jednom místě.
+// Data o ročníku 2027 převzata z ursus.skauting.cz (listopad 2026).
 // Hodnoty v [HRANATÝCH ZÁVORKÁCH] jsou placeholdery – doplnit před spuštěním.
 
 export const ROCNIK = 2027
@@ -11,6 +12,8 @@ export const links = {
   facebook: 'https://www.facebook.com/vlk.ursus/',
   email: 'ursus@skaut.cz',
   rad: 'https://krizovatka.skaut.cz/spisovna/rady/rad-pro-vzdelavani-cinovnic-a-cinovniku',
+  cekatelka21:
+    'https://zpravodajstvi.skaut.cz/clanek/zkuseni-uchazeci-o-vudcovskou-zkousku-starsi-21-let-nove-nemusi-mit-cekatelskou-zkousku-rozdilova-zkouska-byla-zrusena-novelou-smernice-k-obsahu-vybranych-cinovnickych-kvalifikaci',
 }
 
 export const nav = [
@@ -30,9 +33,9 @@ export const hero = {
 }
 
 export const facts = [
-  { label: 'Přihlašování', value: 'začátkem ledna' },
+  { label: 'Přihlašování', value: '4.–10. 1. 2027' },
   { label: 'Kapacita', value: '26 účastnic a účastníků' },
-  { label: 'Cena', value: '[CENA] Kč' },
+  { label: 'Cena', value: 'cca 4 500 Kč' },
   { label: 'Pořádá', value: 'Junák – český skaut, kraj Praha' },
 ]
 
@@ -68,62 +71,124 @@ export const pillars = [
 ]
 
 export const chapters = {
-  title: 'Tři kapitoly, jeden tým',
-  lead: 'Co tě na kurzu čeká a kdo tě tím provede.',
+  title: 'Cesta Ursu',
+  lead: 'Kurz i naše stezka jsou rozdělené do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
   items: [
-    { n: 1, title: 'Spolupráce a vedení', text: 'Jak vést tým, dávat zpětnou vazbu a nepřetáhnout to.', tone: 'palena' as const },
-    { n: 2, title: 'Metodika', text: 'Program, který děti baví a něco jim dá.', tone: 'okr' as const },
-    { n: 3, title: 'MZHS', text: '[POPIS KAPITOLY]', tone: 'serik' as const },
+    {
+      slug: 'myslenkove',
+      title: 'Myšlenkové základy a historie skautingu',
+      bg: '#f7e9f4',
+      ink: '#5b3a6e',
+      questions: ['Co vlastně dělá skauting skautingem?', 'Z jakých kořenů, hodnot a zásad vychází?', 'Jaké je jeho postavení a role v současné společnosti?'],
+    },
+    {
+      slug: 'metodika',
+      title: 'Metodika',
+      bg: '#dfedd5',
+      ink: '#2f5a22',
+      questions: ['Jak tvořit činnost oddílu tak, aby moje členy všestranně rozvíjel, vedl je k samostatnosti a sebevýchově?', 'Jak pracovat s přírodou, družinovým systémem, stezkami, službou, rituály?'],
+    },
+    {
+      slug: 'administrativa',
+      title: 'Administrativa a zajištění',
+      bg: '#fbe5d8',
+      ink: '#7a3f14',
+      questions: ['Jak postavit a zajistit letní tábor?', 'Jak odevzdat registraci nebo hlášenku?', 'K čemu je mi středisko?', 'Jak sestavit rozpočet a vyúčtovat akci?'],
+    },
+    {
+      slug: 'prevence',
+      title: 'Prevence a zvládání krizových situací',
+      bg: '#fad7d7',
+      ink: '#8a1f1a',
+      questions: ['Jak předcházet šrámům na těle i na duši?', 'Co dělat, abych se nemusel/a bát, že skončím ve vězení?', 'Jak jednat v okamžicích krize?', 'Jak poskytnout první pomoc?'],
+    },
+    {
+      slug: 'spoluprace',
+      title: 'Spolupráce a vedení',
+      bg: '#d3e2f5',
+      ink: '#1f4778',
+      questions: ['Jak dobře vést oddílovou radu i celý oddíl?', 'Jak mu dát vizi a směr?', 'Jak podporovat motivaci?', 'Jak komunikovat s rodiči, rovery, úředníky?'],
+    },
+    {
+      slug: 'planovani',
+      title: 'Plánování',
+      bg: '#cfe9e9',
+      ink: '#1d5c58',
+      questions: ['Jak určit cíle činnosti oddílu?', 'Jak je uvést do reality?', 'Jak odhadnout realisticky možnosti své i oddílu?', 'Kdy se držet plánu a kdy improvizovat?'],
+    },
+    {
+      slug: 'seberozvoj',
+      title: 'Seberozvoj',
+      bg: '#f7efd7',
+      ink: '#6a5410',
+      questions: ['Čím můžu oddíl obohatit a na co nestačím?', 'Co mi skauting dává a co bere?', 'Mám na to?', 'Jak získám a dám dobrou zpětnou vazbu?'],
+    },
+    {
+      slug: 'pedagogika',
+      title: 'Pedagogika a psychologie',
+      bg: '#fbe3f0',
+      ink: '#7c2456',
+      questions: ['Jaké jsou dnešní děti, čím se liší v různém věku a napříč pohlavími?', 'Čím je každý člověk jedinečný?', 'Jak pracovat s lidmi se speciálními potřebami?'],
+    },
+  ],
+}
+
+export const stezkaPreview = {
+  cta: 'Prolistuj ukázku stezky',
+  note: 'Cesta Ursu 2026 · 3 ukázkové strany',
+  pages: [
+    { src: '/stezka/obalka.webp', alt: 'Obálka stezky Cesta Ursu 2026' },
+    { src: '/stezka/predstaveni.webp', alt: 'Strana Představení stezky a příznaky úkolů' },
+    { src: '/stezka/ukazka-ukolu.webp', alt: 'Ukázka úkolů z kapitoly Myšlenkové základy a historie skautingu' },
   ],
 }
 
 export const registration = {
   title: 'Přihláška ve dvou krocích',
-  textBefore: 'Registrace se otevírá začátkem ledna. Účast potvrď do',
-  deadline: '24. 1.',
-  textAfter: ', ať se vidíme na týmovce. Je jedno, v jakém pořadí.',
+  textBefore: 'Přihlašování probíhá',
+  deadline: 'od 4. 1. 2027 12:00 do 10. 1. 2027 12:00',
+  textAfter: '. Na pořadí přihlášení nezáleží.',
   steps: [
-    { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplň analýzu', href: links.analyza },
     { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Vyplň SkautIS', href: links.skautis },
+    { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplň analýzu', href: links.analyza },
   ],
   notes: [
-    'Na pořadí přihlášení nezáleží.',
-    'Po konci přihlašování účastníky náhodně losujeme.',
-    'Kvůli vyváženosti můžeme omezit počet lidí z jednoho střediska nebo poměr pohlaví.',
+    'Po konci přihlašování účastníky náhodně losujeme. Uchazeče, kteří už dříve na vůdcovský kurz nebyli přijati, v losování zohledňujeme.',
+    'Přijmeme 26 účastnic a účastníků. Snažíme se o vyrovnaný poměr dívek a chlapců (nejvýš 16:10) a můžeme omezit počet lidí z jednoho střediska, pokud by jich bylo víc než 3.',
   ],
 }
 
 export const dates = {
   title: `Termíny běhů ${ROCNIK}`,
   items: [
-    { label: 'Týmovka', date: '[TERMÍN]', place: '[MÍSTO]', tone: 'okr' as const },
-    { label: 'Jarní víkend', date: '[TERMÍN]', place: '[MÍSTO]', tone: 'bila' as const },
-    { label: 'Letní běh', date: `Srpen ${ROCNIK}`, place: '[MÍSTO]', tone: 'bila' as const },
+    { label: 'Jarní víkend', date: '12.–14. 3. 2027', place: 'Nymburk (Tortuga)', map: 'https://mapy.com/s/gevahanovu', tone: 'okr' as const },
+    { label: 'Letní část', date: '13.–22. 8. 2027', place: 'Chválkov', map: 'https://mapy.com/s/gujazotagu', tone: 'bila' as const },
+    { label: 'Podzimní víkend', date: '17.–19. 9. 2027', place: 'Trutnov', map: 'https://mapy.com/s/jebomefusa', tone: 'bila' as const },
   ],
   warning:
-    'Kurz je postavený tak, abys požadavky k vůdcovské zkoušce splnil/a na konci letního běhu. Velká část samostatné práce proto probíhá mezi jarní a letní částí – zrovna když bývají maturity. Zvaž prosím své časové možnosti.',
+    'Kurz je postavený tak, abys požadavky k vůdcovské zkoušce splnil/a na konci letní části. Velká část samostatné práce proto probíhá mezi jarní a letní částí – zrovna když bývají maturity. Zvaž prosím své časové možnosti.',
 }
 
 export const conditions = [
   {
     title: 'Kdo se může přihlásit',
-    text: 'Členky a členové Junáka se složenou čekatelskou zkouškou, narození před [DATUM]. Pokud je ti 21 a víc, čekatelku mít nemusíš.',
+    text: 'Členky a členové Junáka narození před 18. 9. 2009 se složenou čekatelskou zkouškou. Pokud je ti přes 21, čekatelku mít nemusíš. Kurz se zaměřuje na vedení světlušek, vlčat, skautek a skautů, jiné zaměření ale nevadí.',
+    link: { href: links.cekatelka21, label: 'Proč 21+ nepotřebuje čekatelku' },
   },
   {
     title: 'Podmínky absolvence',
-    text: 'Aktivní účast na všech částech kurzu (čl. 151 ŘVČČJ). Kvalifikace zdravotníka nebo první pomoci není podmínkou přihlášení, ale až dokončení vůdcovské zkoušky (čl. 76 ŘVČČJ).',
+    text: 'Aktivní účast na všech částech kurzu (čl. 151 ŘVČČJ). Kvalifikace zdravotníka nebo první pomoci není podmínkou přihlášení, ale až složení vůdcovské zkoušky (čl. 76 ŘVČČJ).',
     link: { href: links.rad, label: 'Řád pro vzdělávání činovnic a činovníků' },
   },
   {
     title: 'Cena',
-    text: '[CENA] Kč. Účastnický poplatek je nevratný, v případě nemoci se domluvíme individuálně.',
+    text: 'Přibližně 4 500 Kč. Účastnický poplatek je nevratný, v případě nemoci se domluvíme individuálně.',
   },
 ]
 
 export const team = {
   title: 'Tým Ursu',
   lead: 'Klikni na fotku a přečti si víc.',
-  note: '[ověřit tým 2027]',
 }
 
 export const quotes = [
@@ -151,8 +216,8 @@ export const faq = [
     a: 'Ne. Na pořadí nezáleží – po konci přihlašování účastníky náhodně losujeme. Stačí stihnout oba kroky (SkautIS a analýzu oddílu) v termínu.',
   },
   {
-    q: 'Nemám čekatelskou zkoušku. Můžu jet?',
-    a: 'Pokud je ti 21 a víc, ano. U starších uchazečů předpokládáme, že kompetence čekatelky naplňují z dosavadního působení.',
+    q: 'Nemám čekatelskou zkoušku. Můžu se přihlásit?',
+    a: 'Pokud je ti přes 21, ano – u zkušenějších uchazečů lze z dosavadního působení předpokládat naplnění kompetencí čekatelky.',
   },
   {
     q: 'Potřebuju zdravotnický kurz?',

@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ExternalLink, Plus } from 'lucide-react'
+import { ExternalLink, MapPin, Plus } from 'lucide-react'
 import {
   hero,
   facts,
@@ -14,9 +14,11 @@ import {
   quotes,
   faq,
 } from '@/lib/content'
-import { teamMembers, externists, cooks } from '@/lib/team'
+import { teamMembers, cooks } from '@/lib/team'
 import { TeamMemberCard } from '@/components/team-member-card'
 import { PhotoStrip } from '@/components/photo-strip'
+import { ChaptersExplorer } from '@/components/chapters-explorer'
+import { StezkaPreview } from '@/components/stezka-preview'
 
 const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
 const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
@@ -118,42 +120,19 @@ export function About() {
   )
 }
 
-/* ---------- KAPITOLY ---------- */
-const tile = {
-  palena: 'bg-palena text-bila',
-  okr: 'bg-okr text-kakao',
-  serik: 'bg-serik text-kakao',
-}
-const tileTitle = {
-  palena: 'text-palena',
-  okr: 'text-kakao',
-  serik: 'text-serik-tmavy',
-}
-
+/* ---------- KAPITOLY / CESTA URSU ---------- */
 export function Chapters() {
   return (
     <section id="kapitoly" className="py-20 md:py-28">
-      <div className={`${wrap} grid gap-5 lg:grid-cols-[1fr_1.1fr]`}>
-        <div className="relative overflow-hidden rounded-3xl bg-okr p-8 md:p-12 min-h-[320px] flex flex-col justify-end">
-          <div className="absolute -right-16 -bottom-16 h-64 w-64 rounded-full bg-terakota" aria-hidden />
-          <h2 className="relative font-heading text-[clamp(2.5rem,5.5vw,4rem)] font-bold leading-[0.98] text-kakao">
-            {chapters.title}
-          </h2>
-          <p className="relative mt-4 max-w-sm text-lg text-kakao">{chapters.lead}</p>
+      <div className={wrap}>
+        <div className="max-w-3xl">
+          <h2 className={h2}>{chapters.title}</h2>
+          <p className={`mt-4 ${lead}`}>{chapters.lead}</p>
         </div>
-        <ol className="grid gap-4">
-          {chapters.items.map((c) => (
-            <li key={c.n} className="card flex items-center gap-5 p-5 md:p-6">
-              <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl text-2xl font-bold ${tile[c.tone]}`}>
-                {c.n}
-              </span>
-              <div>
-                <h3 className={`text-2xl font-bold ${tileTitle[c.tone]}`}>{c.title}</h3>
-                <p className="mt-1 text-kakao-muted">{c.text}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
+        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start">
+          <ChaptersExplorer />
+          <StezkaPreview />
+        </div>
       </div>
     </section>
   )
@@ -170,15 +149,24 @@ export function Registration() {
               <h2 className={h2}>{registration.title}</h2>
               <p className="mt-4 text-[clamp(1.15rem,2vw,1.5rem)] leading-relaxed text-kakao-muted">
                 {registration.textBefore}{' '}
-                <mark className="rounded-md bg-maslova px-1.5 text-kakao">{registration.deadline}</mark>
+                <mark className="rounded-md bg-maslova px-1.5 text-kakao box-decoration-clone">{registration.deadline}</mark>
                 {registration.textAfter}
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:justify-end">
-              <a href={registration.steps[0].href} className="btn-primary">{registration.steps[0].cta}</a>
-              <a href={registration.steps[1].href} target="_blank" rel="noopener noreferrer" className="btn-outline">
-                {registration.steps[1].cta} <ExternalLink className="h-4 w-4" />
-              </a>
+              {registration.steps.map((st, i) => {
+                const ext = st.href.startsWith('http')
+                return (
+                  <a
+                    key={st.cta}
+                    href={st.href}
+                    {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    className={i === 0 ? 'btn-primary' : 'btn-outline'}
+                  >
+                    {st.cta} {ext && <ExternalLink className="h-4 w-4" />}
+                  </a>
+                )
+              })}
             </div>
           </div>
 
@@ -191,7 +179,11 @@ export function Registration() {
             ))}
           </ol>
 
-          <p className="mt-6 text-kakao-muted">{registration.notes.join(' ')}</p>
+          <div className="mt-6 space-y-2 text-kakao-muted">
+            {registration.notes.map((n) => (
+              <p key={n}>{n}</p>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -218,6 +210,14 @@ export function Dates() {
               <div className={`text-sm ${d.tone === 'okr' ? 'text-kakao' : 'text-kakao-muted'}`}>{d.label}</div>
               <div className={`mt-2 font-heading text-3xl font-bold ${dateColor[i]}`}>{d.date}</div>
               <div className={`mt-1 ${d.tone === 'okr' ? 'text-kakao' : 'text-kakao-muted'}`}>{d.place}</div>
+              <a
+                href={d.map}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`mt-3 inline-flex items-center gap-1.5 text-sm underline underline-offset-4 ${d.tone === 'okr' ? 'text-kakao' : 'text-serik-tmavy'}`}
+              >
+                <MapPin className="h-4 w-4" /> Na mapě
+              </a>
             </div>
           ))}
         </div>
@@ -246,7 +246,6 @@ export function Dates() {
 
 /* ---------- TÝM ---------- */
 export function Team() {
-  const support = [...externists, ...cooks]
   return (
     <section id="tym" className="py-20 md:py-28">
       <div className={wrap}>
@@ -255,16 +254,15 @@ export function Team() {
             <h2 className={h2}>{team.title}</h2>
             <p className={`mt-3 ${lead}`}>{team.lead}</p>
           </div>
-          <span className="text-sm text-palena">{team.note}</span>
         </div>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
           ))}
         </div>
-        <h3 className="mt-14 text-2xl font-bold text-kakao">Externisté a kuchaři</h3>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {support.map((m) => (
+        <h3 className="mt-14 text-2xl font-bold text-kakao">Kuchaři</h3>
+        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {cooks.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
           ))}
         </div>
