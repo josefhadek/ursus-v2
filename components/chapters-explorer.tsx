@@ -22,7 +22,7 @@ export function ChaptersExplorer() {
 
   return (
     <div data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ title, bg, ink, questions }) => ({ title, bg, ink, questions })))}>
-      <div role="tablist" aria-label="Kapitoly Cesty Ursu" className="grid grid-cols-4 gap-2 sm:gap-3">
+      <div role="tablist" aria-label="Kapitoly Cesty Ursu" className="grid grid-cols-4 gap-2 sm:gap-3 lg:grid-cols-8 lg:gap-2">
         {chapters.items.map((c, i) => {
           const selected = i === active
           return (
@@ -39,7 +39,7 @@ export function ChaptersExplorer() {
               onClick={() => setActive(i)}
               onKeyDown={(e) => onKey(e, i)}
               style={{ backgroundColor: c.bg }}
-              className={`group flex aspect-square lg:aspect-[5/4] flex-col items-center justify-center rounded-2xl p-2 transition-[box-shadow] ${
+              className={`group flex aspect-square flex-col items-center justify-center rounded-2xl p-2 transition-[box-shadow] ${
                 selected ? 'ring-[3px] ring-kakao' : 'ring-0 hover:ring-2 hover:ring-kakao/30'
               }`}
             >

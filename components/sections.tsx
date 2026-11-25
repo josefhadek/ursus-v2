@@ -10,7 +10,6 @@ import {
   dates,
   conditions,
   team,
-  quotes,
   faq,
 } from '@/lib/content'
 import { teamMembers, cooks } from '@/lib/team'
@@ -257,6 +256,12 @@ export function Team() {
 }
 
 /* ---------- CITACE ---------- */
+const quoteGraphics = [
+  { src: '/images/ursus-maty.webp', alt: '„Hledal jsem kurz, našel jsem rodinku.“ – Maty, účastník Ursu 2024' },
+  { src: '/images/citat2-web.webp', alt: '„Ursus mne naučil, jak být skvělou vedoucí nejen pro děti, ale především pro svůj tým vedoucích.“ – účastnice Ursu 2023' },
+  { src: '/images/citat1-web.webp', alt: '„Inspirovalo mě zpracování a provedení toho, jak jde programy tvořit skutečně podle skautské výchovné metody.“ – účastník Ursu 2023' },
+]
+
 export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
@@ -264,11 +269,10 @@ export function Quotes() {
         <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">
           Co o nás říkají účastníci z minulých let
         </h2>
-        <div className="mt-10 grid gap-10 md:grid-cols-2">
-          {quotes.map((q) => (
-            <figure key={q.who} className="border-l-4 border-terakota pl-6">
-              <blockquote className="text-xl leading-snug text-kakao">„{q.text}“</blockquote>
-              <figcaption className="mt-3 text-sm font-bold text-kakao">{q.who}</figcaption>
+        <div className="mt-10 grid gap-5 sm:grid-cols-3">
+          {quoteGraphics.map((q) => (
+            <figure key={q.src} className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+              <Image src={q.src} alt={q.alt} fill sizes="(max-width: 640px) 100vw, 33vw" className="object-cover" />
             </figure>
           ))}
         </div>
