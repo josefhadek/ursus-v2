@@ -143,9 +143,20 @@ export const stezkaPreview = {
   ],
 }
 
+export const countdown = {
+  // 4. 1. 2027 12:00 a 10. 1. 2027 12:00 středoevropského času (UTC+1)
+  start: '2027-01-04T11:00:00Z',
+  end: '2027-01-10T11:00:00Z',
+  before: { title: 'Přihlašování spouštíme za', text: 'Přihlášky na ročník 2027 spustíme 4. 1. 2027 ve 12:00 a přijímat je budeme do 10. 1. 2027 ve 12:00. Připrav si přístup do SkautISu.' },
+  running: { title: 'Přihlašování končí za', text: 'Přihlašování na ročník 2027 právě běží – do 10. 1. 2027 ve 12:00 musíš stihnout oba kroky.' },
+  over: { title: 'Přihlašování skončilo', text: 'Přihlašování na ročník 2027 je uzavřené. Děkujeme všem, kdo se přihlásili.' },
+  ics: '/ursus-2027-prihlasovani.ics',
+  google:
+    'https://calendar.google.com/calendar/render?action=TEMPLATE&text=P%C5%99ihla%C5%A1ov%C3%A1n%C3%AD%20na%20VLK%20Ursus%202027&dates=20270104T110000Z/20270110T110000Z&details=P%C5%99ihl%C3%A1%C5%A1ka%20m%C3%A1%20dva%20kroky%3A%20SkautIS%20a%20Anal%C3%BDza%20odd%C3%ADlu.%20https%3A%2F%2Fursus.skauting.cz',
+}
+
 export const registration = {
-  title: 'Přihláška',
-  window: { from: '4. 1. 2027', to: '10. 1. 2027', time: 'vždy ve 12:00' },
+  title: 'Přihláška ve dvou krocích',
   intro: 'Přihláška má dva kroky. Oba musíš stihnout do konce přihlašování, na pořadí nezáleží.',
   steps: [
     { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautis },

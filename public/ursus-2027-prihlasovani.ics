@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//VLK Ursus//Prihlasovani 2027//CS
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:prihlasovani-2027@ursus.skauting.cz
+DTSTAMP:20261125T000000Z
+DTSTART:20270104T110000Z
+DTEND:20270110T110000Z
+SUMMARY:Přihlašování na VLK Ursus 2027
+DESCRIPTION:Přihláška má dva kroky: přihlášení ve SkautISu a dotazník Analýza oddílu. Více na https://ursus.skauting.cz
+URL:https://ursus.skauting.cz
+BEGIN:VALARM
+TRIGGER:-PT1H
+ACTION:DISPLAY
+DESCRIPTION:Za hodinu startuje přihlašování na Ursus 2027
+END:VALARM
+END:VEVENT
+END:VCALENDAR

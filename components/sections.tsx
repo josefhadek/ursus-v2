@@ -17,6 +17,7 @@ import { TeamMemberCard } from '@/components/team-member-card'
 import { PhotoStrip } from '@/components/photo-strip'
 import { ChaptersExplorer } from '@/components/chapters-explorer'
 import { StezkaPreview } from '@/components/stezka-preview'
+import { Countdown } from '@/components/countdown'
 
 const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
 const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
@@ -63,6 +64,17 @@ export function Hero() {
         </div>
       </div>
 
+    </section>
+  )
+}
+
+/* ---------- ODPOČET ---------- */
+export function CountdownSection() {
+  return (
+    <section aria-label="Odpočet do přihlašování" className="pb-16 md:pb-20">
+      <div className={wrap}>
+        <Countdown />
+      </div>
     </section>
   )
 }
@@ -128,36 +140,27 @@ export function Chapters() {
 
 /* ---------- PŘIHLÁŠKA ---------- */
 export function Registration() {
-  const w = registration.window
   return (
     <section id="prihlaska" className="bg-bila py-20 md:py-28">
-      <div className={`${wrap} grid gap-10 lg:grid-cols-[0.9fr_1.1fr]`}>
-        <div>
-          <h2 className={h2}>{registration.title}</h2>
-          <p className="mt-6 text-sm font-bold text-kakao">Přihlašování</p>
-          <p className="font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-tight text-kakao">
-            {w.from} – {w.to}
-          </p>
-          <p className="text-kakao-muted">{w.time}</p>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-kakao">{registration.intro}</p>
-        </div>
-
-        <ol className="grid gap-4">
+      <div className={wrap}>
+        <h2 className={h2}>{registration.title}</h2>
+        <p className={`mt-4 max-w-2xl ${lead}`}>{registration.intro}</p>
+        <ol className="mt-6 grid gap-4 md:grid-cols-2">
           {registration.steps.map((st, i) => {
             const ext = st.href.startsWith('http')
             return (
-              <li key={st.title} className="flex flex-col gap-4 rounded-2xl border border-pisek bg-krem p-6 sm:flex-row sm:items-center">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-kakao font-heading text-xl font-bold text-maslova">
-                  {i + 1}
-                </span>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-kakao">{st.title}</h3>
-                  <p className="mt-1 text-kakao-muted">{st.text}</p>
+              <li key={st.title} className="flex flex-col gap-4 rounded-2xl border border-pisek bg-krem p-6">
+                <div className="flex items-center gap-4">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-kakao font-heading text-lg font-bold text-maslova">
+                    {i + 1}
+                  </span>
+                  <h4 className="text-xl font-bold text-kakao">{st.title}</h4>
                 </div>
+                <p className="text-kakao-muted">{st.text}</p>
                 <a
                   href={st.href}
                   {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="btn-primary shrink-0 self-start sm:self-center"
+                  className="btn-primary mt-auto self-start"
                 >
                   {st.cta} {ext && <ExternalLink className="h-4 w-4" />}
                 </a>
@@ -165,10 +168,8 @@ export function Registration() {
             )
           })}
         </ol>
-      </div>
 
-      <div className={`${wrap} mt-12`}>
-        <h3 className="text-xl font-bold text-kakao">{registration.after.title}</h3>
+        <h3 className="mt-12 text-xl font-bold text-kakao">{registration.after.title}</h3>
         <dl className="mt-4 grid gap-6 border-t border-pisek pt-5 md:grid-cols-3">
           {registration.after.items.map((it) => (
             <div key={it.label}>
