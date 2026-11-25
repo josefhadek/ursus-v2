@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { CalendarPlus } from 'lucide-react'
+import { BellRing, ExternalLink } from 'lucide-react'
 import { countdown as cd, links } from '@/lib/content'
 
 type Phase = 'before' | 'running' | 'over'
@@ -14,21 +14,16 @@ function parts(ms: number) {
 const labels = ['dní', 'hodin', 'minut', 'sekund']
 const pad = (n: number) => String(n).padStart(2, '0')
 
-// Vrstevnice jako jemná dekorace – lesní kurz, mapa.
-function Contours() {
+// Kruhy z Hadčiny palety, stejný motiv jako v úvodu.
+function Circles() {
   return (
-    <svg aria-hidden className="pointer-events-none absolute inset-0 h-full w-full" viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor">
-      <g className="text-krem/10" strokeWidth="1.5">
-        {[0, 1, 2, 3, 4].map((i) => (
-          <ellipse key={`a${i}`} cx="960" cy="230" rx={60 + i * 55} ry={45 + i * 42} />
-        ))}
-        {[0, 1, 2].map((i) => (
-          <ellipse key={`b${i}`} cx="330" cy="330" rx={70 + i * 60} ry={50 + i * 45} />
-        ))}
-        <path d="M0 70 C 250 40, 450 90, 650 55 S 1000 20, 1200 60" />
-        <path d="M0 110 C 220 85, 480 130, 700 100 S 1020 70, 1200 105" />
-      </g>
-    </svg>
+    <div aria-hidden className="pointer-events-none absolute inset-0">
+      <div className="absolute -right-24 -top-24 hidden h-80 w-80 rounded-full bg-okr md:block" />
+      <div className="absolute -bottom-20 right-40 hidden h-56 w-56 rounded-full bg-serik md:block" />
+      <div className="absolute bottom-10 right-16 hidden h-16 w-16 rounded-full bg-terakota md:block" />
+      <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-okr md:hidden" />
+      <div className="absolute -bottom-6 right-16 h-12 w-12 rounded-full bg-terakota md:hidden" />
+    </div>
   )
 }
 
@@ -56,18 +51,18 @@ export function Countdown() {
       data-copy={JSON.stringify({ before: cd.before, running: cd.running, over: cd.over })}
       className="relative overflow-hidden rounded-3xl bg-kakao px-6 py-10 text-krem sm:px-10 md:px-14 md:py-14"
     >
-      <Contours />
+      <Circles />
       <div className="relative">
         <h2 className="font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-maslova" data-countdown-title>
           {copy.title}
         </h2>
-        <p className="mt-4 max-w-2xl text-lg leading-relaxed text-krem/90" data-countdown-text>
+        <p className="mt-4 max-w-xl text-lg leading-relaxed text-krem/90" data-countdown-text>
           {copy.text}
         </p>
-        <p className="mt-3 max-w-2xl text-krem/90">
+        <p className="mt-3 max-w-xl text-krem/90">
           Aktuální informace ke kurzu najdeš na{' '}
-          <a href={links.facebook} target="_blank" rel="noopener noreferrer" className="font-bold text-krem underline underline-offset-4 hover:text-maslova">
-            Facebooku
+          <a href={links.instagram} target="_blank" rel="noopener noreferrer" className="font-bold text-krem underline underline-offset-4 hover:text-maslova">
+            Instagramu
           </a>
           .
         </p>
@@ -83,12 +78,9 @@ export function Countdown() {
           ))}
         </dl>
 
-        <div className="mt-10 flex flex-wrap gap-3">
-          <a href={cd.google} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center gap-2 rounded-xl border-2 border-krem/80 px-5 font-bold text-krem hover:bg-krem hover:text-kakao">
-            <CalendarPlus className="h-5 w-5" /> Přidat do Google Kalendáře
-          </a>
-          <a href={cd.ics} download className="inline-flex h-12 items-center gap-2 rounded-xl px-3 font-bold text-krem/90 underline underline-offset-4 hover:text-maslova">
-            Stáhnout .ics (Apple, Outlook)
+        <div className="mt-10">
+          <a href={cd.reminder} target="_blank" rel="noopener noreferrer" className="inline-flex h-12 items-center gap-2 rounded-xl border-2 border-krem/80 bg-kakao px-5 font-bold text-krem hover:bg-krem hover:text-kakao">
+            <BellRing className="h-5 w-5 shrink-0" /> <span><span className="hidden sm:inline">Nastavit p</span><span className="sm:hidden">P</span>řipomenutí ve SkautISu</span> <ExternalLink className="h-4 w-4 shrink-0" />
           </a>
         </div>
       </div>

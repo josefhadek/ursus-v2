@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, Facebook, Images } from 'lucide-react'
+import { Mail, Facebook, Instagram, Images } from 'lucide-react'
 import { footer, links, nav } from '@/lib/content'
 
 export function Footer({ base = '' }: { base?: string }) {
@@ -41,6 +41,11 @@ export function Footer({ base = '' }: { base?: string }) {
             <li>
               <a href={links.facebook} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-maslova">
                 <Facebook className="h-4 w-4 text-okr" /> VLK Ursus
+              </a>
+            </li>
+            <li>
+              <a href={links.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-maslova">
+                <Instagram className="h-4 w-4 text-okr" /> vlk_ursus
               </a>
             </li>
             <li>
