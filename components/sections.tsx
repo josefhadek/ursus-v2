@@ -124,15 +124,15 @@ export function About() {
 export function Chapters() {
   return (
     <section id="kapitoly" className="bg-krem py-20 md:py-28">
-      <div className={wrap}>
-        <div className="max-w-3xl">
+      <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start`}>
+        <div className="min-w-0">
           <h2 className={h2}>{chapters.title}</h2>
-          <p className={`mt-4 ${lead}`}>{chapters.lead}</p>
+          <p className={`mt-4 max-w-3xl ${lead}`}>{chapters.lead}</p>
+          <div className="mt-10">
+            <ChaptersExplorer />
+          </div>
         </div>
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start">
-          <ChaptersExplorer />
-          <StezkaPreview />
-        </div>
+        <StezkaPreview />
       </div>
     </section>
   )
