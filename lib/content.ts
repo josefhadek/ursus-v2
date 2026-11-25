@@ -73,7 +73,7 @@ export const pillars = [
 
 export const chapters = {
   title: 'Stezka Cesta Ursu',
-  lead: 'Kurz i naše stezka jsou rozdělené do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
+  lead: 'Náš kurz nemá zkouškový víkend. Vůdcovské kompetence ověřujeme průběžně pomocí stezky Cesta Ursu, která je stejně jako kurz rozdělená do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
   items: [
     {
       slug: 'myslenkove',
