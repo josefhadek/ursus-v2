@@ -202,8 +202,7 @@ export const conditions = [
 ]
 
 export const team = {
-  title: 'Tým Ursu',
-  lead: 'Klikni na fotku a přečti si víc.',
+  title: 'Naši instruktoři a instruktorky',
 }
 
 export const quotes = [

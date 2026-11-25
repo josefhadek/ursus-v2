@@ -244,12 +244,7 @@ export function Team() {
   return (
     <section id="tym" className="bg-bila py-20 md:py-28">
       <div className={wrap}>
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <div>
-            <h2 className={h2}>{team.title}</h2>
-            <p className={`mt-3 ${lead}`}>{team.lead}</p>
-          </div>
-        </div>
+        <h2 className={h2}>{team.title}</h2>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
