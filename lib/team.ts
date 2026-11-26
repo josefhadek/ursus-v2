@@ -1,5 +1,5 @@
 // Tým Ursu 2027 – převzato z ursus.skauting.cz/tym-ursu (listopad 2026).
-// Abe, Matylda, Kámen a Pepa: nové medailonky z Notionu Ursu (Web Medailonky instruktorů).
+// Abe, Matylda, Kámen, Pepa, Ilča a Petarda: nové medailonky z Notionu Ursu (Web Medailonky instruktorů).
 // Odstavce v popisu odděluj pomocí <br>.
 
 export type TeamMember = { name: string; nickname: string; role?: string; description?: string; image: string }
@@ -53,6 +53,20 @@ export const teamMembers: TeamMember[] = [
     description:
       'Drobek je milovnicí postindustriální krajiny a proto se narodila v Ostravě, kde je doma dodnes. Skautsky se angažuje v revizní komisi střediska a okresu a na rádcovském kurzu.<br>Pracovně ji živí vlastní environmentální žal, nutričně italská kuchyně a duševně hudba, vysoká i nízká literatura a husky v těle maďarského ohaře.',
     image: '/images/drobek.webp',
+  },
+  {
+    name: 'Ilona Jůdová',
+    nickname: 'Ilča',
+    description:
+      'Ilča pochází z Velkého Meziříčí, malého města na Vysočině. V domovském středisku vede oddíl skautů a skautek. S dětmi se setkává i ve svém profesním životě, po studiu speciální pedagogiky začala pracovat jako paní učitelka ve škole pro žáky se sluchovým postižením.<br>Má ráda čas strávený s kamarády, ať už na procházce, ve fitku, nebo doma u deskovek (které stejně pořád nechápe). Radost jí dělá fenka šeltie, Astrid, se kterou ráda běhá a učí se různé triky.',
+    image: '/images/ilca.webp',
+  },
+  {
+    name: 'Petr Hejl',
+    nickname: 'Petarda',
+    description:
+      'Petarda je z Klobúk u Brna, což je takové velké maloměsto u Hodonína. V tamním středisku dělá zástupca vedúcího střediska, což je pro něho role nová, takže se na kurzu bude učit společně s vama. Už pátým rokem se snaží neco naučit aj na právech v Olomócu.<br>Rád sa zasměje, pokecá o čemkoliv, chodí na vandry, paří na kompu, kouká na seriály, chodí za kulturou, bývá s kamošama a hraje frisbee či spikeball. Občas má krátkozraké herecké tendence, keré sa obzvlášť na Ursu projevujú tak, že hraje v těch fest trapných scénkách.',
+    image: '/images/petarda.webp',
   },
 ]
 
