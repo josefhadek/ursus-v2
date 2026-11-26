@@ -25,7 +25,7 @@ export function ChaptersExplorer() {
       <div
         role="tablist"
         aria-label="Kapitoly Cesty Ursu"
-        className="no-scrollbar flex items-start gap-2 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible"
+        className="no-scrollbar relative flex items-start gap-2 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible"
       >
         {chapters.items.map((c, i) => {
           const selected = i === active

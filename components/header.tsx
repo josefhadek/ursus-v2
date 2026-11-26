@@ -24,7 +24,7 @@ export function Header({ base = '' }: { base?: string }) {
   }, [open])
 
   return (
-    <header ref={ref} className="sticky top-0 z-50 border-b border-b-pisek/70 bg-krem/65 backdrop-blur-xl backdrop-saturate-150">
+    <header ref={ref} className="sticky top-0 z-50 border-b border-b-pisek bg-krem">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href={base || '#'} className="flex items-center gap-2" onClick={() => setOpen(false)}>
           <span className="font-heading text-2xl font-bold tracking-[0.06em] text-palena">VLK Ursus</span>
