@@ -21,7 +21,7 @@ on:
       server_dir:
         description: 'Složka webu na FTP serveru (musí končit lomítkem)'
         type: string
-        default: './'
+        default: 'www/'
   # push:
   #   branches: ['main']
 
@@ -61,7 +61,7 @@ jobs:
         continue-on-error: true
         env:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          SERVER_DIR: ${{ inputs.server_dir || './' }}
+          SERVER_DIR: ${{ inputs.server_dir || 'www/' }}
         run: |
           sudo apt-get install -y -qq lftp > /dev/null
           lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 1; cd '$SERVER_DIR'; pwd; cls -la --sort=name; bye" lebedahosting.cz
@@ -74,6 +74,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           local-dir: ./out/
-          server-dir: ${{ inputs.server_dir || './' }}
+          server-dir: ${{ inputs.server_dir || 'www/' }}
           dry-run: ${{ inputs.dry_run }}
           log-level: standard
