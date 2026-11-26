@@ -197,20 +197,21 @@ export function Dates() {
 
         <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
           {dates.items.map((d, i) => (
-            <li key={d.label} className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_1fr_auto] md:items-baseline">
+            <li key={d.label} className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_1fr] md:items-baseline">
               <span className="flex items-center gap-2 text-kakao-muted">
                 <span className={`h-2.5 w-2.5 rounded-full ${dateDot[i % dateDot.length]}`} aria-hidden />
                 {d.label}
               </span>
               <span className="font-heading text-3xl font-bold text-kakao">{d.date}</span>
-              <span className="text-lg text-kakao">{d.place}</span>
               <a
                 href={d.map}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-serik-tmavy underline underline-offset-4 hover:text-kakao"
+                aria-label={`${d.place} – zobrazit na mapě`}
+                className="inline-flex items-center gap-1.5 self-start text-lg text-kakao underline decoration-pisek decoration-2 underline-offset-4 transition-colors hover:text-serik-tmavy hover:decoration-serik-tmavy md:self-auto"
               >
-                <MapPin className="h-4 w-4" /> Na mapě
+                <MapPin className="h-5 w-5 shrink-0 text-serik-tmavy" aria-hidden />
+                {d.place}
               </a>
             </li>
           ))}
