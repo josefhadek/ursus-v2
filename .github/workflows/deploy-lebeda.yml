@@ -66,14 +66,14 @@ jobs:
           sudo apt-get install -y -qq lftp > /dev/null
           lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 1; cd '$SERVER_DIR'; pwd; cls -la --sort=name; bye" lebedahosting.cz
 
+      # lftp místo FTP-Deploy-Action: server vyžaduje znovupoužití TLS session
+      # na datovém spojení, což knihovna basic-ftp neumí (ECONNRESET).
+      # Bez --delete: na serveru se nic nemaže (zůstanou dokumenty/, fotky, WordPress).
       - name: Nahrát přes FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
-        with:
-          server: lebedahosting.cz
-          username: ursus
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          local-dir: ./out/
-          server-dir: ${{ inputs.server_dir || 'www/' }}
-          dry-run: ${{ inputs.dry_run }}
-          log-level: standard
+        env:
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          SERVER_DIR: ${{ inputs.server_dir || 'www/' }}
+          DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
+        run: |
+          command -v lftp > /dev/null || sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 3; set net:timeout 30; set net:reconnect-interval-base 5; mirror --reverse --verbose --no-perms --parallel=3 $DRY_RUN out/ '$SERVER_DIR'; bye" lebedahosting.cz
