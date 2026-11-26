@@ -1,4 +1,5 @@
-# Statický web VLK Ursus (Next.js export) na LebedaHostingu.
+# Web VLK Ursus (Next.js export) na LebedaHostingu.
+# Úvodní stránka je statická (index.html), ostatní adresy řeší index.php.
 # GitHub Pages tento soubor ignoruje, uplatní se jen na Apache.
 
 DirectoryIndex index.html
@@ -22,14 +23,16 @@ ErrorDocument 404 /404.html
   RewriteRule ^(faq|caste-otazky)/?$ /#faq [R=301,L,NE]
   RewriteRule ^(stezka|cesta-ursu)/?$ /#kapitoly [R=301,L,NE]
 
-  # Zbytky WordPressu (administrace, feedy) → úvodní stránka
-  RewriteRule ^(wp-admin|wp-login\.php|xmlrpc\.php|feed|comments/feed)(/.*)?$ / [R=301,L]
-
   # /tym → tym.html (export Next.js bez koncového lomítka)
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
   RewriteRule ^(.+?)/?$ $1.html [L]
+
+  # Vše ostatní (staré články WordPressu, neexistující adresy) → index.php
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.php [L]
 </IfModule>
 
 <IfModule mod_headers.c>

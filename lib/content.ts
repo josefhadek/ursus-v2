@@ -34,13 +34,6 @@ export const hero = {
   lead: 'Kurz pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta.',
 }
 
-export const facts = [
-  { label: 'Přihlašování', value: '4.–10. 1. 2027' },
-  { label: 'Kapacita', value: '26 účastnic a účastníků' },
-  { label: 'Cena', value: 'cca 4 500 Kč' },
-  { label: 'Pořádá', value: 'Junák – český skaut, kraj Praha' },
-]
-
 export const about = {
   title: 'O kurzu',
   paragraphs: [
@@ -206,25 +199,6 @@ export const conditions = [
 export const team = {
   title: 'Naši instruktoři a instruktorky',
 }
-
-export const quotes = [
-  {
-    text: 'Ursus mi pomohl otevřít neznámé dveře. Před kurzem jsem si neuměla představit, že bych mohla být dobrou vedoucí oddílu. Ursus mě přesvědčil o opaku.',
-    who: 'Sára, účastnice Ursu 2025',
-  },
-  {
-    text: 'Hledal jsem kurz, našel jsem rodinku.',
-    who: 'Maty, účastník Ursu 2024',
-  },
-  {
-    text: 'Ursus mne naučil, jak být skvělou vedoucí nejen pro děti, ale především pro svůj tým vedoucích.',
-    who: 'Účastnice Ursu 2023',
-  },
-  {
-    text: 'Inspirovalo mě zpracování a provedení toho, jak jde programy tvořit skutečně podle skautské výchovné metody.',
-    who: 'Účastník Ursu 2023',
-  },
-]
 
 export const faq = [
   {
