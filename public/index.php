@@ -40,7 +40,7 @@ function serve(string $file, int $status = 200): void
 {
     http_response_code($status);
     header('Content-Type: text/html; charset=utf-8');
-    header('Cache-Control: public, max-age=0, must-revalidate');
+    header('Cache-Control: no-store');
     readfile($file);
     exit;
 }

@@ -43,8 +43,15 @@ ErrorDocument 404 /404.html
   <FilesMatch "\.(webp|jpg|png|svg|ico)$">
     Header set Cache-Control "public, max-age=604800"
   </FilesMatch>
+  # HTML: Next.js si po načtení stahuje prvních 64 bajtů stránky (Range: bytes=0-63),
+  # aby zkontroloval verzi webu. Prohlížeč si ten kousek uložil do cache a při další
+  # návštěvě ho zobrazil jako celou stránku → bílá stránka. Proto u HTML Range
+  # ignorujeme (vrací se celý soubor) a HTML se do cache neukládá.
   <FilesMatch "\.html$">
-    Header set Cache-Control "public, max-age=0, must-revalidate"
+    RequestHeader unset Range
+    RequestHeader unset If-Range
+    Header unset Accept-Ranges
+    Header set Cache-Control "no-store"
   </FilesMatch>
 </IfModule>
 
