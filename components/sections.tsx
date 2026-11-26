@@ -91,6 +91,14 @@ export function About() {
           {about.paragraphs.map((p) => (
             <p key={p} className={`mt-5 ${lead}`}>{p}</p>
           ))}
+          <p className={`mt-5 ${lead}`}>
+            <a
+              href={about.stezkaLink.href}
+              className="underline decoration-serik-tmavy decoration-2 underline-offset-4 transition-colors hover:text-serik-tmavy"
+            >
+              {about.stezkaLink.text}
+            </a>
+          </p>
         </div>
       </div>
 
