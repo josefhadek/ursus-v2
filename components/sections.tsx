@@ -24,7 +24,6 @@ const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
 const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
 const lead = 'text-lg text-kakao-muted leading-relaxed'
 const h3 = 'text-2xl font-bold text-kakao'
-const callout = 'border-l-4 border-palena pl-5 text-kakao'
 
 /* ---------- HERO ---------- */
 export function Hero() {
@@ -86,16 +85,21 @@ export function CountdownSection() {
 export function About() {
   return (
     <section id="o-kurzu" className="bg-bila py-20 md:py-28">
-      <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-end`}>
-        <div>
+      <div className={wrap}>
+        <div className="max-w-3xl">
           <h2 className={h2}>{about.title}</h2>
           {about.paragraphs.map((p) => (
             <p key={p} className={`mt-5 ${lead}`}>{p}</p>
           ))}
+          <p className={`mt-5 ${lead}`}>
+            <a
+              href={about.stezkaLink.href}
+              className="underline decoration-serik-tmavy decoration-2 underline-offset-4 transition-colors hover:text-serik-tmavy"
+            >
+              {about.stezkaLink.text}
+            </a>
+          </p>
         </div>
-        <p className={`${callout} text-xl font-bold leading-snug`}>
-          {about.highlight}
-        </p>
       </div>
 
       <div className="mx-auto mt-12 max-w-6xl">
@@ -188,6 +192,11 @@ const dateDot = ['bg-okr', 'bg-serik-tmavy', 'bg-terakota']
 
 const price = conditions.find((c) => 'big' in c && c.big) as { title: string; big: string; text: string } | undefined
 const otherConditions = conditions.filter((c) => c !== price)
+type ConditionItem = { title: string; text: string; link?: { href: string; label: string } }
+const conditionItems: ConditionItem[] = [
+  { title: 'Pozor na časovou náročnost', text: dates.warning },
+  ...(otherConditions as ConditionItem[]),
+]
 
 export function Dates() {
   return (
@@ -197,20 +206,21 @@ export function Dates() {
 
         <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
           {dates.items.map((d, i) => (
-            <li key={d.label} className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_1fr_auto] md:items-baseline">
+            <li key={d.label} className="grid gap-x-8 gap-y-1 py-5 md:grid-cols-[200px_1fr_1fr] md:items-baseline">
               <span className="flex items-center gap-2 text-kakao-muted">
                 <span className={`h-2.5 w-2.5 rounded-full ${dateDot[i % dateDot.length]}`} aria-hidden />
                 {d.label}
               </span>
               <span className="font-heading text-3xl font-bold text-kakao">{d.date}</span>
-              <span className="text-lg text-kakao">{d.place}</span>
               <a
                 href={d.map}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm text-serik-tmavy underline underline-offset-4 hover:text-kakao"
+                aria-label={`${d.place} – zobrazit na mapě`}
+                className="inline-flex items-center gap-1.5 self-start text-lg text-kakao underline decoration-pisek decoration-2 underline-offset-4 transition-colors hover:text-serik-tmavy hover:decoration-serik-tmavy md:self-auto"
               >
-                <MapPin className="h-4 w-4" /> Na mapě
+                <MapPin className="h-5 w-5 shrink-0 text-serik-tmavy" aria-hidden />
+                {d.place}
               </a>
             </li>
           ))}
@@ -224,14 +234,9 @@ export function Dates() {
           </p>
         )}
 
-        <p className={`mt-6 max-w-3xl ${callout}`}>
-          <strong className="font-bold">Pozor: </strong>
-          {dates.warning}
-        </p>
-
         <div className="mt-14 divide-y divide-pisek border-y border-pisek">
-          {otherConditions.map((c) => (
-            <details key={c.title} className="group py-5">
+          {conditionItems.map((c, i) => (
+            <details key={c.title} className="group py-5" open={i === 0}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-kakao">
                 {c.title}
                 <ChevronDown className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-180" aria-hidden />
