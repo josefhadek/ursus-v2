@@ -86,16 +86,13 @@ export function CountdownSection() {
 export function About() {
   return (
     <section id="o-kurzu" className="bg-bila py-20 md:py-28">
-      <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_1.1fr] lg:items-end`}>
-        <div>
+      <div className={wrap}>
+        <div className="max-w-3xl">
           <h2 className={h2}>{about.title}</h2>
           {about.paragraphs.map((p) => (
             <p key={p} className={`mt-5 ${lead}`}>{p}</p>
           ))}
         </div>
-        <p className={`${callout} text-xl font-bold leading-snug`}>
-          {about.highlight}
-        </p>
       </div>
 
       <div className="mx-auto mt-12 max-w-6xl">
