@@ -9,7 +9,7 @@ export function Footer({ base = '' }: { base?: string }) {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14 grid gap-10 md:grid-cols-[1.2fr_1fr_1fr]">
         <div>
           <div className="flex items-center gap-4">
-            <Image src="/ursus-logo-bile.webp" alt="" width={80} height={80} className="h-20 w-20 shrink-0 object-contain" />
+            <Image src="/logo/ursus-na-kakau.webp" alt="" width={96} height={96} className="h-24 w-24 shrink-0 object-contain" />
             <div>
               <p className="font-heading text-3xl font-bold uppercase leading-none text-maslova">VLK Ursus</p>
               <p className="mt-2 text-krem/85">Vůdcovský lesní kurz Junáka – českého skauta</p>

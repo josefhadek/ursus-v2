@@ -20,7 +20,7 @@ export function StructuredData() {
     name: 'VLK Ursus',
     alternateName: 'Vůdcovský lesní kurz Ursus',
     url: `${siteUrl}/`,
-    logo: `${siteUrl}/icon-512.png`,
+    logo: `${siteUrl}/logo/ursus-512.png`,
     email: links.email,
     sameAs: [links.facebook, links.instagram],
     parentOrganization: {

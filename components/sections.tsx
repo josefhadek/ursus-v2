@@ -60,8 +60,8 @@ export function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-[2%] top-[4%] h-[24%] w-[24%] overflow-hidden rounded-2xl border-[5px] border-bila">
-            <Image src="/ursus-logo-kakao.webp" alt="Logo kurzu Ursus" fill sizes="140px" className="object-cover" />
+          <div className="absolute left-[2%] top-[4%] aspect-square w-[26%] overflow-hidden rounded-[13%] shadow-[0_10px_24px_rgba(69,32,31,0.22)]">
+            <Image src="/logo/ursus-zakladni.webp" alt="Logo kurzu Ursus" fill sizes="160px" className="object-cover" />
           </div>
         </div>
       </div>
