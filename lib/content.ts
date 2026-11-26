@@ -131,9 +131,9 @@ export const chapters = {
 
 export const stezkaPreview = {
   cta: 'Prolistuj ukázku stezky',
-  note: 'Cesta Ursu 2026 · obálka a 3 ukázkové strany',
+  note: 'Cesta Ursu 2027 · obálka a 3 ukázkové strany',
   pages: [
-    { src: '/stezka/obalka.webp', alt: 'Obálka stezky Cesta Ursu 2026' },
+    { src: '/stezka/obalka.webp', alt: 'Obálka stezky Cesta Ursu 2027' },
     { src: '/stezka/priroda.webp', alt: 'Ukázka úkolu Příroda z kapitoly Metodika' },
     { src: '/stezka/vzajemne-uceni.webp', alt: 'Ukázka úkolů Vzájemné učení, 2 v 1 a Družinová zpětná vazba z kapitoly Seberozvoj' },
     { src: '/stezka/muj-pokrok.webp', alt: 'Strana Můj pokrok s přehledem kapitol a úkolů' },
