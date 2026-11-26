@@ -56,6 +56,16 @@ jobs:
           # Ostrá doména: indexovat, canonical a sitemap na ursus.skauting.cz
           NEXT_PUBLIC_SITE_URL: https://ursus.skauting.cz
 
+      - name: Výpis složky na FTP serveru (jen při zkušebním běhu)
+        if: ${{ inputs.dry_run }}
+        continue-on-error: true
+        env:
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          SERVER_DIR: ${{ inputs.server_dir || './' }}
+        run: |
+          sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 1; cd '$SERVER_DIR'; pwd; cls -la --sort=name; bye" lebedahosting.cz
+
       - name: Nahrát přes FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:

@@ -4,7 +4,7 @@ import './globals.css'
 import { site, siteUrl, noindex } from '@/lib/site'
 
 const skautBold = localFont({
-  src: '../public/fonts/SKAUT-Bold.woff2',
+  src: './fonts/SKAUT-Bold.woff2',
   variable: '--font-skaut-bold',
   weight: '700',
   display: 'swap',
@@ -12,10 +12,10 @@ const skautBold = localFont({
 
 const theMix = localFont({
   src: [
-    { path: '../public/fonts/TheMixC5-4_SemiLight.woff2', weight: '400', style: 'normal' },
-    { path: '../public/fonts/TheMixC5-4iSemiLightIta.woff2', weight: '400', style: 'italic' },
-    { path: '../public/fonts/TheMixC5-7_Bold.woff2', weight: '700', style: 'normal' },
-    { path: '../public/fonts/TheMixC5-7iBoldItalic.woff2', weight: '700', style: 'italic' },
+    { path: './fonts/TheMixC5-4_SemiLight.woff2', weight: '400', style: 'normal' },
+    { path: './fonts/TheMixC5-4iSemiLightIta.woff2', weight: '400', style: 'italic' },
+    { path: './fonts/TheMixC5-7_Bold.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/TheMixC5-7iBoldItalic.woff2', weight: '700', style: 'italic' },
   ],
   variable: '--font-themix',
   display: 'swap',
