@@ -52,7 +52,7 @@ export function StezkaPreview() {
         data-stezka-dialog
         aria-label="Ukázka stezky Cesta Ursu"
         onClick={(e) => e.target === dialog.current && dialog.current?.close()}
-        className="m-auto w-[min(560px,94vw)] max-h-[94vh] overflow-visible rounded-2xl bg-krem p-0 backdrop:bg-kakao/70"
+        className="m-auto w-[min(560px,94vw)] max-h-[94vh] overflow-visible rounded-2xl bg-krem p-0 backdrop:bg-kakao/45 backdrop:backdrop-blur-md"
       >
         <div className="relative p-3 sm:p-4">
           <div className="relative aspect-[872/1239] max-h-[78vh] w-full overflow-hidden rounded-lg bg-bila" style={{ maxWidth: 'calc(78vh * 872 / 1239)', marginInline: 'auto' }}>
