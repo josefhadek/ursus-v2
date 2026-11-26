@@ -1,0 +1,50 @@
+# Statický web VLK Ursus (Next.js export) na LebedaHostingu.
+# GitHub Pages tento soubor ignoruje, uplatní se jen na Apache.
+
+DirectoryIndex index.html
+Options -Indexes
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Vždy HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Adresy ze starého WordPressu → odpovídající sekce nového webu (301 = trvale, kvůli SEO)
+  RewriteRule ^ursus-2027/?$ /#terminy [R=301,L,NE]
+  RewriteRule ^tym-ursu/?$ /#tym [R=301,L,NE]
+  RewriteRule ^(o-kurzu|o-nas)/?$ /#o-kurzu [R=301,L,NE]
+  RewriteRule ^(prihlaska|prihlasky|prihlaseni)/?$ /#prihlaska [R=301,L,NE]
+  RewriteRule ^(kontakt|kontakty)/?$ /#kontakt [R=301,L,NE]
+  RewriteRule ^(faq|caste-otazky)/?$ /#faq [R=301,L,NE]
+  RewriteRule ^(stezka|cesta-ursu)/?$ /#kapitoly [R=301,L,NE]
+
+  # Zbytky WordPressu (administrace, feedy) → úvodní stránka
+  RewriteRule ^(wp-admin|wp-login\.php|xmlrpc\.php|feed|comments/feed)(/.*)?$ / [R=301,L]
+
+  # /tym → tym.html (export Next.js bez koncového lomítka)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Soubory s hashem v názvu se nemění → dlouhá cache
+  <FilesMatch "^.*\.(woff2|css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(webp|jpg|png|svg|ico)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/plain text/xml application/manifest+json
+</IfModule>
