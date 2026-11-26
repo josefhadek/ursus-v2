@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-krem">
-      <Header />
+      <Header base="/" />
       <main className="mx-auto max-w-6xl px-4 py-24 sm:px-6 md:py-32">
         <h1 className="font-heading text-[clamp(2.25rem,5vw,3.5rem)] font-bold leading-[1.05] text-kakao">
           Tady nic není
@@ -22,7 +22,7 @@ export default function NotFound() {
           Na úvodní stránku
         </a>
       </main>
-      <Footer />
+      <Footer base="/" />
     </div>
   )
 }

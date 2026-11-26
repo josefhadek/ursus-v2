@@ -67,6 +67,9 @@ jobs:
       # lftp místo FTP-Deploy-Action: server vyžaduje znovupoužití TLS session
       # na datovém spojení, což knihovna basic-ftp neumí (ECONNRESET).
       # Bez --delete: na serveru se nic nemaže (zůstanou dokumenty/, fotky, WordPress).
+      # Kvůli tomu, aby návštěvník během nasazení nedostal rozbitou (bílou) stránku:
+      #  - soubory se nahrávají pod dočasným jménem a pak se přejmenují (xfer:use-temp-file),
+      #  - nejdřív se nahrají obrázky, CSS a JS, až potom HTML, index.php a .htaccess.
       - name: Nahrát přes FTP
         env:
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
@@ -74,4 +77,7 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run && '--dry-run' || '' }}
         run: |
           command -v lftp > /dev/null || sudo apt-get install -y -qq lftp > /dev/null
-          lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 3; set net:timeout 30; set net:reconnect-interval-base 5; mirror --reverse --verbose --no-perms --parallel=3 $DRY_RUN out/ '$SERVER_DIR'; bye" lebedahosting.cz
+          SETTINGS="set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 3; set net:timeout 30; set net:reconnect-interval-base 5; set xfer:use-temp-file true"
+          PAGES_OUT="-X *.html -X *.txt -X index.php -X .htaccess"
+          PAGES_IN="-I *.html -I *.txt -I index.php -I .htaccess"
+          lftp -u "ursus,$FTP_PASSWORD" -e "$SETTINGS; mirror --reverse --verbose --no-perms --parallel=3 $DRY_RUN $PAGES_OUT out/ '$SERVER_DIR'; mirror --reverse --verbose --no-perms --parallel=3 $DRY_RUN $PAGES_IN out/ '$SERVER_DIR'; bye" lebedahosting.cz
