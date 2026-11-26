@@ -6,8 +6,9 @@ export const ROCNIK = 2027
 
 export const links = {
   skautis: 'https://is.skaut.cz',
-  // TODO: odkaz na formulář Analýza oddílu pro 2027 (ve v2 byl neplatný placeholder)
-  analyza: '#prihlaska',
+  // Kurz Ursus 2027 ve SkautISu – upozornění na spuštění přihlašování
+  skautisKurz: 'https://is.skaut.cz/Junak/Events/Education/CourseReminderInsert.aspx?ID_EventEducationCourse=3688&IsLoggedIn=1',
+  analyza: 'https://forms.gle/BBJTXdZcRXzCJcwdA',
   zonerama: 'https://ursusvlk.zonerama.com/',
   facebook: 'https://www.facebook.com/vlk.ursus/',
   instagram: 'https://www.instagram.com/vlk_ursus/',
@@ -152,14 +153,14 @@ export const countdown = {
   before: { title: 'Přihlašování spouštíme za', text: 'Přihlášky na ročník 2027 spustíme 4. 1. 2027 ve 12:00 a přijímat je budeme do 10. 1. 2027 ve 12:00. Připrav si přístup do SkautISu.' },
   running: { title: 'Přihlašování končí za', text: 'Přihlašování na ročník 2027 právě běží – do 10. 1. 2027 ve 12:00 musíš stihnout oba kroky.' },
   over: { title: 'Přihlašování skončilo', text: 'Přihlašování na ročník 2027 je uzavřené. Děkujeme všem, kdo se přihlásili.' },
-  reminder: 'https://is.skaut.cz/Junak/Events/Education/CourseReminderInsert.aspx?ID_EventEducationCourse=3688&IsLoggedIn=1',
+  reminder: links.skautisKurz,
 }
 
 export const registration = {
   title: 'Přihláška ve dvou krocích',
   intro: 'Přihláška má dva kroky. Oba musíš stihnout do konce přihlašování, na pořadí nezáleží.',
   steps: [
-    { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautis },
+    { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautisKurz },
     { title: 'Vyplň analýzu oddílu', text: 'Vstupní úkol. Dotazník můžeš vyplnit už před začátkem přihlašování.', cta: 'Vyplnit analýzu', href: links.analyza },
   ],
   after: {
