@@ -1,0 +1,69 @@
+# Nasazení webu na ursus.skauting.cz (LebedaHosting) přes FTP.
+#
+# Spouští se zatím jen ručně: GitHub → Actions → „Nasadit na ursus.skauting.cz“ → Run workflow.
+# Výchozí je zkušební běh (dry run): připojí se na FTP a jen vypíše, co by nahrál.
+#
+# Potřebuje secret FTP_PASSWORD (heslo FTP uživatele „ursus“ z administrace LebedaHostingu):
+# GitHub → Settings → Secrets and variables → Actions → New repository secret.
+#
+# Až bude ověřené, že vše funguje, lze přidat automatické nasazení po pushi do main
+# (odkomentovat blok `push` níže).
+
+name: Nasadit na ursus.skauting.cz
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Zkušební běh – nic nenahrávat, jen vypsat změny'
+        type: boolean
+        default: true
+      server_dir:
+        description: 'Složka webu na FTP serveru (musí končit lomítkem)'
+        type: string
+        default: './'
+  # push:
+  #   branches: ['main']
+
+concurrency:
+  group: deploy-lebeda
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm run build
+        env:
+          # Ostrá doména: indexovat, canonical a sitemap na ursus.skauting.cz
+          NEXT_PUBLIC_SITE_URL: https://ursus.skauting.cz
+
+      - name: Nahrát přes FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: lebedahosting.cz
+          username: ursus
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: ./out/
+          server-dir: ${{ inputs.server_dir || './' }}
+          dry-run: ${{ inputs.dry_run }}
+          log-level: standard
