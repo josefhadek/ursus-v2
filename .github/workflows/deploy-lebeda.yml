@@ -1,13 +1,11 @@
 # Nasazení webu na ursus.skauting.cz (LebedaHosting) přes FTP.
 #
-# Spouští se zatím jen ručně: GitHub → Actions → „Nasadit na ursus.skauting.cz“ → Run workflow.
-# Výchozí je zkušební běh (dry run): připojí se na FTP a jen vypíše, co by nahrál.
+# Spouští se automaticky po každém pushi/mergi do main (ostré nasazení do www/).
+# Ručně: GitHub → Actions → „Nasadit na ursus.skauting.cz“ → Run workflow
+# (výchozí je zkušební běh, který jen vypíše, co by nahrál).
 #
 # Potřebuje secret FTP_PASSWORD (heslo FTP uživatele „ursus“ z administrace LebedaHostingu):
 # GitHub → Settings → Secrets and variables → Actions → New repository secret.
-#
-# Až bude ověřené, že vše funguje, lze přidat automatické nasazení po pushi do main
-# (odkomentovat blok `push` níže).
 
 name: Nasadit na ursus.skauting.cz
 
@@ -22,8 +20,8 @@ on:
         description: 'Složka webu na FTP serveru (musí končit lomítkem)'
         type: string
         default: 'www/'
-  # push:
-  #   branches: ['main']
+  push:
+    branches: ['main']
 
 concurrency:
   group: deploy-lebeda
