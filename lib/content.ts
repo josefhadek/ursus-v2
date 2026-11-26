@@ -8,8 +8,7 @@ export const links = {
   skautis: 'https://is.skaut.cz',
   // Kurz Ursus 2027 ve SkautISu – upozornění na spuštění přihlašování
   skautisKurz: 'https://is.skaut.cz/Junak/Events/Education/CourseReminderInsert.aspx?ID_EventEducationCourse=3688&IsLoggedIn=1',
-  // TODO: odkaz na formulář Analýza oddílu pro 2027 (ve v2 byl neplatný placeholder)
-  analyza: '#prihlaska',
+  analyza: 'https://forms.gle/BBJTXdZcRXzCJcwdA',
   zonerama: 'https://ursusvlk.zonerama.com/',
   facebook: 'https://www.facebook.com/vlk.ursus/',
   instagram: 'https://www.instagram.com/vlk_ursus/',
