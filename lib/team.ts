@@ -70,8 +70,6 @@ export const teamMembers: TeamMember[] = [
   },
 ]
 
-export const externists: TeamMember[] = []
-
 export const cooks: TeamMember[] = [
   { name: 'Petr Varmus', nickname: 'Hardy', image: '/images/hardy.webp' },
   { name: 'Anna Dvořáková', nickname: 'Anče', image: '/images/ance.webp' },
