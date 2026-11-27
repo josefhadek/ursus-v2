@@ -42,7 +42,7 @@ export const about = {
     'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro **vzájemné sdílení** vašich otázek, problémů a jejich možných řešení.',
   ],
   // Výrazná karta s odkazem na sekci Stezka (zvýraznění podle podkladů od Hadky, varianta „na okru“)
-  stezkaLink: { statement: 'Náš kurz nemá zkoušky, máme **svou stezku**', text: 'Po jejím splnění máš zkoušku hotovou.', cta: 'Jak stezka funguje', href: '#stezka' },
+  stezkaLink: { statement: 'Náš kurz nemá zkoušky, máme **svou\u00a0stezku**', text: 'Po jejím splnění máš zkoušku hotovou.', cta: 'Jak stezka funguje', href: '#stezka' },
 }
 
 export const pillars = [
@@ -75,57 +75,57 @@ export const chapters = {
     {
       slug: 'myslenkove',
       title: 'Myšlenkové základy a historie skautingu',
-      bg: '#f7e9f4',
-      ink: '#5b3a6e',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-serik text-serik-tmavy',
       questions: ['Co vlastně dělá skauting skautingem?', 'Z jakých kořenů, hodnot a zásad vychází?', 'Jaké je jeho postavení a role v současné společnosti?'],
     },
     {
       slug: 'metodika',
       title: 'Metodika',
-      bg: '#dfedd5',
-      ink: '#2f5a22',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-okr text-kakao',
       questions: ['Jak tvořit činnost oddílu tak, aby moje členy všestranně rozvíjel, vedl je k samostatnosti a sebevýchově?', 'Jak pracovat s přírodou, družinovým systémem, stezkami, službou, rituály?'],
     },
     {
       slug: 'administrativa',
       title: 'Administrativa a zajištění',
-      bg: '#fbe5d8',
-      ink: '#7a3f14',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-maslova text-kakao',
       questions: ['Jak postavit a zajistit letní tábor?', 'Jak odevzdat registraci nebo hlášenku?', 'K čemu je mi středisko?', 'Jak sestavit rozpočet a vyúčtovat akci?'],
     },
     {
       slug: 'prevence',
       title: 'Prevence a zvládání krizových situací',
-      bg: '#fad7d7',
-      ink: '#8a1f1a',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-terakota text-krem',
       questions: ['Jak předcházet šrámům na těle i na duši?', 'Co dělat, abych se nemusel/a bát, že skončím ve vězení?', 'Jak jednat v okamžicích krize?', 'Jak poskytnout první pomoc?'],
     },
     {
       slug: 'spoluprace',
       title: 'Spolupráce a vedení',
-      bg: '#d3e2f5',
-      ink: '#1f4778',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-kakao text-maslova',
       questions: ['Jak dobře vést oddílovou radu i celý oddíl?', 'Jak mu dát vizi a směr?', 'Jak podporovat motivaci?', 'Jak komunikovat s rodiči, rovery, úředníky?'],
     },
     {
       slug: 'planovani',
       title: 'Plánování',
-      bg: '#cfe9e9',
-      ink: '#1d5c58',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-okr-svetly text-terakota',
       questions: ['Jak určit cíle činnosti oddílu?', 'Jak je uvést do reality?', 'Jak odhadnout realisticky možnosti své i oddílu?', 'Kdy se držet plánu a kdy improvizovat?'],
     },
     {
       slug: 'seberozvoj',
       title: 'Seberozvoj',
-      bg: '#f7efd7',
-      ink: '#6a5410',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-palena text-krem',
       questions: ['Čím můžu oddíl obohatit a na co nestačím?', 'Co mi skauting dává a co bere?', 'Mám na to?', 'Jak získám a dám dobrou zpětnou vazbu?'],
     },
     {
       slug: 'pedagogika',
       title: 'Pedagogika a psychologie',
-      bg: '#fbe3f0',
-      ink: '#7c2456',
+      // kostička podle Hadčiných dvojic barev
+      tile: 'bg-bila text-terakota',
       questions: ['Jaké jsou dnešní děti, čím se liší v různém věku a napříč pohlavími?', 'Čím je každý člověk jedinečný?', 'Jak pracovat s lidmi se speciálními potřebami?'],
     },
   ],

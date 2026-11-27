@@ -113,13 +113,13 @@ export function About() {
           ))}
           <a
             href={about.stezkaLink.href}
-            className="group mt-10 block rounded-[28px] bg-okr p-8 text-kakao transition-transform hover:-translate-y-0.5 md:p-10"
+            className="group mt-10 block rounded-[28px] bg-okr-svetly p-6 text-kakao transition-transform hover:-translate-y-0.5 md:p-8"
           >
-            <span className="block font-heading text-[clamp(1.6rem,3.4vw,2.5rem)] font-bold uppercase leading-[1.44]">
+            <span className="block font-heading text-[clamp(1.25rem,2.3vw,1.75rem)] font-bold uppercase leading-[1.44]">
               <Hl text={about.stezkaLink.statement} variant="okr" />
             </span>
-            <span className="mt-4 block text-lg">{about.stezkaLink.text}</span>
-            <span className="mt-5 inline-flex items-center gap-2 font-bold underline decoration-2 underline-offset-4">
+            <span className="mt-3 block">{about.stezkaLink.text}</span>
+            <span className="mt-4 inline-flex items-center gap-2 font-bold text-palena underline decoration-2 underline-offset-4">
               {about.stezkaLink.cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </span>
