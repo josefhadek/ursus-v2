@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { BellRing, ExternalLink } from 'lucide-react'
 import { countdown as cd, links } from '@/lib/content'
 import { Hl } from '@/components/highlight'
+import { Blob } from '@/components/decor'
 
 type Phase = 'before' | 'running' | 'over'
 
@@ -19,11 +20,11 @@ const pad = (n: number) => String(n).padStart(2, '0')
 function Circles() {
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0">
-      <div className="absolute -right-24 -top-24 hidden h-80 w-80 rounded-full bg-okr md:block" />
-      <div className="absolute -bottom-20 right-40 hidden h-56 w-56 rounded-full bg-serik md:block" />
-      <div className="absolute bottom-10 right-16 hidden h-16 w-16 rounded-full bg-terakota md:block" />
-      <div className="absolute -bottom-10 -right-10 h-28 w-28 rounded-full bg-okr md:hidden" />
-      <div className="absolute -bottom-6 right-16 h-12 w-12 rounded-full bg-terakota md:hidden" />
+      <Blob name="b7" className="absolute -right-24 -top-28 hidden w-80 text-okr md:block" rotate={-14} />
+      <Blob name="b105" className="absolute -bottom-24 right-36 hidden w-64 text-serik md:block" rotate={10} />
+      <Blob name="b130" className="absolute bottom-10 right-14 hidden w-20 text-terakota md:block" rotate={-6} />
+      <Blob name="b32" className="absolute -bottom-12 -right-10 w-32 text-okr md:hidden" rotate={-10} />
+      <Blob name="b130" className="absolute -bottom-6 right-16 w-14 text-terakota md:hidden" rotate={8} />
     </div>
   )
 }

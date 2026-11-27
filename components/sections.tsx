@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import { Hl } from '@/components/highlight'
+import { Blob, IconTile, ToneIcon } from '@/components/decor'
 import {
   hero,
   about,
@@ -55,9 +56,9 @@ export function Hero() {
 
         {/* Obraz: fotka v kruhové kompozici z palety */}
         <div className="relative mx-auto w-full max-w-[540px] aspect-square">
-          <div className="absolute -right-[8%] -top-[6%] h-[58%] w-[58%] rounded-full bg-okr" aria-hidden />
-          <div className="absolute -left-[4%] bottom-[4%] h-[34%] w-[34%] rounded-full bg-serik" aria-hidden />
-          <div className="absolute right-[6%] bottom-[2%] h-[14%] w-[14%] rounded-full bg-terakota" aria-hidden />
+          <Blob name="b7" className="absolute -right-[10%] -top-[8%] w-[62%] text-okr" rotate={-12} />
+          <Blob name="b16" className="absolute -left-[8%] bottom-[2%] w-[42%] text-serik" rotate={14} />
+          <Blob name="b130" className="absolute right-[3%] -bottom-[1%] w-[17%] text-terakota" rotate={-8} />
           <div className="absolute inset-[9%] overflow-hidden rounded-[2rem] border-[6px] border-bila">
             <Image
               src="/carousel/1.webp"
@@ -68,9 +69,11 @@ export function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-[2%] top-[4%] aspect-square w-[24%] overflow-hidden rounded-[18%] border-[5px] border-bila">
+          <div className="absolute left-[2%] top-[4%] aspect-square w-[24%] overflow-hidden rounded-[18%] border-[5px] border-bila bg-krem">
             <Image src="/logo/ursus-zakladni.webp" alt="Logo kurzu Ursus" fill sizes="160px" className="object-cover" />
           </div>
+          <IconTile name="lilie" className="absolute right-[1%] top-[30%] w-[15%]" rotate={9} />
+          <IconTile name="kvet" className="absolute -left-[1%] top-[46%] w-[13%]" rotate={-11} />
           {/* Štítek přes fotku podle podkladů od Hadky (zvýraznění „na fotce“) */}
           <p className="absolute bottom-[13%] left-[13%] max-w-[72%] font-heading text-[clamp(1.05rem,2.3vw,1.6rem)] font-bold uppercase leading-[1.5] text-bila">
             <mark className="hl hl-heading bg-palena text-bila">
@@ -222,8 +225,9 @@ const conditionItems: ConditionItem[] = [
 
 export function Dates() {
   return (
-    <section id="terminy" className="bg-krem py-20 md:py-28">
-      <div className={wrap}>
+    <section id="terminy" className="relative overflow-hidden bg-krem py-20 md:py-28">
+      <ToneIcon name="compass" className="absolute right-[5%] top-5 hidden h-40 w-40 text-pisek lg:block" rotate={14} />
+      <div className={`${wrap} relative`}>
         <h2 className={h2}>{dates.title}</h2>
 
         <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
