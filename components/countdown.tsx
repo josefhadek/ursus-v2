@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { BellRing, ExternalLink } from 'lucide-react'
 import { countdown as cd, links } from '@/lib/content'
+import { Hl } from '@/components/highlight'
 
 type Phase = 'before' | 'running' | 'over'
 
@@ -53,8 +54,8 @@ export function Countdown() {
     >
       <Circles />
       <div className="relative">
-        <h2 className="font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.05] text-maslova" data-countdown-title>
-          {copy.title}
+        <h2 className="font-heading text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.3] text-krem" data-countdown-title>
+          <Hl text={copy.title} variant="kakao" />
         </h2>
         <p className="mt-4 max-w-xl text-lg leading-relaxed text-krem/90" data-countdown-text>
           {copy.text}
@@ -67,7 +68,10 @@ export function Countdown() {
           .
         </p>
 
-        <dl className="mt-10 grid grid-cols-4 gap-y-6 sm:flex sm:flex-wrap" data-countdown-values hidden={phase === 'over'}>
+        <p className="mt-10 font-bold text-maslova" data-countdown-counter hidden={!copy.counter}>
+          {copy.counter}
+        </p>
+        <dl className="mt-3 grid grid-cols-4 gap-y-6 sm:flex sm:flex-wrap" data-countdown-values hidden={phase === 'over'}>
           {labels.map((l, i) => (
             <div key={l} className={`pr-3 text-center sm:pr-10 ${i > 0 ? 'border-l border-krem/25 pl-3 sm:pl-10' : ''}`}>
               <dd className="font-heading text-[clamp(2rem,8vw,4.5rem)] font-bold leading-none tabular-nums text-krem" data-countdown-value={i}>

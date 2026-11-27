@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ChevronDown, ExternalLink, MapPin } from 'lucide-react'
+import { ArrowRight, ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import { Hl } from '@/components/highlight'
 import {
@@ -22,9 +22,17 @@ import { StezkaPreview } from '@/components/stezka-preview'
 import { Countdown } from '@/components/countdown'
 
 const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
-const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.15] text-kakao'
+const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
 const lead = 'text-lg text-kakao-muted leading-relaxed'
 const h3 = 'text-2xl font-bold text-kakao'
+
+function Lily({ className = '' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 185 200" className={className} aria-hidden>
+      <path d="M158.333 127.5C159.444 124.167 159.722 121.111 159.722 118.889C159.722 110.556 153.889 103.611 145.555 103.611C130.277 103.611 117.5 116.945 117.5 133.056C117.5 144.445 126.944 150 137.5 150H141.111C143.611 150 144.166 152.222 144.166 154.445C144.166 161.667 139.722 171.111 126.666 171.111C111.389 171.111 108.333 157.5 105.555 157.5C103.055 157.5 104.444 161.945 108.611 170C109.444 171.667 110.555 172.778 110.555 175.556C110.555 185.833 96.1109 200 92.4998 200C88.8887 200 74.4443 185.833 74.4443 175.556C74.4443 172.778 75.5554 171.667 76.3888 170C80.5554 161.944 81.9442 157.5 79.4445 157.5C76.6668 157.5 73.6111 171.111 58.3334 171.111C45.2779 171.111 40.8334 161.667 40.8334 154.445C40.8334 152.222 41.389 150 43.889 150H47.5001C58.0556 150 67.5001 144.445 67.5001 133.056C67.5001 116.945 54.7223 103.611 39.4445 103.611C31.1112 103.611 25.2779 110.556 25.2779 118.889C25.2779 121.111 25.5556 124.167 26.6667 127.5C27.7776 131.111 24.9999 132.5 21.1111 130.556C9.72238 125.278 0 108.333 0 93.3336C0 71.1113 14.1666 58.6114 31.1112 58.6114C48.8889 58.6114 58.8888 70.2779 61.9445 73.8892C65.0001 76.9448 67.7778 83.0559 70.8334 83.0559C72.5002 83.0559 73.3334 81.3894 73.3334 78.8894C73.3334 66.3892 59.1668 44.4449 66.9446 27.5005C71.6664 17.4999 86.6664 0 92.4998 0C98.3331 0 113.333 17.5001 118.055 27.5C125.833 44.4444 111.667 65.0002 111.667 78.8889C111.667 81.3889 112.5 83.0555 114.167 83.0555C117.222 83.0555 120 76.9444 123.056 73.8887C126.111 70.2776 136.111 58.6109 153.889 58.6109C170.833 58.6109 185 71.1108 185 93.3331C185 110.555 173.611 126.111 163.889 130.555C160 132.5 157.222 131.111 158.333 127.5Z" fill="currentColor" />
+    </svg>
+  )
+}
 
 /* ---------- HERO ---------- */
 export function Hero() {
@@ -32,11 +40,10 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div className={`${wrap} grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.05fr_1fr]`}>
         <div>
-          <h1 className="font-heading text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[1.05] text-kakao">
-            {hero.titleStart} <mark className="hl hl-heading bg-palena text-bila">{hero.titleAccent}</mark>
+          <h1 className="font-heading text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[0.98] text-kakao">
+            {hero.titleStart} <span className="text-palena">{hero.titleAccent}</span>
           </h1>
-          <p className={`mt-8 max-w-xl ${lead}`}>{hero.lead}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-10 flex flex-wrap gap-3">
             <Link href="#prihlaska" className="btn-primary">
               Přihlas se
             </Link>
@@ -64,6 +71,13 @@ export function Hero() {
           <div className="absolute left-[13%] top-[13%] aspect-square w-[22%] overflow-hidden rounded-[14%]">
             <Image src="/logo/ursus-zakladni.webp" alt="Logo kurzu Ursus" fill sizes="160px" className="object-cover" />
           </div>
+          {/* Štítek přes fotku podle podkladů od Hadky (zvýraznění „na fotce“) */}
+          <p className="absolute bottom-[13%] left-[13%] max-w-[72%] font-heading text-[clamp(1.05rem,2.3vw,1.6rem)] font-bold uppercase leading-[1.5] text-bila">
+            <mark className="hl hl-heading bg-palena text-bila">
+              <Lily className="mr-[0.25em] inline-block h-[0.85em] w-auto -translate-y-[0.06em]" />
+              {hero.label}
+            </mark>
+          </p>
         </div>
       </div>
 
@@ -94,14 +108,19 @@ export function About() {
               <Hl text={p} variant="text" />
             </p>
           ))}
-          <p className={`mt-5 ${lead}`}>
-            <a
-              href={about.stezkaLink.href}
-              className="underline decoration-serik-tmavy decoration-2 underline-offset-4 transition-colors hover:text-serik-tmavy"
-            >
-              {about.stezkaLink.text}
-            </a>
-          </p>
+          <a
+            href={about.stezkaLink.href}
+            className="group mt-10 block rounded-[28px] bg-okr p-8 text-kakao transition-transform hover:-translate-y-0.5 md:p-10"
+          >
+            <span className="block font-heading text-[clamp(1.6rem,3.4vw,2.5rem)] font-bold uppercase leading-[1.44]">
+              <Hl text={about.stezkaLink.statement} variant="okr" />
+            </span>
+            <span className="mt-4 block text-lg">{about.stezkaLink.text}</span>
+            <span className="mt-5 inline-flex items-center gap-2 font-bold underline decoration-2 underline-offset-4">
+              {about.stezkaLink.cta}
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
+            </span>
+          </a>
         </div>
       </div>
 
@@ -134,9 +153,7 @@ export function Chapters() {
       <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start`}>
         <div className="min-w-0">
           <h2 className={h2}>{chapters.title}</h2>
-          <p className={`mt-4 max-w-3xl ${lead}`}>
-            <Hl text={chapters.lead} variant="text" />
-          </p>
+          <p className={`mt-4 max-w-3xl ${lead}`}>{chapters.lead}</p>
           <div className="mt-10">
             <ChaptersExplorer />
           </div>
@@ -152,9 +169,7 @@ export function Registration() {
   return (
     <section id="prihlaska" className="bg-bila py-20 md:py-28">
       <div className={wrap}>
-        <h2 className={h2}>
-          <Hl text={registration.title} />
-        </h2>
+        <h2 className={h2}>{registration.title}</h2>
         <p className={`mt-4 max-w-2xl ${lead}`}>{registration.intro}</p>
         <ol className="mt-6 grid gap-4 md:grid-cols-2">
           {registration.steps.map((st, i) => {
@@ -297,7 +312,7 @@ export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <QuotesStrip title="Co o nás říká **účastnictvo** z minulých let" quotes={quoteGraphics} />
+        <QuotesStrip title="Co o nás říká účastnictvo z minulých let" quotes={quoteGraphics} />
       </div>
     </section>
   )
