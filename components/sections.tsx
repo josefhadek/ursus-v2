@@ -68,7 +68,7 @@ export function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-[13%] top-[13%] aspect-square w-[22%] overflow-hidden rounded-[14%]">
+          <div className="absolute left-[2%] top-[4%] aspect-square w-[24%] overflow-hidden rounded-[18%] border-[5px] border-bila">
             <Image src="/logo/ursus-zakladni.webp" alt="Logo kurzu Ursus" fill sizes="160px" className="object-cover" />
           </div>
           {/* Štítek přes fotku podle podkladů od Hadky (zvýraznění „na fotce“) */}
