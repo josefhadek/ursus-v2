@@ -170,37 +170,50 @@ export function Chapters() {
 }
 
 /* ---------- PŘIHLÁŠKA ---------- */
+// Číslo kroku jako Hadčina kostička: okr → kakao, šeřík → šeřík tmavý.
+const stepTile = [
+  { cls: 'bg-okr text-kakao', tilt: -6 },
+  { cls: 'bg-serik text-serik-tmavy', tilt: 5 },
+]
+
 export function Registration() {
   return (
     <section id="prihlaska" className="bg-bila py-20 md:py-28">
       <div className={wrap}>
-        <h2 className={h2}>{registration.title}</h2>
-        <p className={`mt-4 max-w-2xl ${lead}`}>{registration.intro}</p>
-        <ol className="mt-6 grid gap-4 md:grid-cols-2">
+        <h2 className={h2Hl}>
+          <Hl text={registration.title} variant="krem" />
+        </h2>
+        <p className={`mt-4 max-w-xl ${lead}`}>{registration.intro}</p>
+        <ol className="mt-14 grid gap-12 md:grid-cols-2 md:gap-6">
           {registration.steps.map((st, i) => {
             const ext = st.href.startsWith('http')
             return (
-              <li key={st.title} className="flex flex-col gap-4 rounded-2xl border border-pisek bg-krem p-6">
-                <div className="flex items-center gap-4">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-kakao font-heading text-lg font-bold text-maslova">
-                    {i + 1}
-                  </span>
-                  <h4 className="text-xl font-bold text-kakao">{st.title}</h4>
-                </div>
-                <p className="text-kakao-muted">{st.text}</p>
+              <li key={st.title} className="relative flex flex-col rounded-[28px] bg-krem px-7 pb-8 pt-14 md:px-9">
+                <span
+                  aria-hidden
+                  className={`absolute -top-7 left-7 grid h-16 w-16 place-items-center rounded-[20%] font-heading text-3xl font-bold shadow-[0_4px_0_rgba(69,32,31,.16),0_10px_18px_rgba(69,32,31,.2)] md:left-9 ${stepTile[i].cls}`}
+                  style={{ transform: `rotate(${stepTile[i].tilt}deg)` }}
+                >
+                  {i + 1}
+                </span>
+                <h3 className="max-w-[16ch] font-heading text-[clamp(1.4rem,2.3vw,1.8rem)] font-bold uppercase leading-[1.15] text-kakao">
+                  <span className="sr-only">Krok {i + 1}: </span>
+                  {st.title}
+                </h3>
+                <p className="mt-3 max-w-sm text-kakao">{st.text}</p>
                 <a
                   href={st.href}
                   {...(ext ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="btn-primary mt-auto self-start"
+                  className="btn-primary mt-7 self-start shadow-[0_3px_0_rgba(69,32,31,.18)]"
                 >
-                  {st.cta} {ext && <ExternalLink className="h-4 w-4" />}
+                  {st.cta}
                 </a>
               </li>
             )
           })}
         </ol>
 
-        <h3 className={`mt-12 ${h3}`}>{registration.after.title}</h3>
+        <h3 className={`mt-16 ${h3}`}>{registration.after.title}</h3>
         <dl className="mt-4 grid gap-6 border-t border-pisek pt-5 md:grid-cols-3">
           {registration.after.items.map((it) => (
             <div key={it.label}>
@@ -220,10 +233,10 @@ const dateDot = ['bg-okr', 'bg-serik-tmavy', 'bg-terakota']
 const price = conditions.find((c) => 'big' in c && c.big) as { title: string; big: string; text: string } | undefined
 const otherConditions = conditions.filter((c) => c !== price)
 type ConditionItem = { title: string; text: string; link?: { href: string; label: string } }
-const conditionItems: ConditionItem[] = [
-  { title: 'Pozor na časovou náročnost', text: dates.warning },
-  ...(otherConditions as ConditionItem[]),
-]
+// Pořadí: nejdřív kdo se může přihlásit, hned za tím varování o časové náročnosti. Obě jsou rozbalené.
+const [whoCanApply, ...restConditions] = otherConditions as ConditionItem[]
+const timeWarning = 'Pozor na časovou náročnost'
+const conditionItems: ConditionItem[] = [whoCanApply, { title: timeWarning, text: dates.warning }, ...restConditions]
 
 export function Dates() {
   return (
@@ -265,7 +278,7 @@ export function Dates() {
 
         <div className="mt-14 divide-y divide-pisek border-y border-pisek">
           {conditionItems.map((c, i) => (
-            <details key={c.title} className="group py-5" open={i === 0}>
+            <details key={c.title} className="group py-5" open={i < 2}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-kakao">
                 {c.title}
                 <ChevronDown className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-180" aria-hidden />
