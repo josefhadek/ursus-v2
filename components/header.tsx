@@ -28,7 +28,7 @@ export function Header({ base = '' }: { base?: string }) {
     <header ref={ref} className="sticky top-0 z-50 border-b border-b-pisek bg-krem">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href={base || '#'} className="flex items-center gap-2.5" onClick={() => setOpen(false)}>
-          <Image src="/logo/ursus-zakladni.webp" alt="" width={40} height={40} priority className="h-10 w-10" />
+          <Image src="/logo/ursus-mono.webp" alt="" width={40} height={40} priority className="h-10 w-10" />
           <span className="font-heading text-2xl font-bold tracking-[0.06em] text-palena">VLK Ursus</span>
         </Link>
 

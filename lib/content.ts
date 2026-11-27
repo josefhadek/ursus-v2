@@ -37,7 +37,7 @@ export const hero = {
 export const about = {
   title: 'O kurzu',
   paragraphs: [
-    'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro vzájemné sdílení vašich otázek, problémů a jejich možných řešení.',
+    'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro **vzájemné sdílení** vašich otázek, problémů a jejich možných řešení.',
   ],
   // Odkaz na sekci Stezka níž na stránce
   stezkaLink: { text: 'Náš kurz nemá zkoušky, máme totiž svou stezku, po jejíž splnění máš zkoušku hotovou.', href: '#kapitoly' },
@@ -68,7 +68,7 @@ export const pillars = [
 
 export const chapters = {
   title: 'Stezka Cesta Ursu',
-  lead: 'Náš kurz nemá zkouškový víkend. Vůdcovské kompetence ověřujeme průběžně pomocí stezky Cesta Ursu, která je stejně jako kurz rozdělená do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
+  lead: 'Náš kurz **nemá zkouškový víkend**. Vůdcovské kompetence ověřujeme průběžně pomocí stezky Cesta Ursu, která je stejně jako kurz rozdělená do osmi kapitol. Za každou splněnou kapitolu dostaneš nálepku – se všemi osmi (a dalšími podmínkami podle Řádu pro vzdělávání, např. ZZA) máš nárok na vůdcovskou kvalifikaci.',
   items: [
     {
       slug: 'myslenkove',
@@ -151,7 +151,7 @@ export const countdown = {
 }
 
 export const registration = {
-  title: 'Přihláška ve dvou krocích',
+  title: 'Přihláška **ve dvou krocích**',
   intro: 'Přihláška má dva kroky. Oba musíš stihnout do konce přihlašování, na pořadí nezáleží.',
   steps: [
     { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautisKurz },

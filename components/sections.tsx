@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
+import { Hl } from '@/components/highlight'
 import {
   hero,
   about,
@@ -21,7 +22,7 @@ import { StezkaPreview } from '@/components/stezka-preview'
 import { Countdown } from '@/components/countdown'
 
 const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
-const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
+const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.15] text-kakao'
 const lead = 'text-lg text-kakao-muted leading-relaxed'
 const h3 = 'text-2xl font-bold text-kakao'
 
@@ -31,10 +32,10 @@ export function Hero() {
     <section className="relative overflow-hidden">
       <div className={`${wrap} grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.05fr_1fr]`}>
         <div>
-          <h1 className="font-heading text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[0.98] text-kakao">
-            {hero.titleStart} <span className="text-palena">{hero.titleAccent}</span>
+          <h1 className="font-heading text-[clamp(2.75rem,7vw,5rem)] font-bold leading-[1.05] text-kakao">
+            {hero.titleStart} <mark className="hl hl-heading bg-palena text-bila">{hero.titleAccent}</mark>
           </h1>
-          <p className={`mt-6 max-w-xl ${lead}`}>{hero.lead}</p>
+          <p className={`mt-8 max-w-xl ${lead}`}>{hero.lead}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="#prihlaska" className="btn-primary">
               Přihlas se
@@ -60,7 +61,7 @@ export function Hero() {
               className="object-cover"
             />
           </div>
-          <div className="absolute left-[2%] top-[4%] aspect-square w-[26%] overflow-hidden rounded-[13%] shadow-[0_10px_24px_rgba(69,32,31,0.22)]">
+          <div className="absolute left-[13%] top-[13%] aspect-square w-[22%] overflow-hidden rounded-[14%]">
             <Image src="/logo/ursus-zakladni.webp" alt="Logo kurzu Ursus" fill sizes="160px" className="object-cover" />
           </div>
         </div>
@@ -89,7 +90,9 @@ export function About() {
         <div className="max-w-3xl">
           <h2 className={h2}>{about.title}</h2>
           {about.paragraphs.map((p) => (
-            <p key={p} className={`mt-5 ${lead}`}>{p}</p>
+            <p key={p} className={`mt-5 ${lead}`}>
+              <Hl text={p} variant="text" />
+            </p>
           ))}
           <p className={`mt-5 ${lead}`}>
             <a
@@ -131,7 +134,9 @@ export function Chapters() {
       <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start`}>
         <div className="min-w-0">
           <h2 className={h2}>{chapters.title}</h2>
-          <p className={`mt-4 max-w-3xl ${lead}`}>{chapters.lead}</p>
+          <p className={`mt-4 max-w-3xl ${lead}`}>
+            <Hl text={chapters.lead} variant="text" />
+          </p>
           <div className="mt-10">
             <ChaptersExplorer />
           </div>
@@ -147,7 +152,9 @@ export function Registration() {
   return (
     <section id="prihlaska" className="bg-bila py-20 md:py-28">
       <div className={wrap}>
-        <h2 className={h2}>{registration.title}</h2>
+        <h2 className={h2}>
+          <Hl text={registration.title} />
+        </h2>
         <p className={`mt-4 max-w-2xl ${lead}`}>{registration.intro}</p>
         <ol className="mt-6 grid gap-4 md:grid-cols-2">
           {registration.steps.map((st, i) => {
@@ -290,7 +297,7 @@ export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <QuotesStrip title="Co o nás říká účastnictvo z minulých let" quotes={quoteGraphics} />
+        <QuotesStrip title="Co o nás říká **účastnictvo** z minulých let" quotes={quoteGraphics} />
       </div>
     </section>
   )

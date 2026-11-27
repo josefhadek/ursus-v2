@@ -147,6 +147,20 @@
 }
 
 @layer components {
+  /* Zvýraznění textu (štítek) – opticky na střed podle verzálek / x-výšky */
+  .hl {
+    border-radius: 0.22em;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+  .hl-heading {
+    padding: 0.005em 0.3em 0.1em;
+  }
+  .hl-text {
+    padding: 0.02em 0.25em 0.14em;
+    font-weight: 700;
+  }
+
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-5 h-12 text-base font-bold transition-colors bg-palena text-bila hover:bg-kakao;
   }

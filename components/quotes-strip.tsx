@@ -3,6 +3,7 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { Hl } from '@/components/highlight'
 
 type Quote = { src: string; alt: string }
 
@@ -20,7 +21,9 @@ export function QuotesStrip({ title, quotes }: { title: string; quotes: Quote[] 
   return (
     <div data-quotes>
       <div className="flex items-end justify-between gap-6">
-        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">{title}</h2>
+        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.15] text-kakao">
+          <Hl text={title} variant="serik" />
+        </h2>
         <div className="hidden shrink-0 gap-2 sm:flex">
           <button
             type="button"
