@@ -3,8 +3,8 @@ import Image from 'next/image'
 const photos = [
   { src: '/carousel/2.webp', alt: 'Účastnice s úkolem ze stezky' },
   { src: '/carousel/3.webp', alt: 'Večerní program v lese pod světýlky' },
-  { src: '/carousel/7.webp', alt: 'Plánování programu na velkém papíře' },
   { src: '/carousel/5.webp', alt: 'Sdílení v kruhu' },
+  { src: '/carousel/1.webp', alt: 'Účastníci Ursu ve večerním slunci' },
   { src: '/carousel/4.webp', alt: 'Hra s bublinami' },
   { src: '/carousel/6.webp', alt: 'Práce na kurzových úkolech' },
   { src: '/carousel/8.webp', alt: 'Scénka v kostýmech' },
