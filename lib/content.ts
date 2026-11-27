@@ -32,15 +32,17 @@ export const hero = {
   titleStart: 'Vůdcovský lesní kurz',
   titleAccent: 'Ursus',
   lead: 'Kurz pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta.',
+  // Štítek přes fotku v úvodu
+  label: 'Kurz pro budoucí vůdkyně a vůdce oddílů',
 }
 
 export const about = {
   title: 'O kurzu',
   paragraphs: [
-    'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro vzájemné sdílení vašich otázek, problémů a jejich možných řešení.',
+    'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro **vzájemné sdílení** vašich otázek, problémů a jejich možných řešení.',
   ],
-  // Odkaz na sekci Stezka níž na stránce
-  stezkaLink: { text: 'Náš kurz nemá zkoušky, máme totiž svou stezku, po jejíž splnění máš zkoušku hotovou.', href: '#kapitoly' },
+  // Výrazná karta s odkazem na sekci Stezka (zvýraznění podle podkladů od Hadky, varianta „na okru“)
+  stezkaLink: { statement: 'Náš kurz nemá zkoušky, máme **svou stezku**', text: 'Po jejím splnění máš zkoušku hotovou.', cta: 'Jak stezka funguje', href: '#kapitoly' },
 }
 
 export const pillars = [
@@ -144,9 +146,9 @@ export const countdown = {
   // 4. 1. 2027 12:00 a 10. 1. 2027 12:00 středoevropského času (UTC+1)
   start: '2027-01-04T11:00:00Z',
   end: '2027-01-10T11:00:00Z',
-  before: { title: 'Přihlašování spouštíme za', text: 'Přihlášky na ročník 2027 spustíme 4. 1. 2027 ve 12:00 a přijímat je budeme do 10. 1. 2027 ve 12:00. Připrav si přístup do SkautISu.' },
-  running: { title: 'Přihlašování končí za', text: 'Přihlašování na ročník 2027 právě běží – do 10. 1. 2027 ve 12:00 musíš stihnout oba kroky.' },
-  over: { title: 'Přihlašování skončilo', text: 'Přihlašování na ročník 2027 je uzavřené. Děkujeme všem, kdo se přihlásili.' },
+  before: { title: 'Přihlašování spouštíme **4.\u00a01.\u00a02027** ve\u00a012:00', counter: 'Do spuštění zbývá', text: 'Přihlášky budeme přijímat do 10. 1. 2027 ve 12:00. Připrav si přístup do SkautISu.' },
+  running: { title: 'Přihlašování končí **10.\u00a01.\u00a02027** ve\u00a012:00', counter: 'Do konce zbývá', text: 'Přihlašování na ročník 2027 právě běží – do 10. 1. 2027 ve 12:00 musíš stihnout oba kroky.' },
+  over: { title: 'Přihlašování **skončilo**', counter: '', text: 'Přihlašování na ročník 2027 je uzavřené. Děkujeme všem, kdo se přihlásili.' },
   reminder: links.skautisKurz,
 }
 

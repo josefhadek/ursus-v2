@@ -28,10 +28,15 @@ export function Footer({ base = '' }: { base?: string }) {
 
         <div>
           <h3 className="text-lg font-bold text-maslova">Pořadatel</h3>
-          <div className="mt-3 space-y-0.5 text-krem/85">
-            {footer.organizer.map((line) => (
-              <p key={line}>{line}</p>
-            ))}
+          <div className="mt-3 flex items-start gap-5">
+            <a href="https://www.skaut.cz" target="_blank" rel="noopener noreferrer" className="shrink-0" aria-label="Junák – český skaut">
+              <Image src="/logo/skaut-krem.webp" alt="Logo Junák – český skaut" width={52} height={70} className="h-[70px] w-auto" />
+            </a>
+            <div className="space-y-0.5 text-krem/85">
+              {footer.organizer.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
           </div>
         </div>
 
