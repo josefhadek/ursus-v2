@@ -1,5 +1,6 @@
 'use client'
 
+import { IconTile } from '@/components/decor'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -20,7 +21,13 @@ export function QuotesStrip({ title, quotes }: { title: string; quotes: Quote[] 
   return (
     <div data-quotes>
       <div className="flex items-end justify-between gap-6">
-        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">{title}</h2>
+        <h2 className="font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao">
+          {title.split(' ').slice(0, -1).join(' ')}{' '}
+          <span className="whitespace-nowrap">
+            {title.split(' ').at(-1)}
+            <IconTile name="srdce" className="-my-[0.7em] -ml-[0.15em] inline-block h-[2.2em] w-[2.2em] -translate-y-[0.06em] align-middle" rotate={-10} />
+          </span>
+        </h2>
         <div className="hidden shrink-0 gap-2 sm:flex">
           <button
             type="button"
