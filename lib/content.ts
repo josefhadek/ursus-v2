@@ -199,7 +199,7 @@ export const conditions = [
 ]
 
 export const team = {
-  title: 'Naši instruktoři a instruktorky',
+  title: 'Instruktorský tým',
 }
 
 export const faq = [
