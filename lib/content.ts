@@ -153,7 +153,7 @@ export const countdown = {
 }
 
 export const registration = {
-  title: 'Přihláška ve dvou krocích',
+  title: 'Přihláška ve **dvou krocích**',
   intro: 'Přihláška má dva kroky. Oba musíš stihnout do konce přihlašování, na pořadí nezáleží.',
   steps: [
     { title: 'Přihlas se ve SkautISu', text: 'Bez přihlášky ve SkautISu tě do losování nezařadíme.', cta: 'Do SkautISu', href: links.skautisKurz },
