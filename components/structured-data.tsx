@@ -41,7 +41,7 @@ export function StructuredData() {
     return {
       '@type': 'EducationEvent',
       name: `VLK Ursus 2027 – ${d.label}`,
-      description: `${d.label} vůdcovského lesního kurzu Ursus pro budoucí vůdkyně a vůdce oddílů Junáka.`,
+      description: `${d.label} vůdcovského lesního kurzu Ursus pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta.`,
       startDate,
       endDate,
       eventStatus: 'https://schema.org/EventScheduled',

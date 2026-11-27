@@ -181,7 +181,7 @@ export const dates = {
 export const conditions = [
   {
     title: 'Kdo se může přihlásit',
-    text: 'Členky a členové Junáka narození před 18. 9. 2009 se složenou čekatelskou zkouškou. Pokud je ti přes 21, čekatelku mít nemusíš. Kurz se zaměřuje na vedení světlušek, vlčat, skautek a skautů, jiné zaměření ale nevadí.',
+    text: 'Členky a členové Junáka – českého skauta narození před 18. 9. 2009 se složenou čekatelskou zkouškou. Pokud je ti přes 21, čekatelku mít nemusíš. Kurz se zaměřuje na vedení světlušek, vlčat, skautek a skautů, jiné zaměření ale nevadí.',
     link: { href: links.cekatelka21, label: 'Proč 21+ nepotřebuje čekatelku' },
   },
   {

@@ -16,6 +16,10 @@ on:
         description: 'Zkušební běh – nic nenahrávat, jen vypsat změny'
         type: boolean
         default: true
+      php_errors:
+        description: 'Vypsat poslední chyby PHP z logu serveru (bez IP adres)'
+        type: boolean
+        default: false
       server_dir:
         description: 'Složka webu na FTP serveru (musí končit lomítkem)'
         type: string
@@ -63,6 +67,18 @@ jobs:
         run: |
           sudo apt-get install -y -qq lftp > /dev/null
           lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; set net:max-retries 1; cd '$SERVER_DIR'; pwd; cls -la --sort=name; bye" lebedahosting.cz
+
+      - name: Poslední chyby PHP ze serveru
+        if: ${{ inputs.php_errors }}
+        continue-on-error: true
+        env:
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          command -v lftp > /dev/null || sudo apt-get install -y -qq lftp > /dev/null
+          lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; cat __log/error.log; bye" lebedahosting.cz \
+            | grep -iE "php (fatal|parse|warning)|uncaught" \
+            | sed -E 's/\[(client|remote) [^]]*\]//g; s/, referer: .*$//' \
+            | tail -n 25
 
       # lftp místo FTP-Deploy-Action: server vyžaduje znovupoužití TLS session
       # na datovém spojení, což knihovna basic-ftp neumí (ECONNRESET).
