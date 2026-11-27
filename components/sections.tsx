@@ -63,8 +63,8 @@ export function Hero() {
           <Blob name="b130" className="absolute right-[3%] -bottom-[1%] w-[17%] text-terakota" rotate={-8} />
           <div className="absolute inset-[9%] overflow-hidden rounded-[2rem]">
             <Image
-              src="/carousel/5.webp"
-              alt="Účastnice a účastníci Ursu se smějí při programu"
+              src="/carousel/7.webp"
+              alt="Účastnice plánuje oddílový program na velkém papíře"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 540px"
