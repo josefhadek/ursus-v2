@@ -170,7 +170,7 @@ export const registration = {
 }
 
 export const dates = {
-  title: `Termíny běhů ${ROCNIK}`,
+  title: `Termíny běhů **${ROCNIK}**`,
   items: [
     { label: 'Jarní víkend', date: '12.–14. 3. 2027', place: 'Nymburk (Tortuga)', map: 'https://mapy.com/s/gevahanovu', tone: 'okr' as const },
     { label: 'Letní běh', date: '13.–22. 8. 2027', place: 'Chválkov', map: 'https://mapy.com/s/gujazotagu', tone: 'bila' as const },
@@ -199,7 +199,7 @@ export const conditions = [
 ]
 
 export const team = {
-  title: 'Instruktorský tým',
+  title: 'Instruktorský **tým**',
 }
 
 export const faq = [

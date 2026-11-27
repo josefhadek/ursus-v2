@@ -24,6 +24,8 @@ import { Countdown } from '@/components/countdown'
 
 const wrap = 'mx-auto max-w-6xl px-4 sm:px-6'
 const h2 = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.05] text-kakao'
+// Nadpis se zvýrazněním potřebuje víc řádkování, aby se štítky na sebe nelepily.
+const h2Hl = 'font-heading text-[clamp(2rem,4.2vw,3rem)] font-bold leading-[1.3] text-kakao'
 const lead = 'text-lg text-kakao-muted leading-relaxed'
 const h3 = 'text-2xl font-bold text-kakao'
 
@@ -59,10 +61,10 @@ export function Hero() {
           <Blob name="b7" className="absolute -right-[10%] -top-[8%] w-[62%] text-okr" rotate={-12} />
           <Blob name="b16" className="absolute -left-[8%] bottom-[2%] w-[42%] text-serik" rotate={14} />
           <Blob name="b130" className="absolute right-[3%] -bottom-[1%] w-[17%] text-terakota" rotate={-8} />
-          <div className="absolute inset-[9%] overflow-hidden rounded-[2rem] border-[6px] border-bila">
+          <div className="absolute inset-[9%] overflow-hidden rounded-[2rem]">
             <Image
-              src="/carousel/1.webp"
-              alt="Účastníci Ursu ve večerním slunci"
+              src="/carousel/5.webp"
+              alt="Účastnice a účastníci Ursu se smějí při programu"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 540px"
@@ -227,7 +229,9 @@ export function Dates() {
   return (
     <section id="terminy" className="bg-krem py-20 md:py-28">
       <div className={wrap}>
-        <h2 className={h2}>{dates.title}</h2>
+        <h2 className={h2Hl}>
+          <Hl text={dates.title} variant="krem" />
+        </h2>
 
         <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
           {dates.items.map((d, i) => (
@@ -285,7 +289,9 @@ export function Team() {
   return (
     <section id="tym" className="bg-bila py-20 md:py-28">
       <div className={wrap}>
-        <h2 className={h2}>{team.title}</h2>
+        <h2 className={h2Hl}>
+          <Hl text={team.title} variant="krem" />
+        </h2>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
           {teamMembers.map((m) => (
             <TeamMemberCard key={m.nickname} {...m} />
@@ -315,7 +321,7 @@ export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <QuotesStrip title={'Co o nás říká účastnictvo z\u00a0minulých let'} quotes={quoteGraphics} />
+        <QuotesStrip title={'Co o nás říká **účastnictvo** z\u00a0minulých let'} quotes={quoteGraphics} />
       </div>
     </section>
   )
