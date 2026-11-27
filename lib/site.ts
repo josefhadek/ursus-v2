@@ -9,7 +9,7 @@ export const noindex = process.env.NEXT_PUBLIC_NOINDEX === '1'
 
 export const site = {
   name: 'VLK Ursus',
-  title: 'VLK Ursus 2027 – vůdcovský lesní kurz Junáka',
+  title: 'VLK Ursus 2027 – vůdcovský lesní kurz Junáka – českého skauta',
   description:
     'Vůdcovský lesní kurz Ursus 2027 pro budoucí vůdkyně a vůdce oddílů Junáka – českého skauta. Bez zkouškového víkendu, se stezkou Cesta Ursu. Přihlašování 4.–10. 1. 2027.',
   keywords: [

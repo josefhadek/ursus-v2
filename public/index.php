@@ -9,11 +9,11 @@
 //     aby odkazy z Googlu a odjinud dál fungovaly; když WordPress
 //     stránku nezná, vrátí se 404 nového webu.
 
-$path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
-$path = '/' . trim(rawurldecode($path), '/');
+$ursus_path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$ursus_path = '/' . trim(rawurldecode($ursus_path), '/');
 
 // Staré adresy WordPressu → sekce nového webu (301 = trvale, kvůli SEO)
-$redirects = [
+$ursus_redirects = [
     '/ursus-2027'    => '/#terminy',
     '/tym-ursu'      => '/#tym',
     '/o-kurzu'       => '/#o-kurzu',
@@ -31,12 +31,12 @@ $redirects = [
     '/comments/feed' => '/',
 ];
 
-if (isset($redirects[$path])) {
-    header('Location: ' . $redirects[$path], true, 301);
+if (isset($ursus_redirects[$ursus_path])) {
+    header('Location: ' . $ursus_redirects[$ursus_path], true, 301);
     exit;
 }
 
-function serve(string $file, int $status = 200): void
+function ursus_serve(string $file, int $status = 200): void
 {
     http_response_code($status);
     header('Content-Type: text/html; charset=utf-8');
@@ -45,27 +45,28 @@ function serve(string $file, int $status = 200): void
     exit;
 }
 
-if ($path === '/' || $path === '/index.php' || $path === '/index.html') {
-    serve(__DIR__ . '/index.html');
+if ($ursus_path === '/' || $ursus_path === '/index.php' || $ursus_path === '/index.html') {
+    ursus_serve(__DIR__ . '/index.html');
 }
 
 // /tym → tym.html (export Next.js)
-if (preg_match('#^/[a-z0-9-]+$#', $path) && is_file(__DIR__ . $path . '.html')) {
-    serve(__DIR__ . $path . '.html');
+if (preg_match('#^/[a-z0-9-]+$#', $ursus_path) && is_file(__DIR__ . $ursus_path . '.html')) {
+    ursus_serve(__DIR__ . $ursus_path . '.html');
 }
 
 // Staré články a stránky → WordPress (pokud na serveru je)
-$wp = __DIR__ . '/wp-blog-header.php';
-if (is_file($wp)) {
+// Proměnná se nesmí jmenovat $wp – WordPress ji používá jako globální objekt.
+$ursus_wp_header = __DIR__ . '/wp-blog-header.php';
+if (is_file($ursus_wp_header)) {
     define('WP_USE_THEMES', true);
     ob_start();
-    require $wp;
-    $html = ob_get_clean();
+    require $ursus_wp_header;
+    $ursus_html = ob_get_clean();
     if (function_exists('is_404') && is_404()) {
-        serve(__DIR__ . '/404.html', 404);
+        ursus_serve(__DIR__ . '/404.html', 404);
     }
-    echo $html;
+    echo $ursus_html;
     exit;
 }
 
-serve(__DIR__ . '/404.html', 404);
+ursus_serve(__DIR__ . '/404.html', 404);

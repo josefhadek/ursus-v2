@@ -77,7 +77,7 @@ jobs:
           command -v lftp > /dev/null || sudo apt-get install -y -qq lftp > /dev/null
           lftp -u "ursus,$FTP_PASSWORD" -e "set ftp:ssl-force true; set ftp:ssl-protect-data true; cat __log/error.log; bye" lebedahosting.cz \
             | grep -iE "php (fatal|parse|warning)|uncaught" \
-            | sed -E 's/\[client [^]]*\]//g; s/, referer: .*$//' \
+            | sed -E 's/\[(client|remote) [^]]*\]//g; s/, referer: .*$//' \
             | tail -n 25
 
       # lftp místo FTP-Deploy-Action: server vyžaduje znovupoužití TLS session
