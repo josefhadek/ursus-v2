@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import { Hl } from '@/components/highlight'
-import { Blob, IconTile, VectorTile } from '@/components/decor'
+import { Blob, IconTile } from '@/components/decor'
 import {
   hero,
   about,
@@ -227,13 +227,7 @@ export function Dates() {
   return (
     <section id="terminy" className="bg-krem py-20 md:py-28">
       <div className={wrap}>
-        <h2 className={h2}>
-          {dates.title.split(' ').slice(0, -1).join(' ')}{' '}
-          <span className="whitespace-nowrap">
-            {dates.title.split(' ').at(-1)}
-            <VectorTile icon="kompas" className="ml-4 inline-grid h-[0.95em] w-[0.95em] -translate-y-[0.08em] align-middle bg-serik text-serik-tmavy" rotate={10} />
-          </span>
-        </h2>
+        <h2 className={h2}>{dates.title}</h2>
 
         <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
           {dates.items.map((d, i) => (
