@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import { Hl } from '@/components/highlight'
-import { Blob, CompassDecor, IconTile } from '@/components/decor'
+import { Blob, IconTile } from '@/components/decor'
 import {
   hero,
   about,
@@ -178,9 +178,8 @@ const stepTile = [
 
 export function Registration() {
   return (
-    <section id="prihlaska" className="relative overflow-hidden bg-bila py-20 md:py-28">
-      <CompassDecor className="absolute right-[4%] top-10 hidden h-52 w-52 text-pisek md:block" rotate={14} />
-      <div className={`${wrap} relative`}>
+    <section id="prihlaska" className="bg-bila py-20 md:py-28">
+      <div className={wrap}>
         <h2 className={h2Hl}>
           <Hl text={registration.title} variant="krem" />
         </h2>
