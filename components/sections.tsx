@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import { Hl } from '@/components/highlight'
-import { Blob, CompassTile, IconTile } from '@/components/decor'
+import { Blob, IconTile, VectorTile } from '@/components/decor'
 import {
   hero,
   about,
@@ -231,7 +231,7 @@ export function Dates() {
           {dates.title.split(' ').slice(0, -1).join(' ')}{' '}
           <span className="whitespace-nowrap">
             {dates.title.split(' ').at(-1)}
-            <CompassTile className="ml-4 inline-grid h-[0.95em] w-[0.95em] -translate-y-[0.08em] align-middle bg-serik text-serik-tmavy" rotate={10} />
+            <VectorTile icon="kompas" className="ml-4 inline-grid h-[0.95em] w-[0.95em] -translate-y-[0.08em] align-middle bg-serik text-serik-tmavy" rotate={10} />
           </span>
         </h2>
 

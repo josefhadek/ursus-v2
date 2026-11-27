@@ -1,6 +1,6 @@
 'use client'
 
-import { IconTile } from '@/components/decor'
+import { VectorTile } from '@/components/decor'
 import { useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
@@ -25,7 +25,7 @@ export function QuotesStrip({ title, quotes }: { title: string; quotes: Quote[] 
           {title.split(' ').slice(0, -1).join(' ')}{' '}
           <span className="whitespace-nowrap">
             {title.split(' ').at(-1)}
-            <IconTile name="srdce" className="-my-[0.7em] -ml-[0.15em] inline-block h-[2.2em] w-[2.2em] -translate-y-[0.06em] align-middle" rotate={-10} />
+            <VectorTile icon="srdce" className="ml-4 inline-grid h-[0.95em] w-[0.95em] -translate-y-[0.08em] align-middle bg-kakao text-maslova" rotate={-10} />
           </span>
         </h2>
         <div className="hidden shrink-0 gap-2 sm:flex">
