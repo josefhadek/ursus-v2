@@ -152,7 +152,7 @@ export function About() {
 /* ---------- KAPITOLY / CESTA URSU ---------- */
 export function Chapters() {
   return (
-    <section id="kapitoly" className="bg-krem py-20 md:py-28">
+    <section id="stezka" className="bg-krem py-20 md:py-28">
       <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start`}>
         <div className="min-w-0">
           <h2 className={h2}>{chapters.title}</h2>

@@ -20,7 +20,7 @@ export const links = {
 
 export const nav = [
   { href: '#o-kurzu', label: 'O kurzu' },
-  { href: '#kapitoly', label: 'Stezka' },
+  { href: '#stezka', label: 'Stezka' },
   { href: '#prihlaska', label: 'Přihláška' },
   { href: '#terminy', label: 'Ročník 2027' },
   { href: '#tym', label: 'Tým' },
@@ -42,7 +42,7 @@ export const about = {
     'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro **vzájemné sdílení** vašich otázek, problémů a jejich možných řešení.',
   ],
   // Výrazná karta s odkazem na sekci Stezka (zvýraznění podle podkladů od Hadky, varianta „na okru“)
-  stezkaLink: { statement: 'Náš kurz nemá zkoušky, máme **svou stezku**', text: 'Po jejím splnění máš zkoušku hotovou.', cta: 'Jak stezka funguje', href: '#kapitoly' },
+  stezkaLink: { statement: 'Náš kurz nemá zkoušky, máme **svou stezku**', text: 'Po jejím splnění máš zkoušku hotovou.', cta: 'Jak stezka funguje', href: '#stezka' },
 }
 
 export const pillars = [

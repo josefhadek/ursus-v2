@@ -25,8 +25,8 @@ $ursus_redirects = [
     '/kontakty'      => '/#kontakt',
     '/faq'           => '/#faq',
     '/caste-otazky'  => '/#faq',
-    '/stezka'        => '/#kapitoly',
-    '/cesta-ursu'    => '/#kapitoly',
+    '/stezka'        => '/#stezka',
+    '/cesta-ursu'    => '/#stezka',
     '/feed'          => '/',
     '/comments/feed' => '/',
 ];

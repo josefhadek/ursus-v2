@@ -127,7 +127,7 @@
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 88px;
+    scroll-padding-top: 65px; /* výška hlavičky (64 px) + spodní linka */
   }
 
   body {
