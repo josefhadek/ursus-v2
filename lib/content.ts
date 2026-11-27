@@ -162,7 +162,7 @@ export const registration = {
   after: {
     title: 'Co bude potom',
     items: [
-      { label: 'Losování', text: 'Po konci přihlašování účastníky náhodně losujeme. Kdo už dřív na vůdcovský kurz přijatý nebyl, toho v losování zohledňujeme.' },
+      { label: 'Losování', text: 'Po konci přihlašování účastníky náhodně losujeme. Kdo už dřív na vůdcovský kurz přijatý nebyl, toho v losování zvýhodňujeme.' },
       { label: '26 míst', text: 'Snažíme se o vyrovnaný poměr dívek a chlapců (nejvýš 16:10).' },
       { label: 'Ze střediska', text: 'Pokud se přihlásí víc než 3 lidé z jednoho střediska, můžeme jejich počet omezit.' },
     ],
