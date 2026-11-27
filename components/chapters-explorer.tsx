@@ -86,7 +86,9 @@ export function ChaptersExplorer() {
           <ul className="mt-5 space-y-3 text-kakao" data-chapter-questions>
             {ch.questions.map((q) => (
               <li key={q} className="flex gap-3 leading-snug">
-                <span aria-hidden className={`mt-[0.45em] h-2.5 w-2.5 shrink-0 rounded-[30%] ring-1 ring-kakao/15 ${ch.tile}`} data-chapter-dot />
+                <span aria-hidden className="flex h-[1.375em] shrink-0 items-center">
+                  <span className={`block h-2.5 w-2.5 rounded-full ring-1 ring-kakao/15 ${ch.tile}`} />
+                </span>
                 <span>{q}</span>
               </li>
             ))}
