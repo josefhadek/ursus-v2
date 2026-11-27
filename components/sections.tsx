@@ -233,10 +233,10 @@ const dateDot = ['bg-okr', 'bg-serik-tmavy', 'bg-terakota']
 const price = conditions.find((c) => 'big' in c && c.big) as { title: string; big: string; text: string } | undefined
 const otherConditions = conditions.filter((c) => c !== price)
 type ConditionItem = { title: string; text: string; link?: { href: string; label: string } }
-const conditionItems: ConditionItem[] = [
-  { title: 'Pozor na časovou náročnost', text: dates.warning },
-  ...(otherConditions as ConditionItem[]),
-]
+// Pořadí: nejdřív kdo se může přihlásit, hned za tím varování o časové náročnosti (rozbalené).
+const [whoCanApply, ...restConditions] = otherConditions as ConditionItem[]
+const timeWarning = 'Pozor na časovou náročnost'
+const conditionItems: ConditionItem[] = [whoCanApply, { title: timeWarning, text: dates.warning }, ...restConditions]
 
 export function Dates() {
   return (
@@ -278,7 +278,7 @@ export function Dates() {
 
         <div className="mt-14 divide-y divide-pisek border-y border-pisek">
           {conditionItems.map((c, i) => (
-            <details key={c.title} className="group py-5" open={i === 0}>
+            <details key={c.title} className="group py-5" open={c.title === timeWarning}>
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-xl font-bold text-kakao">
                 {c.title}
                 <ChevronDown className="h-5 w-5 shrink-0 text-palena transition-transform group-open:rotate-180" aria-hidden />
