@@ -39,7 +39,7 @@ export const hero = {
 export const about = {
   title: 'O kurzu',
   paragraphs: [
-    'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné kreativních programů, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro **vzájemné sdílení** vašich otázek, problémů a jejich možných řešení.',
+    'Vůdcovský lesní kurz Ursus jsou pohodové vůdcovky plné **kreativních programů**, na kterých se snažíme předávat nejen obsah, ale také formu. Nenajdeš u nás nudné přednášky. Velký prostor dáváme pro **vzájemné sdílení** vašich otázek, problémů a jejich možných řešení.',
   ],
   // Výrazná karta s odkazem na sekci Stezka (zvýraznění podle podkladů od Hadky, varianta „na okru“)
   stezkaLink: { statement: 'Náš kurz nemá zkoušky, máme **svou\u00a0stezku**', text: 'Po jejím splnění máš zkoušku hotovou.', cta: 'Jak stezka funguje', href: '#stezka' },
