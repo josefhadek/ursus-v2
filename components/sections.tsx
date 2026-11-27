@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { ArrowRight, ChevronDown, ExternalLink, MapPin } from 'lucide-react'
 import { QuotesStrip } from '@/components/quotes-strip'
 import { Hl } from '@/components/highlight'
-import { Blob, IconTile, ToneIcon } from '@/components/decor'
+import { Blob, IconTile, VectorTile } from '@/components/decor'
 import {
   hero,
   about,
@@ -113,13 +113,13 @@ export function About() {
           ))}
           <a
             href={about.stezkaLink.href}
-            className="group mt-10 block rounded-[28px] bg-okr p-8 text-kakao transition-transform hover:-translate-y-0.5 md:p-10"
+            className="group mt-10 block rounded-[28px] bg-okr-svetly p-6 text-kakao transition-transform hover:-translate-y-0.5 md:p-8"
           >
-            <span className="block font-heading text-[clamp(1.6rem,3.4vw,2.5rem)] font-bold uppercase leading-[1.44]">
+            <span className="block font-heading text-[clamp(1.25rem,2.3vw,1.75rem)] font-bold uppercase leading-[1.44]">
               <Hl text={about.stezkaLink.statement} variant="okr" />
             </span>
-            <span className="mt-4 block text-lg">{about.stezkaLink.text}</span>
-            <span className="mt-5 inline-flex items-center gap-2 font-bold underline decoration-2 underline-offset-4">
+            <span className="mt-3 block">{about.stezkaLink.text}</span>
+            <span className="mt-4 inline-flex items-center gap-2 font-bold text-palena underline decoration-2 underline-offset-4">
               {about.stezkaLink.cta}
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
             </span>
@@ -152,7 +152,7 @@ export function About() {
 /* ---------- KAPITOLY / CESTA URSU ---------- */
 export function Chapters() {
   return (
-    <section id="kapitoly" className="bg-krem py-20 md:py-28">
+    <section id="stezka" className="bg-krem py-20 md:py-28">
       <div className={`${wrap} grid gap-10 lg:grid-cols-[1fr_300px] lg:items-start`}>
         <div className="min-w-0">
           <h2 className={h2}>{chapters.title}</h2>
@@ -225,10 +225,15 @@ const conditionItems: ConditionItem[] = [
 
 export function Dates() {
   return (
-    <section id="terminy" className="relative overflow-hidden bg-krem py-20 md:py-28">
-      <ToneIcon name="compass" className="absolute right-[5%] top-5 hidden h-40 w-40 text-pisek lg:block" rotate={14} />
-      <div className={`${wrap} relative`}>
-        <h2 className={h2}>{dates.title}</h2>
+    <section id="terminy" className="bg-krem py-20 md:py-28">
+      <div className={wrap}>
+        <h2 className={h2}>
+          {dates.title.split(' ').slice(0, -1).join(' ')}{' '}
+          <span className="whitespace-nowrap">
+            {dates.title.split(' ').at(-1)}
+            <VectorTile icon="kompas" className="ml-4 inline-grid h-[0.95em] w-[0.95em] -translate-y-[0.08em] align-middle bg-serik text-serik-tmavy" rotate={10} />
+          </span>
+        </h2>
 
         <ol className="mt-8 divide-y divide-pisek border-y border-pisek">
           {dates.items.map((d, i) => (
@@ -316,7 +321,7 @@ export function Quotes() {
   return (
     <section className="bg-serik py-20 md:py-28">
       <div className={wrap}>
-        <QuotesStrip title="Co o nás říká účastnictvo z minulých let" quotes={quoteGraphics} />
+        <QuotesStrip title={'Co o nás říká účastnictvo z\u00a0minulých let'} quotes={quoteGraphics} />
       </div>
     </section>
   )

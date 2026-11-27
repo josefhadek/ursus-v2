@@ -1,15 +1,39 @@
 'use client'
 
-import Image from 'next/image'
 import { useState } from 'react'
 import { chapters } from '@/lib/content'
+
+// Medvídek kapitoly jako maska, takže má barvu textu kostičky (currentColor).
+function Bear({ slug, className = '' }: { slug: string; className?: string }) {
+  const url = `url(/medvedi/${slug}.webp)`
+  return (
+    <span
+      aria-hidden
+      className={`block bg-current ${className}`}
+      style={{
+        maskImage: url,
+        WebkitMaskImage: url,
+        maskSize: 'contain',
+        WebkitMaskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        WebkitMaskRepeat: 'no-repeat',
+        maskPosition: 'center',
+        WebkitMaskPosition: 'center',
+      }}
+    />
+  )
+}
+
+// Kostičky jsou lehce natočené, každá jinak (Hadka: −12° až +12°).
+const tilt = [-5, 4, -3, 6, -6, 3, -4, 5]
+const tileShadow = 'shadow-[0_4px_0_rgba(69,32,31,.16),0_10px_18px_rgba(69,32,31,.20)]'
 
 export function ChaptersExplorer() {
   const [active, setActive] = useState(0)
   const ch = chapters.items[active]
+  const n = chapters.items.length
 
   const onKey = (e: React.KeyboardEvent, i: number) => {
-    const n = chapters.items.length
     let next = -1
     if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next = (i + 1) % n
     if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') next = (i - 1 + n) % n
@@ -21,12 +45,8 @@ export function ChaptersExplorer() {
   }
 
   return (
-    <div className="[filter:drop-shadow(0_14px_28px_rgba(69,32,31,0.14))_drop-shadow(0_2px_4px_rgba(69,32,31,0.06))]" data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ title, bg, ink, questions }) => ({ title, bg, ink, questions })))}>
-      <div
-        role="tablist"
-        aria-label="Kapitoly Cesty Ursu"
-        className="no-scrollbar relative flex items-start gap-2 overflow-x-auto lg:grid lg:grid-cols-8 lg:overflow-visible"
-      >
+    <div data-chapters data-chapters-json={JSON.stringify(chapters.items.map(({ slug, title, tile, questions }) => ({ slug, title, tile, questions })))}>
+      <div role="tablist" aria-label="Kapitoly Cesty Ursu" className="grid grid-cols-4 gap-3 sm:gap-4 lg:grid-cols-8">
         {chapters.items.map((c, i) => {
           const selected = i === active
           return (
@@ -42,16 +62,10 @@ export function ChaptersExplorer() {
               title={c.title}
               onClick={() => setActive(i)}
               onKeyDown={(e) => onKey(e, i)}
-              style={{ backgroundColor: c.bg }}
-              className="flex h-14 w-14 shrink-0 items-start justify-center rounded-xl pt-2.5 opacity-75 transition-opacity hover:opacity-100 aria-selected:h-16 aria-selected:rounded-b-none aria-selected:opacity-100 lg:h-16 lg:w-auto lg:aria-selected:h-[4.5rem]"
+              style={{ ['--tilt' as string]: `${tilt[i % tilt.length]}deg` }}
+              className={`grid aspect-square place-items-center rounded-[20%] ring-1 ring-kakao/10 transition-[transform,box-shadow] duration-200 [transform:rotate(var(--tilt))] hover:[transform:rotate(0deg)_translateY(-3px)] aria-selected:[transform:rotate(0deg)_translateY(-6px)] aria-selected:ring-[3px] aria-selected:ring-kakao aria-selected:ring-offset-[3px] aria-selected:ring-offset-krem ${tileShadow} ${c.tile}`}
             >
-              <Image
-                src={`/medvedi/${c.slug}.webp`}
-                alt=""
-                width={120}
-                height={120}
-                className="h-9 w-9 object-contain lg:h-11 lg:w-11"
-              />
+              <Bear slug={c.slug} className="h-[64%] w-[64%]" />
               <span className="sr-only">{c.title}</span>
             </button>
           )
@@ -63,21 +77,19 @@ export function ChaptersExplorer() {
         role="tabpanel"
         aria-labelledby={`kapitola-tab-${active}`}
         data-chapter-panel
-        style={{
-          backgroundColor: ch.bg,
-          borderTopLeftRadius: active === 0 ? 0 : undefined,
-          borderTopRightRadius: active === chapters.items.length - 1 ? 0 : undefined,
-        }}
-        className="min-h-[200px] rounded-2xl p-6 transition-[background-color] duration-300 md:p-8"
+        className="mt-8 min-h-[200px] rounded-[28px] bg-bila p-6 shadow-[0_14px_30px_rgba(69,32,31,.10),0_2px_4px_rgba(69,32,31,.05)] md:p-8"
       >
         <div key={active} className="chapter-in" data-chapter-body>
-          <h3 className="text-2xl font-bold leading-tight" style={{ color: ch.ink }} data-chapter-title>
+          <h3 className="text-2xl font-bold leading-tight text-kakao" data-chapter-title>
             {ch.title}
           </h3>
-          <ul className="mt-4 space-y-2 text-kakao" data-chapter-questions>
+          <ul className="mt-5 space-y-3 text-kakao" data-chapter-questions>
             {ch.questions.map((q) => (
-              <li key={q} className="italic leading-snug">
-                {q}
+              <li key={q} className="flex gap-3 leading-snug">
+                <span aria-hidden className="flex h-[1.375em] shrink-0 items-center">
+                  <span className={`block h-2.5 w-2.5 rounded-full ring-1 ring-kakao/15 ${ch.tile}`} />
+                </span>
+                <span>{q}</span>
               </li>
             ))}
           </ul>

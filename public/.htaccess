@@ -21,7 +21,7 @@ ErrorDocument 404 /404.html
   RewriteRule ^(prihlaska|prihlasky|prihlaseni)/?$ /#prihlaska [R=301,L,NE]
   RewriteRule ^(kontakt|kontakty)/?$ /#kontakt [R=301,L,NE]
   RewriteRule ^(faq|caste-otazky)/?$ /#faq [R=301,L,NE]
-  RewriteRule ^(stezka|cesta-ursu)/?$ /#kapitoly [R=301,L,NE]
+  RewriteRule ^(stezka|cesta-ursu)/?$ /#stezka [R=301,L,NE]
 
   # /tym → tym.html (export Next.js bez koncového lomítka)
   RewriteCond %{REQUEST_FILENAME} !-f
